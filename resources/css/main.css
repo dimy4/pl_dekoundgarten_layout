@@ -16,7 +16,7 @@ body, body > #vue-app, body > #vue-error{
 #carousel-example-generic .icon-prev{
     background-image: url(../images/prev.png);
 }
-#carousel-example-generic .icon-prev{
+#carousel-example-generic .icon-next{
     background-image: url(../images/next.png);
 }
 .footer{
