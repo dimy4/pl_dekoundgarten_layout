@@ -4,8 +4,20 @@ body, body > #vue-app, body > #vue-error{
 #controlsList .control-languages{
     display: none;
 }
+#carousel-example-generic .icon-prev,
+#carousel-example-generic .icon-next{
+    width: 66px;
+    height: 66px;
+}
+#carousel-example-generic .icon-prev:before,
+#carousel-example-generic .icon-next:before{
+    display: none;
+}
 #carousel-example-generic .icon-prev{
     background-image: url(../images/prev.png);
+}
+#carousel-example-generic .icon-prev{
+    background-image: url(../images/next.png);
 }
 .footer{
     padding-top: 50px;
