@@ -43,6 +43,12 @@ class DekoundgartenServiceProvider extends ServiceProvider
 
             return false;
         }, self::PRIORITY);
+
+        $dispatcher->listen('IO.tpl.home', function (TemplateContainer $container)
+        {
+            $container->setTemplate('Autooptimierer::Homepage.Homepage');
+            return false;
+        }, self::PRIORITY);
     }
 }
 
