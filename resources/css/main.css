@@ -1,6 +1,9 @@
 body, body > #vue-app, body > #vue-error{
     background: #fff;
 }
+#controlsList .control-languages{
+    display: none;
+}
 .footer{
     padding-top: 50px;
     background: #f7f7f7;
