@@ -4,6 +4,9 @@ body, body > #vue-app, body > #vue-error{
 #controlsList .control-languages{
     display: none;
 }
+#carousel-example-generic .icon-prev{
+    background-image: url(../images/prev.png);
+}
 .footer{
     padding-top: 50px;
     background: #f7f7f7;
