@@ -28,7 +28,7 @@ class DekoundgartenServiceProvider extends ServiceProvider
 
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
-        $dispatcher->listen('IO.init.templates', function (Partial $partial) use ($enabledOverrides)
+        $dispatcher->listen('IO.init.templates', function (Partial $partial)
         {
             pluginApp(Container::class)->register('Dekoundgarten::PageDesign.Partials.Header.NavigationList.twig', NavigationCacheSettings::class);
             pluginApp(Container::class)->register('Dekoundgarten::PageDesign.Partials.Header.SideNavigation.twig', SideNavigationCacheSettings::class);
@@ -38,6 +38,7 @@ class DekoundgartenServiceProvider extends ServiceProvider
             $partial->set('page-design', 'Ceres::PageDesign.PageDesign');
             $partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
 
+            $partial->set('header', 'Dekoundgarten::PageDesign.Partials.Header.Header');
             $partial->set('footer', 'Dekoundgarten::PageDesign.Partials.Footer');
 
             return false;
