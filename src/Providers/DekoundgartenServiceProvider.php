@@ -46,7 +46,7 @@ class DekoundgartenServiceProvider extends ServiceProvider
 
         $dispatcher->listen('IO.tpl.home', function (TemplateContainer $container)
         {
-            $container->setTemplate('Autooptimierer::Homepage.Homepage');
+            $container->setTemplate('Dekoundgarten::Homepage.Homepage');
             return false;
         }, self::PRIORITY);
     }
