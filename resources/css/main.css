@@ -1,0 +1,6 @@
+body, body > #vue-app, body > #vue-error{
+    background: #fff;
+}
+footer{
+    background: #f7f7f7;
+}
