@@ -37,6 +37,18 @@ body, body > #vue-app, body > #vue-error{
     color: #b4b3ad;
 }
 
+.equal {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+}
+
+.navbar-toggler{
+    position: unset;
+    float: right;
+    margin-top: 40px;
+}
+
 .preheader{
     line-height: 44px;
     border-bottom: 1px solid #eeeeee;
