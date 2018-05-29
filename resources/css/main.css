@@ -5,8 +5,9 @@ body, body > #vue-app, body > #vue-error{
     background-color: unset;
 }
 .wrapper-main .navbar{
-    background: none;
+    background: unset;
     margin-top: 28px;
+    border-bottom: 0;
 }
 #controlsList .control-languages{
     display: none;
@@ -68,5 +69,8 @@ body, body > #vue-app, body > #vue-error{
 @media (max-width: 991px){
     .top-bar .two-headers{
         background-color: #4d4f4d;
+    }
+    .wrapper-main .navbar{
+        margin-top: 0;
     }
 }
