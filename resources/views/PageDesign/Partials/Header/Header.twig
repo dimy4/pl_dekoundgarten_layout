@@ -104,6 +104,12 @@
         </div>
 </header>
 
+
+<!-- breadcrumb -->
+{% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
+    {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
+{% endif %}
+
 {% if category.linklist == "Y" %}
     {% set initialCategory = { id: category.id } %}
 {% else %}
@@ -113,11 +119,6 @@
 <mobile-navigation :navigation-tree-data="{{ categories | json_encode }}" :initial-category="{{ initialCategory | json_encode }}" template="#vue-mobile-navigation"></mobile-navigation>
 
 <div class="container-max page-header">
-    <!-- breadcrumb -->
-    {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
-        {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
-    {% endif %}
-
     <div class="row">
         <div id="searchBox" class="cmp cmp-search-box collapse {% if services.template.isSearch() %} in {% endif %}">
             <item-search template="#vue-item-search"></item-search>
