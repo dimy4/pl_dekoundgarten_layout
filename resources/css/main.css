@@ -84,6 +84,15 @@ body, body > #vue-app, body > #vue-error{
     font-weight: bold;
 }
 
+.dg-buttons > div{
+    float: right;
+    text-align: center;
+}
+.dg-buttons img{
+    display: block;
+    margin: auto;
+}
+
 @media (min-width: 992px){
     .top-bar .two-headers{
         background-color: #f7f7f7;
