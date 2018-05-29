@@ -43,6 +43,10 @@ body, body > #vue-app, body > #vue-error{
 .preheader .premenu li{
     flex: 1 0 auto;
     padding: 0 30px;
+    border-right: 1px solid #dcdcdc;
+}
+.preheader .premenu li:last-child{
+    border-right: 0;
 }
 
 @media (min-width: 992px){
