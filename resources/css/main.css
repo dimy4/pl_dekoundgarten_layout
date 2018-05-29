@@ -43,12 +43,6 @@ body, body > #vue-app, body > #vue-error{
     flex-wrap: wrap;
 }
 
-.navbar-toggler{
-    position: unset;
-    float: right;
-    margin-top: 40px;
-}
-
 .preheader{
     line-height: 44px;
     border-bottom: 1px solid #eeeeee;
@@ -77,6 +71,9 @@ body, body > #vue-app, body > #vue-error{
     .top-bar .two-headers{
         background-color: #f7f7f7;
     }
+    .wrapper-main #page-body {
+        margin-top: 140px;
+    }
 }
 @media (max-width: 991px){
     .top-bar .two-headers{
@@ -84,5 +81,14 @@ body, body > #vue-app, body > #vue-error{
     }
     .wrapper-main .navbar{
         margin-top: 0;
+    }
+    .wrapper-main #page-body {
+        margin-top: 88px;
+    }
+    .navbar-toggler{
+        position: unset;
+        float: right;
+        margin-top: 30px;
+        margin-bottom: -5px;
     }
 }
