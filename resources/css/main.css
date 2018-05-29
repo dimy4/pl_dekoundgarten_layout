@@ -37,6 +37,10 @@ body, body > #vue-app, body > #vue-error{
     font-weight: 500;
     color: #b4b3ad;
 }
+.footer .bt-img{
+    display: block;
+    margin-top: 20px;
+}
 
 .equal {
     display: flex;
