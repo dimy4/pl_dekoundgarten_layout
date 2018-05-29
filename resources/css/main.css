@@ -3,7 +3,7 @@
 body{
     font-family: 'Josefin Sans', sans-serif;
 }
-body, body > #vue-app, body > #vue-error{
+body, body > #vue-app, body > #vue-error, .page-content{
     background: #fff;
 }
 .top-bar{
@@ -171,6 +171,17 @@ body, body > #vue-app, body > #vue-error{
     display: none;
 }
 
+@media (min-width: 768px){
+.single .nav-tabs .nav-item .nav-link {
+    border-top-right-radius: 0.4rem;
+    border-top-left-radius: 0.4rem;
+    border: 1px solid #ddd;
+}
+.single .nav-tabs .nav-item .nav-link.active {
+
+    border-bottom: 1px solid transparent;
+}
+}
 @media (min-width: 992px){
     .top-bar .two-headers{
         background-color: #f7f7f7;
