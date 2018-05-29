@@ -68,11 +68,11 @@ body, body > #vue-app, body > #vue-error{
 .premenu .account-menu a{
     padding: 0 1.25rem;
 }
-.premenu .sub-li-items{
+.premenu .sub-li-items > a{
     border-right: 1px solid #dcdcdc;
     padding: 0 30px;
 }
-.premenu .sub-li-items:last-child{
+.premenu .sub-li-items > a:last-child{
     border-right: 0;
 }
 
