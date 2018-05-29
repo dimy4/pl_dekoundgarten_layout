@@ -1,6 +1,10 @@
 body, body > #vue-app, body > #vue-error{
     background: #fff;
 }
+.wrapper-main .navbar{
+    background-color: none;
+    margin-top: 28px;
+}
 #controlsList .control-languages{
     display: none;
 }
@@ -47,6 +51,7 @@ body, body > #vue-app, body > #vue-error{
 }
 .preheader .premenu li:last-child{
     border-right: 0;
+    color: #3e3e3e;
 }
 
 @media (min-width: 992px){
