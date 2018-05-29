@@ -37,6 +37,9 @@ body, body > #vue-app, body > #vue-error{
     font-weight: 500;
     color: #b4b3ad;
 }
+.footer-content .footer-column{
+    margin-bottom: 30px;
+}
 .footer .bt-img{
     display: block;
     margin-top: 20px;

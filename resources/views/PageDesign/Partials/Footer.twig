@@ -21,8 +21,8 @@
     <div class="container-max footer-content">
         <div class="row">
             {% for i in 1..1 %} {# ..numberOfCols #}
-                <div class="col-xs-6 col-sm-3">
-                    <nav class="footer-column m-b-2">
+                <div class="col-xs-6 col-sm-6 col-md-3">
+                    <nav class="footer-column">
                         <h2 class="h5">{{ trans('Ceres::Template.footerColumnTitle' ~ i) }}</h2>
                         <ul class="list-unstyled">
                             {% set footerCategories = config('Ceres.footer.col_' ~ i ~ '_categories') | find("[0-9]+") %}
@@ -45,8 +45,8 @@
                     </nav>
                 </div>
             {% endfor %}
-            <div class="col-xs-6 col-sm-3">
-                <nav class="footer-column m-b-2">
+            <div class="col-xs-6 col-sm-6 col-md-3">
+                <nav class="footer-column">
                     <h2 class="h5">{{ trans('Ceres::Template.footerColumnTitle' ~ 2) }}</h2>
                     <ul class="list-unstyled">
                         <li><a href="#">Handverlesene Produkte</a></li>
@@ -57,15 +57,15 @@
                     <img class="bt-img"  src="{{ plugin_path('Dekoundgarten') }}/images/footer2.png">
                 </nav>
             </div>
-            <div class="col-xs-6 col-sm-3">
-                <nav class="footer-column m-b-2">
+            <div class="col-xs-6 col-sm-6 col-md-3">
+                <nav class="footer-column">
                     <h2 class="h5">Zahlung & Versand</h2>
                     Wir garantieren sichere<br>Zahlungsabwicklung und Versand.
                     <img class="bt-img" src="{{ plugin_path('Dekoundgarten') }}/images/footer3.png">
                 </nav>
             </div>
-            <div class="col-xs-6 col-sm-3">
-                <nav class="footer-column m-b-2">
+            <div class="col-xs-6 col-sm-6 col-md-3">
+                <nav class="footer-column">
                     <h2 class="h5">Kundenservice</h2>
                     Sie haben Fragen zu Ihrer Bestellung oder benötigen Beratung?<br>
                     Gerne sind wir für Sie da.<br>
