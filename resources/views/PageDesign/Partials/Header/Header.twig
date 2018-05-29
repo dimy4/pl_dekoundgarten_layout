@@ -1,5 +1,7 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
+{{ component( "Dekoundgarten::Customer.Components.UserLoginHandler" ) }}
+
 {{ component( "Ceres::Customer.Components.UserLoginHandler" ) }}
 {{ component( "Ceres::PageDesign.Components.ShippingCountrySelect" ) }}
 {{ component( "Ceres::PageDesign.Components.MobileNavigation" ) }}
@@ -22,7 +24,7 @@
                         <div class="col-xs-6 text-left">{{ config("Dekoundgarten.header.slogan") }}</div>
                         <div class="col-xs-6 text-right">
                             <ul class="premenu">
-                                <li><a href="#">Mein Konto</a></li>
+                                <li><user-login-handler template="#vue-user-login-handlerDG" :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler></li>
                                 <li><a href="#">Hilfe</a></li>
                                 <li><a href="#">Kontakt</a></li>
                             </ul>
