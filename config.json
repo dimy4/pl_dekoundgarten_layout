@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "tab"       : "Header",
+        "key"       : "header.slogan",
+        "label"     : "Header Slogan",
+        "type"      : "text",
+        "default"   : "Wir beraten Sie gerne! 0 84 07 / 80 11"
+    }
+]
