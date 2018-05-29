@@ -57,8 +57,16 @@ body, body > #vue-app, body > #vue-error{
     left: 0;
 }
 
-.account-menu.dropdown-menu{
+.premenu .account-menu{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.premenu .account-menu.dropdown-menu{
     z-index: 9999;
+}
+.premenu .account-menu a{
+    padding: 0 1.25rem;
 }
 
 .equal {
