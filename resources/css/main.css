@@ -36,6 +36,7 @@ body, body > #vue-app, body > #vue-error{
     font-size: 1.2rem;
     font-weight: 500;
     color: #b4b3ad;
+    margin-bottom: 20px;
 }
 .footer-content .footer-column{
     margin-bottom: 30px;
@@ -43,6 +44,9 @@ body, body > #vue-app, body > #vue-error{
 .footer .bt-img{
     display: block;
     margin-top: 20px;
+}
+.footer .list-unstyled li:before{
+    content: '►';
 }
 
 .equal {
