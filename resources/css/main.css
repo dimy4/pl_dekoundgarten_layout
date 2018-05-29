@@ -45,8 +45,16 @@ body, body > #vue-app, body > #vue-error{
     display: block;
     margin-top: 20px;
 }
+.footer .list-unstyled li{
+    position: relative;
+    padding-left: 10px;
+}
 .footer .list-unstyled li:before{
     content: '►';
+    font-size: 10px;
+    position: absolute;
+    top: 2px;
+    left: 0;
 }
 
 .equal {
