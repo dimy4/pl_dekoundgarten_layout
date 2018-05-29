@@ -47,7 +47,7 @@ body, body > #vue-app, body > #vue-error{
 }
 .footer .list-unstyled li{
     position: relative;
-    padding-left: 10px;
+    padding-left: 15px;
 }
 .footer .list-unstyled li:before{
     content: '►';
