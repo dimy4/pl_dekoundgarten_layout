@@ -152,7 +152,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .dg-buttons .warenkorb .badge{
     position: absolute;
     top: -1px;
-    right: 17px;
+    right: 30px;
     width: 26px;
     height: 26px;
     display: block;
