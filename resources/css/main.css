@@ -2,7 +2,7 @@ body, body > #vue-app, body > #vue-error{
     background: #fff;
 }
 .wrapper-main .navbar{
-    background-color: none;
+    background: none;
     margin-top: 28px;
 }
 #controlsList .control-languages{
