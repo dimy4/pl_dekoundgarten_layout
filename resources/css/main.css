@@ -67,6 +67,23 @@ body, body > #vue-app, body > #vue-error{
     color: #3e3e3e;
 }
 
+.searchCol .search-input{
+    width: 100%;
+    border: 1px solid #00983f;
+    border-radius: 5px;
+    padding: 6px 40px 6px 10px;
+}
+.searchCol .search-submit{
+    position: absolute;
+    top: 2px;
+    right: 24px;
+    color: #00983f;
+    border: 0;
+    background: unset;
+    font-size: 19px;
+    font-weight: bold;
+}
+
 @media (min-width: 992px){
     .top-bar .two-headers{
         background-color: #f7f7f7;

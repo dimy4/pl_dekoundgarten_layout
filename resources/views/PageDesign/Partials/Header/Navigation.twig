@@ -1,4 +1,4 @@
-{{ component( "Ceres::ItemList.Components.ItemSearch" ) }}
+{{ component( "Dekoundgarten::ItemList.Components.ItemSearch" ) }}
 {% set companyLogo  = config("Ceres.header.company_logo") %}
 {% set lang         = services.sessionStorage.getLang() %}
 {% set showHeaderNavBar = config("Ceres.header.show_navbars") %}
@@ -18,7 +18,7 @@
                  </a>
             </div>
             <div class="col-md-6 searchCol hidden-md-down">
-                <item-search template="#vue-item-search"></item-search>
+                <item-search template="#vue-item-searchDG"></item-search>
             </div>
             <div class="col-md-3 dg-buttons hidden-md-down">
                 <div class="merkzettel">
