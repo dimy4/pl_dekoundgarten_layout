@@ -71,9 +71,11 @@ body, body > #vue-app, body > #vue-error{
 .premenu .sub-li-items > a{
     border-right: 1px solid #dcdcdc;
     padding: 0 30px;
+    display: inline-block;
 }
 .premenu .sub-li-items > a:last-child{
     border-right: 0;
+    padding-right: 0;
 }
 
 .equal {
