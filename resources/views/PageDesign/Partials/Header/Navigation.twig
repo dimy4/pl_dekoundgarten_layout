@@ -21,11 +21,11 @@
                 <item-search template="#vue-item-searchDG"></item-search>
             </div>
             <div class="col-md-3 dg-buttons hidden-md-down">
-                <a href="#" class="warenkorb">
+                <a v-toggle-basket-preview href="#" class="warenkorb">
                     <img src="{{ plugin_path('Dekoundgarten') }}/images/basket.png">
                     <span>Warenkorb</span>
                 </a>
-                <a href="#" class="merkzettel">
+                <a href="{{ urls.wishList }}" class="merkzettel">
                     <img src="{{ plugin_path('Dekoundgarten') }}/images/merkzettel.png">
                     <span>Merkzettel</span>
                 </a>
