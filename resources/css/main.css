@@ -36,6 +36,7 @@ body, body > #vue-app, body > #vue-error{
 .preheader{
     line-height: 44px;
     border-bottom: 1px solid #eeeeee;
+    color: #3e3e3e;
 }
 .preheader .premenu{
     display: flex;
@@ -51,6 +52,8 @@ body, body > #vue-app, body > #vue-error{
 }
 .preheader .premenu li:last-child{
     border-right: 0;
+}
+.preheader .premenu li a{
     color: #3e3e3e;
 }
 
