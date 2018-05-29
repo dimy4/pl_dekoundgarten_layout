@@ -6,7 +6,7 @@ body, body > #vue-app, body > #vue-error{
     color: #3e3e3e;
 }
 .wrapper-main .navbar{
-    background: unset;
+    background: #fff;
     margin-top: 28px;
     border-bottom: 0;
 }
