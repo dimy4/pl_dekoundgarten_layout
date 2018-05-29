@@ -57,6 +57,10 @@ body, body > #vue-app, body > #vue-error{
     left: 0;
 }
 
+.account-menu.dropdown-menu{
+    z-index: 9999;
+}
+
 .equal {
     display: flex;
     display: -webkit-flex;
