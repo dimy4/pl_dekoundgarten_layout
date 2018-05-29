@@ -11,7 +11,7 @@
               </div>
             </div>
         </div>
-        <div v-if="!isLoggedIn">
+        <div class="sub-li-items" v-if="!isLoggedIn">
             <a data-toggle="modal" href="{% if services.template.isCurrentTemplate("tpl.login") %}javascript:void(0){% else %}#login{% endif %}" @click="unmarkInputFields()">
                 <span>{{ trans("Ceres::Template.login") }}</span>
             </a>
