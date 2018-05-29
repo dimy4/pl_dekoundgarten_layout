@@ -126,6 +126,9 @@ body, body > #vue-app, body > #vue-error{
     .wrapper-main #page-body {
         margin-top: 140px;
     }
+    .cmp-hero .hero-main .carousel .carousel-control span {
+        bottom: calc( 50% - 66px );
+    }
 }
 @media (max-width: 991px){
     .top-bar .two-headers{
