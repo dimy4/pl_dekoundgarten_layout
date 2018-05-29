@@ -2,7 +2,7 @@ body, body > #vue-app, body > #vue-error{
     background: #fff;
 }
 .top-bar{
-    background-color: none;
+    background-color: unset;
 }
 .wrapper-main .navbar{
     background: none;
@@ -61,12 +61,12 @@ body, body > #vue-app, body > #vue-error{
 }
 
 @media (min-width: 992px){
-    .top-bar > .two-headers{
+    .top-bar .two-headers{
         background-color: #f7f7f7;
     }
 }
 @media (max-width: 991px){
-    .top-bar > .two-headers{
+    .top-bar .two-headers{
         background-color: #4d4f4d;
     }
 }
