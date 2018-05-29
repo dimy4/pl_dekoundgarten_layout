@@ -164,9 +164,19 @@ body, body > #vue-app, body > #vue-error{
     border: 3px solid white;
 }
 
+.add-to-basket-container button{
+    background-color: #0b973e;
+}
+.add-to-basket-container button i{
+    display: none;
+}
+
 @media (min-width: 992px){
     .top-bar .two-headers{
         background-color: #f7f7f7;
+    }
+    .wrapper-main > nav.container-max {
+        top: 160px;
     }
     .wrapper-main #page-body {
         margin-top: 140px;
