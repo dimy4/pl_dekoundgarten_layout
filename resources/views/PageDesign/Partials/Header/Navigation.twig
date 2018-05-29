@@ -23,14 +23,12 @@
             <div class="col-md-3 dg-buttons hidden-md-down">
                 <a v-toggle-basket-preview href="#" class="warenkorb">
                     <img src="{{ plugin_path('Dekoundgarten') }}/images/basket.png">
-                    <span>Warenkorb</span>
-                    {% if config("Ceres.header.basket_values") != "sum" %}
-                        <span class="badge" v-basket-item-quantity="this.$store.state.basket.data.itemQuantity">0</span>
-                    {% endif %}
+                    <span class="text">Warenkorb</span>
+                    <span class="badge" v-basket-item-quantity="this.$store.state.basket.data.itemQuantity">0</span>
                 </a>
                 <a href="{{ urls.wishList }}" class="merkzettel">
                     <img src="{{ plugin_path('Dekoundgarten') }}/images/merkzettel.png">
-                    <span>Merkzettel</span>
+                    <span class="text">Merkzettel</span>
                 </a>
             </div>
             <div class="col-xs-4 col-sm-6 col-md-9 hidden-lg-up">
