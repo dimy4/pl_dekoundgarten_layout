@@ -20,12 +20,11 @@
 
     <div class="container-max footer-content">
         <div class="row">
-            {% for i in 1..numberOfCols %}
+            {% for i in 1 %} {# ..numberOfCols #}
                 <div class="col-xs-6 col-sm-3">
                     <nav class="footer-column m-b-2">
                         <h2 class="h5">{{ trans('Ceres::Template.footerColumnTitle' ~ i) }}</h2>
                         <ul class="list-unstyled">
-
                             {% set footerCategories = config('Ceres.footer.col_' ~ i ~ '_categories') | find("[0-9]+") %}
                             {% for catID in footerCategories %}
 
@@ -40,8 +39,9 @@
                                 {% endif %}
 
                             {% endfor %}
-
                         </ul>
+                        Fiedlers Deko & Garten folgen
+                        <img src="{{ plugin_path('Dekoundgarten') }}/images/footer1.png">
                     </nav>
                 </div>
             {% endfor %}
@@ -51,7 +51,17 @@
                     <ul class="list-unstyled">
                         <li><a href="#">Handverlesene Produkte</a></li>
                         <li><a href="#">Schnelle Lieferung mit ♡</a></li>
+                        <li><a href="#">Unkomplizierte Rückgabe innerhalb von 30 Tagen</a></li>
+                        <li><a href="#">Versandkastenfrei Lieferung ab € 30,00</a></li>
                     </ul>
+                    <img src="{{ plugin_path('Dekoundgarten') }}/images/footer2.png">
+                </nav>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <nav class="footer-column m-b-2">
+                    <h2 class="h5">{{ trans('Ceres::Template.footerColumnTitle' ~ 2) }}</h2>
+                    Wir garantieren sichere<br>Zahlungsabwicklung und Versand.
+                    <img src="{{ plugin_path('Dekoundgarten') }}/images/footer3.png">
                 </nav>
             </div>
             <div class="col-xs-6">
