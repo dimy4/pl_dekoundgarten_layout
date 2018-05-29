@@ -170,15 +170,18 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .add-to-basket-container button i{
     display: none;
 }
+.nav-tabs .nav-link {
+    padding: 0.6rem 0.6rem;
+}
 
 @media (min-width: 768px){
 .single .nav-tabs .nav-item .nav-link {
     border-top-right-radius: 0.4rem;
     border-top-left-radius: 0.4rem;
-    border: 1px solid #ddd;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #ddd;
 }
 .single .nav-tabs .nav-item .nav-link.active {
-
     border-bottom: 1px solid transparent;
 }
 }
