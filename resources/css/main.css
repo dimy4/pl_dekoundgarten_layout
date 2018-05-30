@@ -223,6 +223,14 @@ body, body > #vue-app, body > #vue-error, .page-content{
     float: left;
 }
 
+.prod-actions-footer-text1{
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+.availability_1, .availability_2 {
+    background-color: unset;
+}
+
 @media (min-width: 768px){
     .single .nav-tabs .nav-item + .nav-item {
         margin-left: 0px;
