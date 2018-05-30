@@ -2,6 +2,7 @@
 
 body{
     font-family: 'Josefin Sans', sans-serif;
+    color: #636363;
 }
 body, body > #vue-app, body > #vue-error, .page-content{
     background: #fff;
@@ -65,14 +66,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
     transform: rotate(90deg);
 }
 .breadcrumb-item a,
-.breadcrumb-item.active{
-    color: #3e3e3e;
-}
-.breadcrumb-item i{
-
+.breadcrumb-item.active,
+.breadcrumb-item + .breadcrumb-item::before{
+    color: #5c5c5c;
 }
 .breadcrumb-item + .breadcrumb-item::before{
-    color: #3e3e3e;
     content: "|";
 }
 
@@ -195,7 +193,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .nav-tabs .nav-link {
     padding: 0.6rem 0.6rem;
-    color: #3e3e3e;
+    color: #636363;
 }
 
 .add-to-basket-container .qty-box .qty-input{
@@ -273,12 +271,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
     }
     .single .nav-tabs .nav-item .nav-link.active {
         border-bottom: 1px solid transparent;
-        color: #3e3e3e;
+        color: #636363;
     }
     .single .nav-tabs .nav-item .nav-link:not(.active):hover {
         border: 1px solid transparent;
         border-bottom: 1px solid #ddd;
-        color: #3e3e3e;
+        color: #636363;
         text-decoration: underline;
     }
 }
