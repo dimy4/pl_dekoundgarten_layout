@@ -224,15 +224,21 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 
 @media (min-width: 768px){
-.single .nav-tabs .nav-item .nav-link {
-    border-top-right-radius: 0.4rem;
-    border-top-left-radius: 0.4rem;
-    border: 1px solid transparent;
-    border-bottom: 1px solid #ddd;
-}
-.single .nav-tabs .nav-item .nav-link.active {
-    border-bottom: 1px solid transparent;
-}
+    .single .nav-tabs .nav-item .nav-link {
+        border-top-right-radius: 0.4rem;
+        border-top-left-radius: 0.4rem;
+        border: 1px solid transparent;
+        border-bottom: 1px solid #ddd;
+    }
+    .single .nav-tabs .nav-item .nav-link.active {
+        border-bottom: 1px solid transparent;
+    }
+    .single .nav-tabs .nav-item .nav-link:not(.active):hover {
+        border: 1px solid transparent;
+        border-bottom: 1px solid #ddd;
+        color: #3e3e3e;
+        text-decoration: underline;
+    }
 }
 @media (min-width: 992px){
     .top-bar .two-headers{
