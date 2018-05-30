@@ -267,10 +267,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .add-to-basket-container .btn-primary,
 .add-to-basket-container .add-to-wish-list{
     padding: 1rem 1rem;
+    font-weight: 600;
+    font-size: 1.25rem;
 }
 .add-to-basket-container .add-to-wish-list{
     line-height: 1.25;
-    font-size: 1rem;
     display: block;
     text-align: center;
 }
