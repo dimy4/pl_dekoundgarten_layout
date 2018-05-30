@@ -248,6 +248,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     display: block;
     font-size: 34px;
     margin-bottom: 15px;
+    text-align: center;
 }
 .availability_1, .availability_2 {
     background-color: unset;
