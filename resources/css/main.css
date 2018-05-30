@@ -214,6 +214,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
     color: #636363;
 }
 
+.add-to-basket-container{
+    display: block;
+}
 .add-to-basket-container .qty-box .qty-input{
     margin: 0 32px;
     z-index: 2;
@@ -255,6 +258,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     font-size: 1rem;
     display: block;
     padding: 0.5rem 1rem;
+    text-align: center;
 }
 .prod-actions-footer-text1,
 .prod-actions-footer-text2{
