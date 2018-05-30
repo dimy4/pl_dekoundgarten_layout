@@ -200,6 +200,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
     width: 112px;
     background: 0;
     height: 41px;
+    line-height: 41px;
+    border: 1px solid #dcdbd8;
 }
 .add-to-basket-container .qty-box .qty-btn-container .qty-btn-seperator{
     display: none;
