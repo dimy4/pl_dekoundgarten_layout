@@ -283,6 +283,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .availability_1, .availability_2 {
     background-color: unset;
 }
+.vat a{
+    text-decoration: underline;
+}
 
 .flex-hcenter .category-title{
     margin: 0;
