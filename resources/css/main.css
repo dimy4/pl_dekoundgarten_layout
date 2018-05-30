@@ -235,6 +235,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     display: block;
     padding: 0.5rem 1rem;
 }
+.prod-actions-footer-text1,
+.prod-actions-footer-text2{
+    font-size: 80%;
+}
 .prod-actions-footer-text1{
     font-size: 80%;
     margin-top: 25px;
