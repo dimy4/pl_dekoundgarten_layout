@@ -19,6 +19,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
 #controlsList .control-languages{
     display: none;
 }
+.carousel-control{
+    opacity: 0.7;
+}
 #carousel-example-generic .icon-prev,
 #carousel-example-generic .icon-next{
     width: 66px;
