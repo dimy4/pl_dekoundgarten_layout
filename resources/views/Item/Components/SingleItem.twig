@@ -32,13 +32,6 @@
 
                     <hr>
 
-                    <div class="m-b-3">
-                        <span class="articlenumber small text-muted">
-                            <b>{{ trans("Ceres::Template.singleItemNumber") }}</b>
-                            <span>${ currentVariation.variation.number }</span>
-                        </span>
-                    </div>
-
                     <!-- Variation -->
                     <div class="row m-b-1" v-if="variations.length > 0">
                         <variation-select template="#vue-variation-select" :attributes="attributeNameMap" :variations="variations" :preselect="currentVariation.variation.id" @is-valid-change="isVariationSelected = $event"></variation-select>
@@ -114,10 +107,20 @@
 
                     <hr>
 
-                    <span class="vat small text-muted">
-                        * {% if services.customer.showNetPrices() %}{{ trans("Ceres::Template.singleItemExclVAT") }}{% else %}{{ trans("Ceres::Template.singleItemInclVAT") }}{% endif %} {{ trans("Ceres::Template.singleItemExclusive") }}
-                        <a {% if shippingCat is not empty %} data-toggle="modal" href="#shippingscosts"{% endif %} title="{{ trans("Ceres::Template.singleItemShippingCosts") }}">{{ trans("Ceres::Template.singleItemShippingCosts") }}</a>
-                    </span>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            <span class="vat small text-muted">
+                                * {% if services.customer.showNetPrices() %}{{ trans("Ceres::Template.singleItemExclVAT") }}{% else %}{{ trans("Ceres::Template.singleItemInclVAT") }}{% endif %} {{ trans("Ceres::Template.singleItemExclusive") }}
+                                <a {% if shippingCat is not empty %} data-toggle="modal" href="#shippingscosts"{% endif %} title="{{ trans("Ceres::Template.singleItemShippingCosts") }}">{{ trans("Ceres::Template.singleItemShippingCosts") }}</a>
+                            </span>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <span class="articlenumber small text-muted">
+                                <b>{{ trans("Ceres::Template.singleItemNumber") }}</b>
+                                <span>${ currentVariation.variation.number }</span>
+                            </span>
+                        <div>
+                    </div>
 
                     <slot name="AdditionalContentAfterVAT"></slot>
 
