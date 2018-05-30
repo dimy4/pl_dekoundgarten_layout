@@ -56,11 +56,13 @@ body, body > #vue-app, body > #vue-error, .page-content{
     padding-left: 15px;
 }
 .footer .list-unstyled li:before{
-    content: '►';
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f0de";
     font-size: 10px;
     position: absolute;
-    top: 2px;
+    top: 1px;
     left: 0;
+    transform: rotate(90deg);
 }
 .breadcrumb-item a,
 .breadcrumb-item.active{
@@ -69,6 +71,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .breadcrumb-item + .breadcrumb-item::before{
     color: #3e3e3e;
     content: "|";
+}
+.fa-rotate-90{
+    transform: rotate(90deg);
 }
 
 .premenu .account-menu{
