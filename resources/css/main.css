@@ -206,16 +206,19 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .add-to-basket-container .qty-box .qty-btn-container .qty-btn-seperator{
     display: none;
 }
+.add-to-basket-container .qty-box .qty-btn-container .qty-btn:not(.disabled):hover {
+    background: unset;
+}
 .add-to-basket-container .qty-box .qty-btn-container .qty-btn:first-child,
 .add-to-basket-container .qty-box .qty-btn-container .qty-btn:last-child{
     height: 100%;
     width: 32px;
 }
 .add-to-basket-container .qty-box .qty-btn-container .qty-btn:first-child{
-    float: left;
+    float: right;
 }
 .add-to-basket-container .qty-box .qty-btn-container .qty-btn:last-child{
-    float: right;
+    float: left;
 }
 
 @media (min-width: 768px){
