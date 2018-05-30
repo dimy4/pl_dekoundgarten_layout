@@ -229,6 +229,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .prod-qty-row{
     margin-bottom: 45px;
 }
+.add-to-basket-container .add-to-wish-list{
+    line-height: 1.25;
+    font-size: 1rem;
+    display: block;
+    padding: 0.5rem 1rem;
+}
 .prod-actions-footer-text1{
     font-size: 80%;
     margin-top: 25px;
