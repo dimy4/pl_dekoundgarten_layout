@@ -65,6 +65,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     left: 0;
     transform: rotate(90deg);
 }
+.breadcrumb{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 .breadcrumb-item a,
 .breadcrumb-item.active,
 .breadcrumb-item + .breadcrumb-item::before{
@@ -319,7 +323,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
         background-color: #f7f7f7;
     }
     .wrapper-main > nav.container-max {
-        top: 160px;
+        top: 133px;
     }
     .wrapper-main #page-body {
         margin-top: 140px;
