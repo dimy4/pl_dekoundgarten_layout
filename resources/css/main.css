@@ -61,6 +61,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     top: 2px;
     left: 0;
 }
+.breadcrumb-item a,
 .breadcrumb-item.active{
     color: #3e3e3e;
 }
@@ -185,6 +186,34 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .nav-tabs .nav-link {
     padding: 0.6rem 0.6rem;
     color: #3e3e3e;
+}
+
+.add-to-basket-container .qty-box .qty-input{
+    margin: 0 32px;
+    z-index: 2;
+    border-left: 0;
+    border-right: 0;
+}
+.add-to-basket-container .qty-box .qty-btn-container{
+    position: absolute;
+    z-index: 1;
+    width: 112px;
+    background: 0;
+    height: 41px;
+}
+.add-to-basket-container .qty-box .qty-btn-container .qty-btn-seperator{
+    display: none;
+}
+.add-to-basket-container .qty-box .qty-btn-container .qty-btn:first-child,
+.add-to-basket-container .qty-box .qty-btn-container .qty-btn:last-child{
+    height: 100%;
+    width: 32px;
+}
+.add-to-basket-container .qty-box .qty-btn-container .qty-btn:first-child{
+    float: left;
+}
+.add-to-basket-container .qty-box .qty-btn-container .qty-btn:last-child{
+    float: right;
 }
 
 @media (min-width: 768px){
