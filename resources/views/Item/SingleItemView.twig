@@ -6,7 +6,7 @@
 {{ component( "Ceres::Item.Components.OrderPropertyList" ) }}
 {{ component( "Dekoundgarten::Item.Components.SingleItem" ) }}
 {{ component( "Ceres::Item.Components.GraduatedPrices" ) }}
-{{ component( "Dekoundgarten::Basket.Components.AddToBasket" ) }}
+{{ component( "Dekoundgarten::Item.Components.AddToBasket" ) }}
 
 
 <single-item v-cloak template="#vue-single-item" :item-data="{{ item | json_encode }}" :variation-list-data="{{ variations | json_encode }}" :attribute-name-map="{{attributeNameMap | json_encode}}">
