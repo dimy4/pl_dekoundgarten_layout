@@ -164,11 +164,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
     border: 3px solid white;
 }
 
-.add-to-basket-container button{
+.btn-primary{
     background-color: #0b973e;
     border-color: #0b973e;
 }
-.add-to-basket-container button:hover{
+.btn-primary:active:hover, .btn-primary.active:hover, .open > .btn-primary.dropdown-toggle:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .btn-primary.dropdown-toggle:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle.focus {
     background-color: #00640B;
     border-color: #00640B;
 }
@@ -177,6 +177,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .nav-tabs .nav-link {
     padding: 0.6rem 0.6rem;
+    color: #3e3e3e;
 }
 
 @media (min-width: 768px){
