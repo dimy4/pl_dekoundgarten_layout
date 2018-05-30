@@ -284,6 +284,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: unset;
 }
 
+.list-controls .list-controls-inner{
+    background: unset;
+    border-bottom: 1px solid #dcdbd8;
+    margin-bottom: 15px;
+}
 .flex-hcenter .category-title{
     margin: 0;
 }
