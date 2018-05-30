@@ -68,12 +68,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .breadcrumb-item.active{
     color: #3e3e3e;
 }
+.breadcrumb-item i{
+
+}
 .breadcrumb-item + .breadcrumb-item::before{
     color: #3e3e3e;
     content: "|";
-}
-.fa-rotate-90{
-    transform: rotate(90deg);
 }
 
 .premenu .account-menu{
