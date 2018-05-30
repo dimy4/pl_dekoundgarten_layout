@@ -67,8 +67,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .wrapper-main > nav.container-max{
     background: unset;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 .breadcrumb-item a,
 .breadcrumb-item.active,
