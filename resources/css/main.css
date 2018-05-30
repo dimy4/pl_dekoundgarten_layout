@@ -127,6 +127,18 @@ body, body > #vue-app, body > #vue-error, .page-content{
     color: #3e3e3e;
 }
 
+.section-header{
+    background: unset;
+    border-top: 1px solid #dcdbd8;
+    color: #292b2c;
+}
+.section-header h1, .section-header h2, .section-header h3, .section-header h4, .section-header h5, .section-header h6 {
+    color: #292b2c;
+}
+.section-header a.section-link-all {
+    color: #292b2c;
+}
+
 .searchCol{
     margin-top: 8px;
 }
