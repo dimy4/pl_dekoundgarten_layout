@@ -30,6 +30,41 @@
             </div>
         {% endif %}
 
+        <div class="list-controls m-b-3">
+            <div class="list-controls-inner">
+                <div class="row">
+                    <div class="col-xs-12 text-xs-right">
+                        <div class="list-wrapper">
+                            <item-list-sorting template="#vue-item-list-sorting" :sorting-list="{{ searchOptions.sorting | json_encode }}" :default-sorting="{{ searchOptions.defaultSorting | json_encode }}"></item-list-sorting>
+                            <items-per-page
+                                template="#vue-items-per-page"
+                                :pagination-values="{{ searchOptions.itemsPerPage | json_encode }}"></items-per-page>
+                            {% set overrideSearchFilters = LayoutContainer.show("Ceres::Search.Filter", facets ) %}
+                            {% if overrideSearchFilters | trim is empty %}
+                                <item-filter-list :facet-data="{{ facets | json_encode }}"></item-filter-list>
+                            {% else %}
+                                {{ overrideSearchFilters }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# TAGS #}
+            <item-filter-tag-list></item-filter-tag-list>
+        </div>
+
+        {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
+            <div class="list-controls m-b-3 row">
+                <div class="col-xs-12">
+                    <pagination template="#vue-pagination"></pagination>
+                    <noscript>
+                        {% include "Ceres::Category.Item.Partials.Pagination" %}
+                    </noscript>
+                </div>
+            </div>
+        {% endif %}
+
         <div class="row">
 
             {% if ceresConfig.header.showNavBars == "side" or ceresConfig.header.showNavBars == "both" %}
@@ -45,41 +80,6 @@
             {% endif %}
 
             <div class="col-xs-12 col-lg-{% if ceresConfig.header.showNavBars == "side" or ceresConfig.header.showNavBars == "both" %}9{% else %}12{% endif %}">
-
-                <div class="list-controls m-b-3">
-                    <div class="list-controls-inner">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div class="list-wrapper">
-                                    <item-list-sorting template="#vue-item-list-sorting" :sorting-list="{{ searchOptions.sorting | json_encode }}" :default-sorting="{{ searchOptions.defaultSorting | json_encode }}"></item-list-sorting>
-                                    <items-per-page
-                                        template="#vue-items-per-page"
-                                        :pagination-values="{{ searchOptions.itemsPerPage | json_encode }}"></items-per-page>
-                                    {% set overrideSearchFilters = LayoutContainer.show("Ceres::Search.Filter", facets ) %}
-                                    {% if overrideSearchFilters | trim is empty %}
-                                        <item-filter-list :facet-data="{{ facets | json_encode }}"></item-filter-list>
-                                    {% else %}
-                                        {{ overrideSearchFilters }}
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {# TAGS #}
-                    <item-filter-tag-list></item-filter-tag-list>
-                </div>
-
-                {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
-                    <div class="list-controls m-b-3 row">
-                        <div class="col-xs-12">
-                            <pagination template="#vue-pagination"></pagination>
-                            <noscript>
-                                {% include "Ceres::Category.Item.Partials.Pagination" %}
-                            </noscript>
-                        </div>
-                    </div>
-                {% endif %}
 
                 <div id="twig-rendered-item-list" class="item-list-frame{% if ceresConfig.item.loadingAnimationType == "blur" %} blur-effect{% endif %}">
 
