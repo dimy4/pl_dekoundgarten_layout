@@ -253,11 +253,14 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .prod-row-with-title{
     margin-bottom: 45px;
 }
+.add-to-basket-container .btn-primary,
+.add-to-basket-container .add-to-wish-list{
+    padding: 1rem 1rem;
+}
 .add-to-basket-container .add-to-wish-list{
     line-height: 1.25;
     font-size: 1rem;
     display: block;
-    padding: 0.5rem 1rem;
     text-align: center;
 }
 .prod-actions-footer-text1,
