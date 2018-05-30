@@ -23,10 +23,12 @@
         <div class="list-controls m-b-3">
             <div class="list-controls-inner">
                 <div class="row equal flex-hcenter">
+                    {% if not ceresConfig.item.showCategoryImage %}
                     <div class="col-xs-12 col-sm-6">
                         <h1 class="h2 category-title">{{ category.details[0].name }}</h1>
                     </div>
-                    <div class="col-xs-12 col-sm-6 text-xs-right">
+                    {% endif %}
+                    <div class="col-xs-12 {% if not ceresConfig.item.showCategoryImage %}col-sm-6{% endif %} text-xs-right">
                         <div class="list-wrapper">
                             <item-list-sorting template="#vue-item-list-sorting" :sorting-list="{{ searchOptions.sorting | json_encode }}" :default-sorting="{{ searchOptions.defaultSorting | json_encode }}"></item-list-sorting>
                             <items-per-page

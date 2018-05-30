@@ -259,7 +259,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: unset;
 }
 
-.category-title{
+.flex-hcenter .category-title{
     margin: 0;
 }
 
