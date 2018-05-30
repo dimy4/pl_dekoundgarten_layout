@@ -79,7 +79,7 @@
                         </div>
                     </div>
 
-                    <div class="row m-y-1">
+                    <div class="row equal flex-hcenter m-y-2">
                         <slot name="BeforeAddToBasket"></slot>
                         <add-to-basket
                                 template="#vue-add-to-basket"
@@ -88,15 +88,12 @@
                                 :show-quantity="true"
                                 :missing-order-properties="variationMissingProperties"
                                 :is-variation-selected="isVariationSelected"></add-to-basket>
-                        <slot name="AfterAddToBasket"></slot>
-                    </div>
-
-                    <div class="row">
                         {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
                             <div class="col-xs-12 col-sm-6">
                                 <add-to-wish-list template="#vue-add-to-wish-list" :variation-id="currentVariation.variation.id" :is-active="isInWishList"></add-to-wish-list>
                             </div>
                         {% endif %}
+                        <slot name="AfterAddToBasket"></slot>
                     </div>
                 <!-- ./ITEM DETAIL -->
 
