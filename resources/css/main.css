@@ -176,6 +176,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: #0b973e;
     border-color: #0b973e;
 }
+.btn-primary:hover,
 .btn-primary:active:hover, .btn-primary.active:hover, .open > .btn-primary.dropdown-toggle:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .btn-primary.dropdown-toggle:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle.focus {
     background-color: #00640B;
     border-color: #00640B;
