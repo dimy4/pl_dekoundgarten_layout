@@ -65,7 +65,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
     left: 0;
     transform: rotate(90deg);
 }
-.breadcrumb{
+.wrapper-main > nav.container-max{
+    background: unset;
     margin-top: 30px;
     margin-bottom: 30px;
 }
