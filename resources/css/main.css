@@ -259,6 +259,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: unset;
 }
 
+.category-title{
+    margin: 0;
+}
+
 @media (min-width: 768px){
     .single .nav-tabs .nav-item + .nav-item {
         margin-left: 0px;
