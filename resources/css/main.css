@@ -138,6 +138,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .section-header a.section-link-all {
     color: #292b2c;
 }
+.section-header a.section-link-all i{
+    display: none;
+}
 
 .searchCol{
     margin-top: 8px;
