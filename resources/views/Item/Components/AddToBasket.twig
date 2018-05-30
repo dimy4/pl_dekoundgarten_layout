@@ -12,23 +12,23 @@
             <i class="fa fa-arrow-right fa-lg mobile-icon-right"></i>
         </div>
 
-        <div class="category-list-view-port" v-if="showQuantity && !useLargeScale">
+        <div class="category-list-view-port add-to-basket-container" v-if="showQuantity && !useLargeScale">
             <span>
                 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2 prod-row-title">Preis</div>
                 <div class="col-xs-6 col-sm-8 col-md-9 col-lg-10">
-                    <div class="add-to-basket-container">
-                        <div class="quantity-input-container">
-                            <quantity-input :value="1"
-                                        @quantity-change="updateQuantity"
-                                        @out-of-stock="handleButtonState"
-                                        :timeout="0" 
-                                        :min="item.variation.minimumOrderQuantity"
-                                        :max="item.variation.maximumOrderQuantity"
-                                        :interval="item.variation.intervalOrderQuantity"
-                                        :variation-id="item.variation.id"
-                                        template="#vue-quantity-input"></quantity-input>
-                        </div>
-
+                    <div class="quantity-input-container">
+                        <quantity-input :value="1"
+                                    @quantity-change="updateQuantity"
+                                    @out-of-stock="handleButtonState"
+                                    :timeout="0" 
+                                    :min="item.variation.minimumOrderQuantity"
+                                    :max="item.variation.maximumOrderQuantity"
+                                    :interval="item.variation.intervalOrderQuantity"
+                                    :variation-id="item.variation.id"
+                                    template="#vue-quantity-input"></quantity-input>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
                         <button v-if="!isVariationSelected" class="btn btn-block btn-primary disabled" v-tooltip data-toggle="tooltip" data-placement="top" title="{{ trans("Ceres::Template.singleItemPleaseSelectValidVariation") }}">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             {{ trans("Ceres::Template.singleItemAddToBasket") }}
