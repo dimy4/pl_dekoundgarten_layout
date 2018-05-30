@@ -61,6 +61,13 @@ body, body > #vue-app, body > #vue-error, .page-content{
     top: 2px;
     left: 0;
 }
+.breadcrumb-item.active{
+    color: #3e3e3e;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+    color: #3e3e3e;
+    content: "|";
+}
 
 .premenu .account-menu{
     margin: 0;
