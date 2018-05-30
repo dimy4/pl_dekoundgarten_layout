@@ -58,9 +58,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .footer .list-unstyled li:before{
     font: normal normal normal 14px/1 FontAwesome;
     content: "\f0de";
-    font-size: 10px;
+    font-size: 12px;
     position: absolute;
-    top: 1px;
+    top: 2px;
     left: 0;
     transform: rotate(90deg);
 }
