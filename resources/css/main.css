@@ -224,6 +224,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 
 @media (min-width: 768px){
+    .single .nav-tabs .nav-item + .nav-item {
+        margin-left: 0px;
+    }
     .single .nav-tabs .nav-item .nav-link {
         border-top-right-radius: 0.4rem;
         border-top-left-radius: 0.4rem;
@@ -232,6 +235,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     }
     .single .nav-tabs .nav-item .nav-link.active {
         border-bottom: 1px solid transparent;
+        color: #3e3e3e;
     }
     .single .nav-tabs .nav-item .nav-link:not(.active):hover {
         border: 1px solid transparent;
