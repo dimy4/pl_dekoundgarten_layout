@@ -97,6 +97,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
     display: -webkit-flex;
     flex-wrap: wrap;
 }
+.flex-hcenter{
+    align-items: center;
+}
 
 .preheader{
     line-height: 44px;
