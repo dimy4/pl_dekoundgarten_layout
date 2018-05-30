@@ -90,12 +90,6 @@
                                 :is-variation-selected="isVariationSelected"></add-to-basket>
                         <slot name="AfterAddToBasket"></slot>
                     </div>
-
-                    {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
-                        <div class="row">
-                            <add-to-wish-list template="#vue-add-to-wish-list" :variation-id="currentVariation.variation.id" :is-active="isInWishList"></add-to-wish-list>
-                        </div>
-                    {% endif %}
                 <!-- ./ITEM DETAIL -->
 
                     <slot name="AdditionalContentAfterAddToBasket"></slot>
