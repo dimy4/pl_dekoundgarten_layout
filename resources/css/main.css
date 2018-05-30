@@ -226,7 +226,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     float: left;
 }
 
-.prod-qty-row{
+.prod-row-with-title{
     margin-bottom: 45px;
 }
 .add-to-basket-container .add-to-wish-list{
