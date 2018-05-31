@@ -9,7 +9,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .top-bar{
     background-color: unset;
-    color: #3e3e3e;
+    color: #292b2c;
 }
 .wrapper-main .navbar{
     background: #fff;
@@ -139,7 +139,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     border-right: 0;
 }
 .preheader .premenu li a{
-    color: #3e3e3e;
+    color: #292b2c;
 }
 
 .section-header{
@@ -186,7 +186,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .dg-buttons > a{
     float: right;
     text-align: center;
-    color: #3e3e3e;
+    color: #292b2c;
 }
 .dg-buttons img{
     display: block;
