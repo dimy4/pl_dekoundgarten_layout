@@ -361,7 +361,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     display: none;
     position: absolute;
     z-index: 9;
-    right: 5px;
+    right: 15px;
     top: 10px;
     font-size: 1.7rem;
     color: #dcdcdc;
