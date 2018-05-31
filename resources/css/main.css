@@ -217,6 +217,16 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: #00640B;
     border-color: #00640B;
 }
+.btn-outline-primary {
+    color: #0b973e;
+    background-image: none;
+    background-color: transparent;
+    border-color: #0b973e;
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #0b973e;
+}
 .add-to-basket-container button i{
     display: none;
 }
@@ -313,7 +323,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
-btn.add-to-wish-list fa{
+.btn.add-to-wish-list fa{
     float: none;
 }
 
