@@ -82,7 +82,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .breadcrumb-item a,
 .breadcrumb-item.active,
 .breadcrumb-item + .breadcrumb-item::before{
-    color: #5c5c5c;
+    color: #636363;
 }
 .breadcrumb-item + .breadcrumb-item::before{
     content: "|";
@@ -255,18 +255,21 @@ body, body > #vue-app, body > #vue-error, .page-content{
     display: block;
 }
 .single .qty-box .qty-input{
-    margin: 0 32px;
+    width: 62px;
+    margin: 0 40px;
     z-index: 2;
     border-left: 0;
     border-right: 0;
     font-size: 1.7rem;
-    color: #5c5c5c;
+    color: #636363;
     border: 1px solid #e8e8e8;
+    border-left: 0;
+    border-right: 0;
 }
 .single .qty-box .qty-btn-container{
     position: absolute;
     z-index: 1;
-    width: 112px;
+    width: 142px;
     background: 0;
     height: 41px;
     line-height: 41px;
@@ -281,7 +284,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .single .qty-box .qty-btn-container .qty-btn:first-child,
 .single .qty-box .qty-btn-container .qty-btn:last-child{
     height: 100%;
-    width: 32px;
+    width: 40px;
 }
 .single .qty-box .qty-btn-container .qty-btn:first-child{
     float: right;
@@ -308,7 +311,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     font-size: 1.25rem;
 }
 .add-to-basket-container .add-to-wish-list{
-    color: #5e5e5e;
+    color: #636363;
     line-height: 1.25;
     display: block;
     text-align: center;
@@ -328,6 +331,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .availability_1, .availability_2 {
     background-color: unset;
 }
+.add-to-wish-list:hover i {
+    color: #0b973e !important;
+}
 
 .list-controls .list-controls-inner{
     background: unset;
@@ -335,10 +341,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     margin-bottom: 15px;
 }
 .custom-select{
-    color: #5c5c5c;
+    color: #636363;
 }
 .flex-hcenter .category-title{
-    color: #5c5c5c;
+    color: #636363;
     margin: 0;
 }
 
