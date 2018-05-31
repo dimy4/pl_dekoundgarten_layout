@@ -255,6 +255,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
     z-index: 2;
     border-left: 0;
     border-right: 0;
+    font-size: 1.75rem;
+    color: #5c5c5c;
 }
 .single .qty-box .qty-btn-container{
     position: absolute;
