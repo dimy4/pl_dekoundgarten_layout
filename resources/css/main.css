@@ -323,10 +323,13 @@ body, body > #vue-app, body > #vue-error, .page-content{
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
-.btn.add-to-wish-list .fa{
+.cmp-product-thumb .btn.add-to-wish-list{
+    margin-top: 0.5rem;
+}
+.cmp-product-thumb .btn.add-to-wish-list .fa{
     float: none;
 }
-.btn.add-to-wish-list:hover i{
+.cmp-product-thumb .btn.add-to-wish-list:hover i{
     color: #fff !important;
 }
 
