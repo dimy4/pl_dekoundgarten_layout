@@ -238,13 +238,13 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .add-to-basket-container{
     display: block;
 }
-.add-to-basket-container .qty-box .qty-input{
+.single .qty-box .qty-input{
     margin: 0 32px;
     z-index: 2;
     border-left: 0;
     border-right: 0;
 }
-.add-to-basket-container .qty-box .qty-btn-container{
+.single .qty-box .qty-btn-container{
     position: absolute;
     z-index: 1;
     width: 112px;
@@ -253,31 +253,34 @@ body, body > #vue-app, body > #vue-error, .page-content{
     line-height: 41px;
     border: 1px solid #dedede;
 }
-.add-to-basket-container .qty-box .qty-btn-container .qty-btn-seperator{
+.single .qty-box .qty-btn-container .qty-btn-seperator{
     display: none;
 }
-.add-to-basket-container .qty-box .qty-btn-container .qty-btn:not(.disabled):hover {
+.single .qty-box .qty-btn-container .qty-btn:not(.disabled):hover {
     background: unset;
 }
-.add-to-basket-container .qty-box .qty-btn-container .qty-btn:first-child,
-.add-to-basket-container .qty-box .qty-btn-container .qty-btn:last-child{
+.single .qty-box .qty-btn-container .qty-btn:first-child,
+.single .qty-box .qty-btn-container .qty-btn:last-child{
     height: 100%;
     width: 32px;
 }
-.add-to-basket-container .qty-box .qty-btn-container .qty-btn:first-child{
+.single .qty-box .qty-btn-container .qty-btn:first-child{
     float: right;
 }
-.add-to-basket-container .qty-box .qty-btn-container .qty-btn:last-child{
+.single .qty-box .qty-btn-container .qty-btn:last-child{
     float: left;
 }
 
 .prod-row-with-title{
     margin-bottom: 45px;
 }
-.prod-row-with-title .price{
+.single .price{
     font-size: 1.7rem;
     font-weight: bold;
     line-height: 1;
+}
+.prod-row-title{
+    font-size: 1.25rem
 }
 .add-to-basket-container .btn-primary,
 .add-to-basket-container .add-to-wish-list{
@@ -356,6 +359,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
     width: 26px;
 }
 
+@media (max-width: 991px) and (min-width: 768px){
+    .single .price {
+        float: none;
+    }
+}
 @media (min-width: 768px){
     .single .nav-tabs .nav-item + .nav-item {
         margin-left: 0px;
