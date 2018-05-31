@@ -328,7 +328,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
     border-bottom: 1px solid #dedede;
     margin-bottom: 15px;
 }
+.custom-select{
+    color: #5c5c5c;
+}
 .flex-hcenter .category-title{
+    color: #5c5c5c;
     margin: 0;
 }
 
