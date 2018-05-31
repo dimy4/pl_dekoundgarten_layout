@@ -240,6 +240,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     font-size: 1.7rem;
     font-weight: normal;
 }
+.single .vat {
+    margin: 0;
+    color: #636363;
+}
 .add-to-basket-container{
     display: block;
 }
