@@ -316,6 +316,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
     display: block;
     text-align: center;
 }
+.prod-actions-footer-text2,
+.prod-actions-footer-text1,
+.single .articlenumber,
+.single .vat{
+    font-size: 0.9rem;
+}
 .prod-actions-footer-text1{
     margin-top: 25px;
     margin-bottom: 30px;
