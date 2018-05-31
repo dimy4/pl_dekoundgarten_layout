@@ -42,7 +42,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     padding-top: 50px;
     background: #f7f7f7;
 }
-footer, footer a{
+.footer, .footer a{
     color: #292b2c;
 }
 .footer .footer-column h2{
