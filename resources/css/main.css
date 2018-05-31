@@ -235,6 +235,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
     color: #636363;
 }
 
+.single .title {
+    line-height: 1.2;
+    font-size: 1.7rem;
+    font-weight: normal;
+}
 .add-to-basket-container{
     display: block;
 }
