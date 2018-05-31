@@ -139,7 +139,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     font-family: 'Josefin Sans', sans-serif;
     padding: 2rem 1.5rem;
     background: unset;
-    border-top: 1px solid #dcdbd8;
+    border-top: 1px solid #dedede;
     color: #292b2c;
 }
 .section-header h1, .section-header h2, .section-header h3, .section-header h4, .section-header h5, .section-header h6 {
@@ -241,7 +241,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background: 0;
     height: 41px;
     line-height: 41px;
-    border: 1px solid #dcdbd8;
+    border: 1px solid #dedede;
 }
 .add-to-basket-container .qty-box .qty-btn-container .qty-btn-seperator{
     display: none;
@@ -298,11 +298,20 @@ body, body > #vue-app, body > #vue-error, .page-content{
 
 .list-controls .list-controls-inner{
     background: unset;
-    border-bottom: 1px solid #dcdbd8;
+    border-bottom: 1px solid #dedede;
     margin-bottom: 15px;
 }
 .flex-hcenter .category-title{
     margin: 0;
+}
+
+.cmp-product-thumb:hover{
+    border: 1px solid #e9e9e9;
+    box-shadow: 0 0 3px #e9e9e9;
+}
+.cmp-product-thumb .thumb-meta{
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 @media (min-width: 768px){
