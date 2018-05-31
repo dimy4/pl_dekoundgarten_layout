@@ -43,7 +43,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background: #f7f7f7;
 }
 .footer .footer-column h2{
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: #b4b3ad;
     margin-bottom: 20px;
@@ -148,7 +148,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .section-header h1, .section-header h2, .section-header h3, .section-header h4, .section-header h5, .section-header h6 {
     color: #292b2c;
     text-transform: none;
-    font-size: 1.75rem;
+    font-size: 1.7rem;
     font-weight: 600;
 }
 .section-header a.section-link-all {
@@ -191,7 +191,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .dg-buttons .merkzettel,
 .dg-buttons .warenkorb{
-    padding: 0 20px;
+    padding: 0 35px;
 }
 .dg-buttons .merkzettel{
     border-right: 1px solid #e9e9e9;
@@ -255,7 +255,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     z-index: 2;
     border-left: 0;
     border-right: 0;
-    font-size: 1.75rem;
+    font-size: 1.7rem;
     color: #5c5c5c;
 }
 .single .qty-box .qty-btn-container{
