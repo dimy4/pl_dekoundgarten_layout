@@ -362,10 +362,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
     position: absolute;
     z-index: 9;
     right: 5px;
-    top: 5px;
-    font-size: 18px;
+    top: 10px;
+    font-size: 1.7rem;
     color: #dcdcdc;
-    width: 26px;
+    max-width: 26px;
+    line-height: 1;
 }
 
 @media (max-width: 991px) and (min-width: 768px){
