@@ -116,7 +116,7 @@
                 </div>
                 {{ item.data | itemName }}
             </a>
-            {# <add-to-wish-list template="#vue-add-to-wish-list" :variation-id="{{ item.data.variation.id }}" :is-active="isInWishList"></add-to-wish-list> #}
+            <add-to-wish-list template="#vue-add-to-wish-list" :variation-id="{{ item.data.variation.id }}" :is-active="state.item.variation.documents[0].isInWishListVariation"></add-to-wish-list>
             
             <add-to-basket
                 :item="{{ item.data | json_encode() }}"
