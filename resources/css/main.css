@@ -274,6 +274,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .prod-row-with-title{
     margin-bottom: 45px;
 }
+.prod-row-with-title .price{
+    font-size: 1.7rem;
+    font-weight: bold;
+    line-height: 1;
+}
 .add-to-basket-container .btn-primary,
 .add-to-basket-container .add-to-wish-list{
     padding: 1rem 1rem;
