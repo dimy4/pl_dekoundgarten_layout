@@ -104,13 +104,13 @@
 
                     <div class="row">
                         <div class="col-md-12 col-lg-6 push-lg-6">
-                            <span class="articlenumber">
+                            <span class="articlenumber small">
                                 {{ trans("Ceres::Template.singleItemNumber") }}
                                 <span>${ currentVariation.variation.number }</span>
                             </span>
                         </div>
                         <div class="col-md-12 col-lg-6 pull-lg-6">
-                            <span class="vat">
+                            <span class="vat small">
                                 * {% if services.customer.showNetPrices() %}{{ trans("Ceres::Template.singleItemExclVAT") }}{% else %}{{ trans("Ceres::Template.singleItemInclVAT") }}{% endif %} {{ trans("Ceres::Template.singleItemExclusive") }}
                                 <a {% if shippingCat is not empty %} data-toggle="modal" href="#shippingscosts"{% endif %} title="{{ trans("Ceres::Template.singleItemShippingCosts") }}">{{ trans("Ceres::Template.singleItemShippingCosts") }}</a>
                             </span>
