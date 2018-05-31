@@ -332,6 +332,19 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .cmp-product-thumb .btn.add-to-wish-list:hover i{
     color: #fff !important;
 }
+.cmp-product-thumb:hover .add-to-wish-list.large{
+    display: block;
+}
+.cmp-product-thumb .add-to-wish-list.large{
+    display: none;
+    position: absolute;
+    z-index: 9;
+    right: 15px;
+    top: 10px;
+    font-size: 18px;
+    color: #dcdcdc;
+    width: 26px;
+}
 
 @media (min-width: 768px){
     .single .nav-tabs .nav-item + .nav-item {
