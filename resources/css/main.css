@@ -341,9 +341,13 @@ body, body > #vue-app, body > #vue-error, .page-content{
     margin-bottom: 0.5rem;
 }
 .cmp-product-thumb .price{
+    color: #292b2c;
     font-size: 1.25rem;
     font-weight: 600;
     min-height: 19px;
+}
+.cmp-product-thumb .thumb-title{
+    color: #292b2c;
 }
 .cmp-product-thumb .btn.add-to-wish-list{
     margin-top: 0.5rem;
