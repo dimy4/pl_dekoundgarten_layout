@@ -445,3 +445,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
         margin-bottom: -5px;
     }
 }
+@media (max-width: 1100px){
+    .dg-buttons .merkzettel, .dg-buttons .warenkorb {
+        padding: 0 10px;
+    }
+}
