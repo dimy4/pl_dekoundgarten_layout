@@ -191,7 +191,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .dg-buttons .merkzettel,
 .dg-buttons .warenkorb{
-    padding: 0 35px;
+    padding: 0 20px;
 }
 .dg-buttons .merkzettel{
     border-right: 1px solid #e9e9e9;
