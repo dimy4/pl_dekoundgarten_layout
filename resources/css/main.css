@@ -364,12 +364,17 @@ body, body > #vue-app, body > #vue-error, .page-content{
     border-bottom: 1px solid #eeeeee;
 }
 .sidebar-categories ul li a{
+    font-size: 1.15rem;
     color: #636363;
     padding: 0.6rem 0;
     border-bottom: 1px solid #eeeeee;
 }
-.sidebar-categories ul li.active > a{
-    background: unset;
+.sidebar-categories ul li.active ul li a {
+    padding-left: 0.9rem;
+}
+.sidebar-categories ul li.active > a,
+.sidebar-categories ul li a:hover{
+    background-color: #f7f7f7;
 }
 
 .cmp-product-thumb{
