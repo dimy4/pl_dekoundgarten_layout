@@ -20,6 +20,15 @@ body, body > #vue-app, body > #vue-error, .page-content{
     border-bottom: 0;
     font-size: 1.15rem;
 }
+#mainTopMenuWrapper{
+    margin-top: 25px;
+    border-top: 1px solid #eeeeee;
+    box-shadow: 0 5px 5px -5px #e9e9e9;
+    border-bottom: 1px solid #eeeeee;
+}
+#mainTopMenuWrapper .container-max{
+    padding: 0;
+}
 #controlsList .control-languages{
     display: none;
 }
@@ -480,12 +489,6 @@ body, body > #vue-app, body > #vue-error, .page-content{
     }
 }
 @media (min-width: 992px){
-    #mainNavbarCollapsable{
-        margin-top: 25px;
-        border-top: 1px solid #eeeeee;
-        box-shadow: 0 5px 5px -5px #e9e9e9;
-        border-bottom: 1px solid #eeeeee;
-    }
     #mainNavbarCollapsable ul.mainmenu > li > a{
         padding: 18px 10 18px 10px;
     }
