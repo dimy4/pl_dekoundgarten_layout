@@ -481,14 +481,14 @@ body, body > #vue-app, body > #vue-error, .page-content{
     #mainNavbarCollapsable ul.mainmenu > li > ul > li{
         color: #292b2c;
     }
+    .top-bar{
+        position: relative;
+    }
     .top-bar .two-headers{
         background-color: #f7f7f7;
     }
-    .wrapper-main > nav.container-max {
-        top: 220px;
-    }
     .wrapper-main #page-body {
-        margin-top: 240px;
+        margin-top: 10px;
     }
     .cmp-hero .hero-main .carousel .carousel-control span {
         bottom: calc( 50% - 66px );
