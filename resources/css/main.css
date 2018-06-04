@@ -436,7 +436,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     #mainNavbarCollapsable ul.mainmenu > li > a{
         padding: 18px 0 18px 20px;
     }
-    #mainNavbarCollapsable ul.mainmenu > li > a:first-child{
+    #mainNavbarCollapsable ul.mainmenu > li:first-child > a{
         padding-right: 0;
         padding-left: 0;
     }
@@ -464,7 +464,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
         top: 136px;
     }
     .wrapper-main #page-body {
-        margin-top: 140px;
+        margin-top: 240px;
     }
     .cmp-hero .hero-main .carousel .carousel-control span {
         bottom: calc( 50% - 66px );
