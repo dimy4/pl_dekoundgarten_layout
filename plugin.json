@@ -24,6 +24,11 @@
             "description"   :"Add changes to the CSS file"
         },
         {
+            "key"           :"Dekoundgarten\\Containers\\DekoundgartenContainerJS",
+            "name"          :"Script",
+            "description"   :"Add changes to the JS file"
+        },
+        {
             "key"           :"Dekoundgarten\\Containers\\DekoundgartenItemListContainer1",
             "name"          :"First item list",
             "description"   :"Display a configurable list of items in your online store"

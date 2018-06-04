@@ -1,0 +1,54 @@
+<script>
+Vue.component("category-item-DG", {
+
+    delimiters: ["${", "}"],
+
+    template: "#vue-category-item-DG",
+
+    props: ["decimalCount", "itemData", "imageUrlAccessor"],
+
+    data: function data() {
+        return {
+            recommendedRetailPrice: 0,
+            variationRetailPrice: 0
+        };
+    },
+
+
+    computed: {
+        /**
+         * returns itemData.item.storeSpecial
+         */
+        storeSpecial: function storeSpecial() {
+            return this.itemData.item.storeSpecial;
+        },
+
+
+        /**
+         * returns itemData.texts[0]
+         */
+        texts: function texts() {
+            return this.itemData.texts;
+        }
+    },
+
+    created: function created() {
+        if (this.itemData.prices.rrp) {
+            this.recommendedRetailPrice = this.itemData.prices.rrp.price.value;
+        }
+        this.variationRetailPrice = this.itemData.prices.default.price.value;
+    },
+
+
+    methods: {
+        loadFirstImage: function loadFirstImage() {
+            var categoryImageCarousel = this.$refs.categoryImageCarousel;
+
+            if (categoryImageCarousel) {
+                categoryImageCarousel.loadFirstImage();
+            }
+        }
+    }
+
+});
+</sctipt>
