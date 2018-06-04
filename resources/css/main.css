@@ -427,6 +427,27 @@ body, body > #vue-app, body > #vue-error, .page-content{
     }
 }
 @media (min-width: 992px){
+    #mainNavbarCollapsable{
+        margin-top: 25px;
+        border-top: 1px solid #eeeeee;
+        box-shadow: 0 5px 5px -5px #e9e9e9;
+        border-bottom: 1px solid #eeeeee;
+    }
+    #mainNavbarCollapsable ul.mainmenu > li.ddown > a:after {
+        display: none;
+    }
+    #mainNavbarCollapsable ul.mainmenu > li.ddown{
+        color: #292b2c;
+    }
+    .no-touch #mainNavbarCollapsable ul.mainmenu > li:hover, 
+    .touch #mainNavbarCollapsable ul.mainmenu > li.hover{
+        background-color: #fff;
+        color: #292b2c;
+    }
+    #mainNavbarCollapsable ul.mainmenu > li > ul{
+        background:#fff;
+        color: #292b2c;
+    }
     .top-bar .two-headers{
         background-color: #f7f7f7;
     }
