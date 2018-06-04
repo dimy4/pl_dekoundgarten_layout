@@ -367,7 +367,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .sidebar-categories .category-title{
     background: unset;
-    padding: 0.7rem 0 0.7rem 0.3rem;
+    padding: 0 0 0.7rem 0.3rem;
     text-transform: unset;
     font-weight: bold;
     font-size: 1.15rem;
