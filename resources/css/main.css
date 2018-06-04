@@ -380,12 +380,18 @@ body, body > #vue-app, body > #vue-error, .page-content{
 
 .page-link{
     border: 0;
+    padding: 0.2rem 0.75rem;
+    line-height: 1.5rem;
+}
+.page-link:focus, .page-link:hover{
+    background-color: unset;
+    border-color: unset;
 }
 .page-link.next{
-    margin-left: 35px;
+    margin-left: 40px;
 }
 .page-link.prev{
-    margin-right: 35px;
+    margin-right: 40px;
 }
 .page-item.active .page-link, .page-item.active .page-link:focus, .page-item.active .page-link:hover{
     color: #636363;
