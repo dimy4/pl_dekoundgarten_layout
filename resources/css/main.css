@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700');
 
-body{
+body, 
+.wrapper-main .navbar {
     font-family: 'Josefin Sans', sans-serif;
+}
+body{
     color: #636363;
 }
 body, body > #vue-app, body > #vue-error, .page-content{
