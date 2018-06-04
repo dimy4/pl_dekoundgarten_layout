@@ -79,8 +79,6 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .wrapper-main > nav.container-max{
     background: unset;
-    margin-top: 25px;
-    margin-bottom: 25px;
 }
 .breadcrumb-item a,
 .breadcrumb-item.active,
@@ -447,6 +445,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
         border-bottom: 1px solid #ddd;
         color: #636363;
         text-decoration: underline;
+    }
+    .wrapper-main > nav.container-max {
+        position: relative;
+        top: 0;
+        padding-top: 25px;
     }
 }
 @media (min-width: 992px){
