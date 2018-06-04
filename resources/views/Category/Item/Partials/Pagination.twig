@@ -5,7 +5,7 @@
 
                 <!-- PREV LINK -->
                 <li class="page-item{% if page == 1 %} disabled{% endif %}">
-                    <a class="page-link" href="?{{ query | merge({'page' : page-1 }) | url_encode }}">
+                    <a class="page-link prev" href="?{{ query | merge({'page' : page-1 }) | url_encode }}">
                         <i class="fa fa-sort-asc fa-rotate-270" aria-hidden="true"></i>Vorherige Seite
                     </a>
                 </li>
@@ -67,7 +67,7 @@
 
                 <!-- NEXT LINK -->
                 <li class="page-item{% if page == pageMax %} disabled{% endif %}">
-                    <a class="page-link"
+                    <a class="page-link next"
                     href="?{{ query | merge({'page' : page+1 }) | url_encode }}">
                         Nächste Seite<i class="fa fa-sort-asc fa-rotate-90" aria-hidden="true"></i>
                     </a>

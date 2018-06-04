@@ -381,6 +381,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .page-link{
     border: 0;
 }
+.page-link.next{
+    margin-left: 35px;
+}
+.page-link.prev{
+    margin-right: 35px;
+}
 .page-item.active .page-link, .page-item.active .page-link:focus, .page-item.active .page-link:hover{
     color: #636363;
     cursor: default;
