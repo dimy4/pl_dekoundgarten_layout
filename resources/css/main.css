@@ -353,8 +353,23 @@ body, body > #vue-app, body > #vue-error, .page-content{
     color: #636363;
 }
 .flex-hcenter .category-title{
-    color: #636363;
     margin: 0;
+}
+.sidebar-categories .category-title{
+    background: unset;
+    padding: 0.7rem 0;
+    text-transform: unset;
+    font-weight: bold;
+    font-size: 1.15rem;
+    border-bottom: 1px solid #eeeeee;
+}
+.sidebar-categories ul li a{
+    color: #636363;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #eeeeee;
+}
+.sidebar-categories ul li.active > a{
+    background: unset;
 }
 
 .cmp-product-thumb{
@@ -437,10 +452,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
         border-bottom: 1px solid #eeeeee;
     }
     #mainNavbarCollapsable ul.mainmenu > li > a{
-        padding: 18px 0 18px 20px;
+        padding: 18px 10 18px 10px;
     }
     #mainNavbarCollapsable ul.mainmenu > li:first-child > a{
-        padding-right: 0;
         padding-left: 0;
     }
     #mainNavbarCollapsable ul.mainmenu > li.ddown > a:after {
@@ -450,9 +464,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
         color: #292b2c;
     }
     .no-touch #mainNavbarCollapsable ul.mainmenu > li:hover, 
-    .touch #mainNavbarCollapsable ul.mainmenu > li.hover{
+    .touch #mainNavbarCollapsable ul.mainmenu > li.hover,
+    .no-touch #mainNavbarCollapsable ul.mainmenu > li > ul > li:hover, 
+    .touch #mainNavbarCollapsable ul.mainmenu > li > ul > li.hover{
         background-color: #f7f7f7;
-        color: #292b2c;
+        color: #636363;
     }
     #mainNavbarCollapsable ul.mainmenu > li > ul{
         background:#fff;
