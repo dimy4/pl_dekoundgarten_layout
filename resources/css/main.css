@@ -353,9 +353,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .flex-hcenter .category-title{
     margin: 0;
 }
+.page-content.categoriegrid{
+    padding-top: 0 !important;
+}
 .sidebar-categories .category-title{
     background: unset;
-    padding: 0.7rem 0;
+    padding: 0.7rem 0 0.7rem 0.3rem;
     text-transform: unset;
     font-weight: bold;
     font-size: 1.15rem;
@@ -364,7 +367,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .sidebar-categories ul li a{
     font-size: 1.15rem;
     color: #636363;
-    padding: 0.6rem 0;
+    padding: 0.6rem 0 0.6rem 0.3rem;
     border-bottom: 1px solid #eeeeee;
 }
 .sidebar-categories ul li.active ul li a {
