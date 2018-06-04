@@ -378,8 +378,16 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: #f7f7f7;
 }
 
-.page-link.ctr{
+.page-link{
     border: 0;
+}
+.page-item.active .page-link, .page-item.active .page-link:focus, .page-item.active .page-link:hover{
+    color: #636363;
+    cursor: default;
+    background-color: unset;
+    border-color: unset;
+    border: 1px solid #eeeeee;
+    border-radius: 50%;
 }
 
 .cmp-product-thumb{

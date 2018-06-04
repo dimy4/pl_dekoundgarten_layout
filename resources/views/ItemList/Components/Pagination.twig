@@ -5,7 +5,7 @@
 
                 <!-- PREV LINK -->
                 <li class="page-item" :class="{'disabled': page <= 1}">
-                    <a class="page-link ctr" @click="setPage(page-1)">
+                    <a class="page-link" @click="setPage(page-1)">
                         <i class="fa fa-sort-asc fa-rotate-270" aria-hidden="true"></i>Vorherige Seite
                     </a>
                 </li>
@@ -55,7 +55,7 @@
 
                 <!-- NEXT LINK -->
                 <li class="page-item" :class="{'disabled': page >= pageMax}">
-                    <a class="page-link ctr" @click="setPage(page + 1)">
+                    <a class="page-link" @click="setPage(page + 1)">
                         Nächste Seite<i class="fa fa-sort-asc fa-rotate-90" aria-hidden="true"></i>
                     </a>
                 </li>
