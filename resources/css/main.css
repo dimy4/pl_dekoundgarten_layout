@@ -485,7 +485,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
         background-color: #f7f7f7;
     }
     .wrapper-main > nav.container-max {
-        top: 220x;
+        top: 220px;
     }
     .wrapper-main #page-body {
         margin-top: 240px;
