@@ -378,6 +378,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: #f7f7f7;
 }
 
+.page-link.ctr{
+    border: 0;
+}
+
 .cmp-product-thumb{
     border: 1px solid transparent;
     box-shadow: 0 0 3px transparent;
