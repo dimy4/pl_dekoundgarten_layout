@@ -1,12 +1,5 @@
-<script type="x/template" id="vue-add-to-wish-list-cat-lg">
+<script type="x/template" id="vue-add-to-wish-list-cat">
     <a class="add-to-wish-list large hidden-md-down" :class="{active: $data._isActive}" @click.prevent="switchState()" data-toggle="tooltip" data-placement="left" title="">
         <i v-waiting-animation="isLoading" class="fa fa-heart-o"></i>
-    </a>
-</script>
-
-<script type="x/template" id="vue-add-to-wish-list-cat">
-    <a class="btn btn-outline-primary mobile-width-button add-to-wish-list hidden-lg-up" :class="{active: $data._isActive}" @click.prevent="switchState()" data-toggle="tooltip" data-placement="top" title="">
-        <i v-waiting-animation="isLoading" class="fa fa-heart-o"></i>
-        {{ trans("Ceres::Template.singleItemWishList") }}
     </a>
 </script>
