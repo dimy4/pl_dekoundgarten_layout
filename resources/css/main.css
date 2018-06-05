@@ -57,6 +57,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     margin: 0;
     background: rgba(255, 255, 255, .8);
     color: #292b2c;
+    text-transform: uppercase;
 }
 .featured-category:hover .featured-category-headline {
     background: rgba(255, 255, 255, 1);
