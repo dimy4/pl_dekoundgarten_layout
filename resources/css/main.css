@@ -202,7 +202,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .searchCol .search-submit{
     position: absolute;
-    top: 2px;
+    top: 6px;
     right: 24px;
     color: #00983f;
     border: 0;
