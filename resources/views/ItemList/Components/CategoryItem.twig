@@ -19,6 +19,8 @@
         <div class="thumb-inner">
             <add-to-basket :item="itemData" :use-large-scale="true" :item-url="itemData | itemURL"></add-to-basket>
 
+            <add-to-wish-list template="#vue-add-to-wish-list-cat-lg" :variation-id="itemData.variation.id" :is-active="false"></add-to-wish-list>
+
             <div class="thumb-background"></div>
 
             <div class="thumb-image">
