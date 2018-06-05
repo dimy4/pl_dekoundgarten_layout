@@ -1,5 +1,4 @@
-{#{ component( "Ceres::Basket.Components.AddToBasket" ) }#}
-{{ component( "Dekoundgarten::Category.Item.Partials.AddToWishList" ) }}
+{{ component( "Ceres::Basket.Components.AddToBasket" ) }}
 {{ component( "Ceres::ItemList.Components.CategoryImageCarousel") }}
 {{ component( "Ceres::ItemList.Components.ItemStoreSpecial" ) }}
 
@@ -14,11 +13,10 @@
     {% endif %}
 {% endif %}
 
-<!-- custom -->
 <script type="x/template" id="vue-category-item">
     <article class="cmp cmp-product-thumb cmp-product-thumb--grid">
         <div class="thumb-inner">
-            <add-to-wish-list template="#vue-add-to-wish-list-cat-lg" :variation-id="{{ itemData.variation.id }}" :is-active="false"></add-to-wish-list>
+            <add-to-basket :item="itemData" :use-large-scale="true" :item-url="itemData | itemURL"></add-to-basket>
 
             <div class="thumb-background"></div>
 
@@ -69,7 +67,11 @@
                         <span v-if="itemData.variation.mayShowUnitPrice">| ${ itemData.prices.default.basePrice }</span>
                     </div>
                 </div>
-                <add-to-wish-list template="#vue-add-to-wish-list-cat" :variation-id="{{ itemData.variation.id }}" :is-active="false"></add-to-wish-list>
+                <add-to-basket :item="itemData" :item-url="itemData | itemURL"></add-to-basket>
+                <span class="vat small text-muted">
+                            * {{ trans("Ceres::Template.itemInclVAT") }} {{ trans("Ceres::Template.itemExclusive") }}
+                    <a {% if shippingCat is not empty %} data-toggle="modal" href="#shippingscosts"{% endif %} title="{{ trans("Ceres::Template.itemShippingCosts") }}">{{ trans("Ceres::Template.itemShippingCosts") }}</a>
+                </span>
             </div>
             <!-- ./ITEM DETAILS  -->
         </div>
