@@ -13,6 +13,15 @@ body, body > #vue-app, body > #vue-error, .page-content{
 #page-body .home{
     padding-top: 10px;
 }
+.top-bar .controls-list .control-basket .toggle-basket-preview,
+.top-bar .controls-list .control-basket .toggle-basket-preview:hover,
+.top-bar .controls-list > li a:not(.btn)[aria-expanded="true"], 
+.top-bar .controls-list > li a:not(.btn):hover{
+    background-color: #00983f;
+}
+.mobile-navigation {
+    background: #00983f;
+}
 .top-bar{
     position: relative;
     background-color: unset;
