@@ -39,6 +39,7 @@ class DekoundgartenServiceProvider extends ServiceProvider
             $partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
 
             $partial->set('header', 'Dekoundgarten::PageDesign.Partials.Header.Header');
+            $partial->set('page-design', 'Dekoundgarten::PageDesign.PageDesign');
             $partial->set('footer', 'Dekoundgarten::PageDesign.Partials.Footer');
 
             return false;
