@@ -17,6 +17,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
     position: relative;
     background-color: unset;
     color: #292b2c;
+    box-shadow: 0 5px 5px -5px #e9e9e9;
+    border-bottom: 1px solid #eeeeee;
 }
 .wrapper-main .navbar{
     background: #fff;
@@ -27,8 +29,6 @@ body, body > #vue-app, body > #vue-error, .page-content{
 #mainTopMenuWrapper{
     margin-top: 25px;
     border-top: 1px solid #eeeeee;
-    box-shadow: 0 5px 5px -5px #e9e9e9;
-    border-bottom: 1px solid #eeeeee;
 }
 #mainTopMenuWrapper .container-max{
     padding: 0;
