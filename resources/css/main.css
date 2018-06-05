@@ -22,6 +22,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .mobile-navigation {
     background: #00983f;
 }
+.top-bar .two-headers{
+    background-color: #f7f7f7;
+}
+.top-bar .controls-list > li a:not(.btn) {
+    color: #292b2c;
+}
 .top-bar{
     position: relative;
     background-color: unset;
@@ -560,9 +566,6 @@ body, body > #vue-app, body > #vue-error, .page-content{
     #mainNavbarCollapsable ul.mainmenu > li > ul > li{
         color: #292b2c;
     }
-    .top-bar .two-headers{
-        background-color: #f7f7f7;
-    }
     .wrapper-main #page-body {
         margin-top: 10px;
     }
@@ -571,9 +574,6 @@ body, body > #vue-app, body > #vue-error, .page-content{
     }
 }
 @media (max-width: 991px){
-    .top-bar .two-headers{
-        background-color: #4d4f4d;
-    }
     .wrapper-main .navbar{
         padding-top: 0;
     }
