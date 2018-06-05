@@ -28,6 +28,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .top-bar .controls-list > li a:not(.btn) {
     color: #292b2c;
 }
+.anicon > .anicon-search-item:before{
+    background: #292b2c;
+}
+.anicon.anicon-search-xcross[aria-expanded="false"]:hover > .anicon-search-item:after {
+    background: #00983f;
+}
 .top-bar{
     position: relative;
     background-color: unset;
