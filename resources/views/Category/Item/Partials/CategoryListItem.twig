@@ -1,5 +1,5 @@
-{{ component( "Ceres::Basket.Components.AddToBasket" ) }}
-{#{{ component( "Dekoundgarten::Category.Item.Partials.AddToWishList" ) }}#}
+{#{ component( "Ceres::Basket.Components.AddToBasket" ) }#}
+{{ component( "Dekoundgarten::Category.Item.Partials.AddToWishList" ) }}
 
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
@@ -12,11 +12,12 @@
 
 <article class="cmp cmp-product-thumb cmp-product-thumb--grid">
     <div class="thumb-inner">
-        <add-to-basket
+        {#<add-to-basket
             :item="{{ item.data | json_encode() }}"
             :use-large-scale="true"
             item-url="{{ itemUrl }}">
-        </add-to-basket>
+        </add-to-basket>#}
+        <add-to-wish-list template="#vue-add-to-wish-list-cat-lg" :variation-id="{{ item.data.variation.id }}" :is-active="false"></add-to-wish-list>
 
         <div class="thumb-background"></div>
 
@@ -117,8 +118,9 @@
                 {{ item.data | itemName }}
             </a>
 
-
-            <add-to-basket
+            <add-to-wish-list template="#vue-add-to-wish-list-cat" :variation-id="{{ item.data.variation.id }}" :is-active="false"></add-to-wish-list>
+            
+            {#<add-to-basket
                 :item="{{ item.data | json_encode() }}"
                 item-url="{{ itemUrl }}">
             </add-to-basket>
@@ -126,7 +128,7 @@
             <span class="vat-porto-info small text-muted">
                 * {{ trans("Ceres::Template.itemInclVAT") }} {{ trans("Ceres::Template.itemExclusive") }}
                 <a {% if shippingCat is not empty %} data-toggle="modal" href="#shippingscosts"{% endif %} title="{{ trans("Ceres::Template.itemShippingCosts") }}">{{ trans("Ceres::Template.itemShippingCosts") }}</a>
-            </span>
+            </span> #}
 
             
             {# {% if tags > 0 %}

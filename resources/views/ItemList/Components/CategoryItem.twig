@@ -18,7 +18,7 @@
 <script type="x/template" id="vue-category-item">
     <article class="cmp cmp-product-thumb cmp-product-thumb--grid">
         <div class="thumb-inner">
-            <add-to-wish-list template="#vue-add-to-wish-list-cat-lg" :variation-id="{{ item.data.variation.id }}" :is-active="false"></add-to-wish-list>
+            <add-to-wish-list template="#vue-add-to-wish-list-cat-lg" :variation-id="{{ itemData.variation.id }}" :is-active="false"></add-to-wish-list>
 
             <div class="thumb-background"></div>
 
@@ -69,7 +69,7 @@
                         <span v-if="itemData.variation.mayShowUnitPrice">| ${ itemData.prices.default.basePrice }</span>
                     </div>
                 </div>
-                <add-to-wish-list template="#vue-add-to-wish-list-cat" :variation-id="{{ item.data.variation.id }}" :is-active="false"></add-to-wish-list>
+                <add-to-wish-list template="#vue-add-to-wish-list-cat" :variation-id="{{ itemData.variation.id }}" :is-active="false"></add-to-wish-list>
             </div>
             <!-- ./ITEM DETAILS  -->
         </div>
