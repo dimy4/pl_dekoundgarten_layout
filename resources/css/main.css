@@ -54,6 +54,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
 #carousel-example-generic .icon-next{
     background-image: url(../images/next.png);
 }
+.first-cat-block{
+    margin-bottom: -1rem;
+}
 .featured-category .featured-category-inner{
     padding: 0;
 }
@@ -376,6 +379,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
     margin-bottom: 15px;
+    padding: 0.75rem 0.5rem;
 }
 .custom-select{
     color: #636363;
