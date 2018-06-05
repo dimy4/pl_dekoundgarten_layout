@@ -46,27 +46,27 @@
             <!-- ITEM DETAILS -->
             <div class="thumb-content">
                 <a :href="itemData | itemURL" class="thumb-title small">
+                    <div class="thumb-meta">
+                        <div class="prices">
+                            <div v-if="itemData.prices.rrp && itemData.prices.rrp.price.value > 0" class="price-view-port">
+                                <del class="crossprice">
+                                    ${ itemData.prices.rrp.price.formatted }
+                                </del>
+                            </div>
+
+                            <div class="price">
+                                ${ itemData.prices.default.unitPrice.formatted } *
+                            </div>
+                        </div>
+
+                        <div class="category-unit-price" v-if="!(itemData.unit.unitOfMeasurement === 'C62' && itemData.unit.content === 1)">
+                            <span>${ itemData.unit.content }</span>
+                            <span>${ itemData.unit.names.name }</span>
+                            <span v-if="itemData.variation.mayShowUnitPrice">| ${ itemData.prices.default.basePrice }</span>
+                        </div>
+                    </div>
                     ${ itemData | itemName }
                 </a>
-                <div class="thumb-meta">
-                    <div class="prices">
-                        <div v-if="itemData.prices.rrp && itemData.prices.rrp.price.value > 0" class="price-view-port">
-                            <del class="crossprice">
-                                ${ itemData.prices.rrp.price.formatted }
-                            </del>
-                        </div>
-
-                        <div class="price">
-                            ${ itemData.prices.default.unitPrice.formatted } *
-                        </div>
-                    </div>
-
-                    <div class="category-unit-price" v-if="!(itemData.unit.unitOfMeasurement === 'C62' && itemData.unit.content === 1)">
-                        <span>${ itemData.unit.content }</span>
-                        <span>${ itemData.unit.names.name }</span>
-                        <span v-if="itemData.variation.mayShowUnitPrice">| ${ itemData.prices.default.basePrice }</span>
-                    </div>
-                </div>
                 <add-to-wish-list template="#vue-add-to-wish-list-cat" :variation-id="itemData.variation.id" :is-active="false"></add-to-wish-list>
             </div>
             <!-- ./ITEM DETAILS  -->
