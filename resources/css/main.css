@@ -78,9 +78,6 @@ body, body > #vue-app, body > #vue-error, .page-content{
 #carousel-example-generic .icon-next{
     background-image: url(../images/next.png);
 }
-.first-cat-block{
-    margin-bottom: -1rem;
-}
 .featured-category .featured-category-inner{
     padding: 0;
 }
