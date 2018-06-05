@@ -55,6 +55,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 .featured-category .featured-category-headline{
     margin: 0;
+    background: rgba(255, 255, 255, .8);
+    color: #292b2c;
+}
+.featured-category:hover .featured-category-headline {
+    background: rgba(255, 255, 255, 1);
 }
 
 .footer{
