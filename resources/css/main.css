@@ -50,6 +50,13 @@ body, body > #vue-app, body > #vue-error, .page-content{
 #carousel-example-generic .icon-next{
     background-image: url(../images/next.png);
 }
+.featured-category .featured-category-inner{
+    padding: 0;
+}
+.featured-category .featured-category-headline{
+    margin: 0;
+}
+
 .footer{
     padding-top: 50px;
     background: #f7f7f7;
