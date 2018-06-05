@@ -54,6 +54,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
     padding: 0;
 }
 .featured-category .featured-category-headline{
+    padding: 1rem 0.75rem;
+    font-size: 1.2rem;
     margin: 0;
     background: rgba(255, 255, 255, .8);
     color: #292b2c;
@@ -476,6 +478,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     }
 }
 @media (min-width: 768px){
+    .featured-category .featured-category-headline {
+        padding: 1rem 0.75rem;
+        font-size: 1.2rem;
+    }
     .single .nav-tabs .nav-item + .nav-item {
         margin-left: 0px;
     }
