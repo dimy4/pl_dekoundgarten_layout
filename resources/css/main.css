@@ -477,6 +477,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
     line-height: 1;
 }
 
+@media (max-width: 543px) {
+    .cmp-product-thumb{
+        text-align: center;
+    }
+}
 @media (max-width: 991px) and (min-width: 768px){
     .single .price {
         float: none;
