@@ -10,6 +10,9 @@ body{
 body, body > #vue-app, body > #vue-error, .page-content{
     background: #fff;
 }
+#page-body .home{
+    padding-top: 10px;
+}
 .top-bar{
     background-color: unset;
     color: #292b2c;
@@ -369,6 +372,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 
 .list-controls .list-controls-inner{
     background: unset;
+    border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
     margin-bottom: 15px;
 }
