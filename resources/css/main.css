@@ -590,6 +590,10 @@ a:focus, a:hover{
     }
 }
 @media (min-width: 992px){
+    .add-to-basket-container .add-to-wish-list{
+        padding: 1rem 0;
+        text-align: right;
+    }
     #mainNavbarCollapsable ul.mainmenu > li > a{
         padding: 18px 10 18px 10px;
     }
