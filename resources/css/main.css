@@ -440,6 +440,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: #f7f7f7;
 }
 
+.cmp-paginator{
+    font-style: italic;
+    font-weight: 600;
+}
 .page-link{
     border: 0;
     padding: 0.2rem 0.75rem;
