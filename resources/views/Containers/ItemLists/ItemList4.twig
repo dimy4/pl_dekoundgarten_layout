@@ -1,8 +1,8 @@
 {{ component( "Dekoundgarten::Containers.Components.ContainerItemList" ) }}
 
-{% set listType = config("Ceres.item.lists.3.list_type") %}
-{% set tagIds = config("Ceres.item.lists.3.tag_ids") | split(",") %}
-{% set itemListId = 3 %}
+{% set listType = config("Dekoundgarten.item.lists.4.list_type") %}
+{% set tagIds = config("Dekoundgarten.item.lists.4.tag_ids") | split(",") %}
+{% set itemListId = 4 %}
 {% set isHome = services.template.isHome() %}
 
 {% if listType == "last_seen" %}
