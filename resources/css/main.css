@@ -25,6 +25,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .top-bar .two-headers{
     background-color: #f7f7f7;
 }
+.top-bar .two-headers .container-max,
+.top-bar .nav-bar .container-max{
+    padding: 0;
+}
 .top-bar .controls-list > li a:not(.btn) {
     color: #292b2c;
 }
@@ -48,6 +52,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
     font-size: 1.15rem;
 }
 #mainTopMenuWrapper{
+    font-size: 1.2rem;
+    font-weight: 600;
     margin-top: 25px;
     border-top: 1px solid #eeeeee;
 }
@@ -567,6 +573,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
         background:#fff;
     }
     #mainNavbarCollapsable ul.mainmenu > li > ul > li{
+        min-width: 230px;
         color: #292b2c;
     }
     .wrapper-main #page-body {
