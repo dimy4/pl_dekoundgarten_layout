@@ -293,6 +293,16 @@ body, body > #vue-app, body > #vue-error, .page-content{
     padding-left: 1px;
 }
 
+.basket-item-container .item-base-price{
+    display: none;
+}
+
+a{
+    color: #0b973e;
+}
+a:focus, a:hover{
+    color: #00640B;
+}
 .btn-primary{
     background-color: #0b973e;
     border-color: #0b973e;
@@ -547,6 +557,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
     }
 }
 @media (min-width: 768px){
+    body > #vue-app.open-right .wrapper-right, body > #vue-error.open-right .wrapper-right {
+        width: 45em;
+    }
     .featured-category .featured-category-headline {
         padding: 1rem 0.75rem;
         font-size: 1.2rem;
