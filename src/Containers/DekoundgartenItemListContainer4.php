@@ -8,6 +8,6 @@ class DekoundgartenItemListContainer4
 {
     public function call(Twig $twig, $arg):string
     {
-        return $twig->render('Dekoundgarten::Containers.ItemLists.ItemList3', ["item" => $arg[0]]);
+        return $twig->render('Dekoundgarten::Containers.ItemLists.ItemList4', ["item" => $arg[0]]);
     }
 }
