@@ -1,12 +1,9 @@
 {% set isNameEmpty = trans("Ceres::Template.itemList" ~ itemListId ~ "ListName") == 'Name' or 
                      trans("Ceres::Template.itemList" ~ itemListId ~ "ListName") is empty %}
 
-{% set isNameEmptyDG = trans("Dekoundgarten::Template.itemList" ~ itemListId ~ "ListName") == 'Name' or 
-                     trans("Dekoundgarten::Template.itemList" ~ itemListId ~ "ListName") is empty %}
-
-{% set header = trans("Dekoundgarten::Template.itemList" ~ itemListId ~ "ListName") %}
-
-{% if isNameEmptyDG %}
+{% if itemListId >= 4 %}
+    {% set header = trans("Dekoundgarten::Template.itemList" ~ itemListId ~ "ListName") %}
+{% else %}
     {% if listType == "last_seen" %}
         {% if isNameEmpty %}
             {% set header = trans("Ceres::Template.itemListLastSeen") %}
