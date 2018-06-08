@@ -66,6 +66,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 #controlsList .control-languages{
     display: none;
 }
+
 .carousel-control{
     width: 10%;
     opacity: 0.7;
@@ -79,6 +80,11 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .owl-carousel .carousel-control:hover i{
     color: #00983f;
 }
+.owl-thumbs .owl-thumb.active, .owl-thumbs .owl-thumb:hover {
+    border: 1px solid #00983f;
+    cursor: pointer;
+}
+
 .cmp-hero .hero-main .carousel .carousel-indicators{
     display: none;
 }
@@ -215,7 +221,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 
 .section-header{
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.5rem 1rem;
     background: unset;
     border-top: 1px solid #dedede;
     color: #292b2c;
@@ -292,6 +298,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
     border-color: #0b973e;
 }
 .btn-primary:hover,
+.btn-primary:focus, .btn-primary.focus,
+.btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle,
 .btn-primary:active:hover, .btn-primary.active:hover, .open > .btn-primary.dropdown-toggle:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .btn-primary.dropdown-toggle:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle.focus {
     background-color: #00640B;
     border-color: #00640B;
@@ -302,7 +310,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: transparent;
     border-color: #0b973e;
 }
-.btn-outline-primary:hover {
+.btn-outline-primary:hover,
+.btn-outline-primary:focus, .btn-outline-primary.focus,
+.btn-outline-primary:active, .btn-outline-primary.active, .open > .btn-outline-primary.dropdown-toggle,
+.btn-outline-primary:active:hover, .btn-outline-primary.active:hover, .open > .btn-outline-primary.dropdown-toggle:hover, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .open > .btn-outline-primary.dropdown-toggle:focus, .btn-outline-primary:active.focus, .btn-outline-primary.active.focus, .open > .btn-outline-primary.dropdown-toggle.focus {
     color: #fff !important;
     background-color: #0b973e;
 }
