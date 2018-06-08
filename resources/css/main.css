@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700');
 
 body, 
-.wrapper-main .navbar {
+.wrapper-main .navbar,
+.sidebar-categories,
+.section-header {
     font-family: 'Josefin Sans', sans-serif;
 }
 body{
@@ -26,7 +28,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     background-color: #f7f7f7;
 }
 .top-bar .two-headers .container-max,
-.top-bar .nav-bar .container-max{
+.top-bar .navbar .container-max{
     padding: 0;
 }
 .top-bar .controls-list > li a:not(.btn) {
@@ -202,7 +204,6 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 
 .section-header{
-    font-family: 'Josefin Sans', sans-serif;
     padding: 2rem 1.5rem;
     background: unset;
     border-top: 1px solid #dedede;
@@ -570,6 +571,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
         color: #636363;
     }
     #mainNavbarCollapsable ul.mainmenu > li > ul{
+        box-shadow: 0px 3px 8px #eeeeee;
         background:#fff;
     }
     #mainNavbarCollapsable ul.mainmenu > li > ul > li{
