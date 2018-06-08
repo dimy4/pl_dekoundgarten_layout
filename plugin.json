@@ -37,6 +37,11 @@
             "key"           :"Dekoundgarten\\Containers\\DekoundgartenItemListContainer3",
             "name"          :"Third item list",
             "description"   :"Display a configurable list of items in your online store"
+        },
+        {
+            "key"           :"Dekoundgarten\\Containers\\DekoundgartenItemListContainer4",
+            "name"          :"Fourth item list",
+            "description"   :"Display a configurable list of items in your online store"
         }
     ]
 }

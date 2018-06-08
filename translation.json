@@ -1,0 +1,13 @@
+{
+  "sections":
+  [
+    {
+      "name": "Config.item",
+      "prefix": "item"
+    }
+  ],
+  "ignoredTranslationFiles":
+  [
+    "Config.properties"
+  ]
+}
