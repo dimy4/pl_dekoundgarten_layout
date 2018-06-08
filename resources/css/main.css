@@ -70,6 +70,15 @@ body, body > #vue-app, body > #vue-error, .page-content{
     width: 10%;
     opacity: 0.7;
 }
+.owl-carousel .carousel-control{
+    display: none;
+}
+.owl-carousel:hover .carousel-control{
+    display: block;
+}
+.owl-carousel .carousel-control:hover i{
+    color: #00983f;
+}
 .cmp-hero .hero-main .carousel .carousel-indicators{
     display: none;
 }
