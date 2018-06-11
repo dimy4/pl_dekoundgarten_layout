@@ -1,8 +1,8 @@
 {{ component( "Dekoundgarten::Containers.Components.ContainerItemList" ) }}
 
-{% set listType = config("Dekoundgarten.item.lists.4.list_type") %}
-{% set tagIds = config("Dekoundgarten.item.lists.4.tag_ids") | split(",") %}
-{% set itemListId = 4 %}
+{% set listType = config("Dekoundgarten.item.lists.5.list_type") %}
+{% set tagIds = config("Dekoundgarten.item.lists.5.tag_ids") | split(",") %}
+{% set itemListId = 5 %}
 {% set isHome = services.template.isHome() %}
 
 {% if listType == "last_seen" %}
@@ -18,7 +18,7 @@
         <hr>
     {% endif %}
 
-    {% include 'Dekoundgarten::Containers.Partials.ItemLists.ItemListHeader.twig' with { itemListId: 4, listType: listType, isHome: isHome } %}
+    {% include 'Dekoundgarten::Containers.Partials.ItemLists.ItemListHeader.twig' with { itemListId: 5, listType: listType, isHome: isHome } %}
 
     <div class="row">
         <container-item-list :items="{{ itemList | json_encode }}"></container-item-list>
