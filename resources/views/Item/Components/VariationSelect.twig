@@ -1,7 +1,7 @@
 <script type="x/template" id="vue-variation-select">
     <div>
-        <div class="col-xs-4 col-md-3 col-lg-2 prod-row-title">Auswählen</div>
-        <div class="col-xs-8 col-md-9 col-lg-10" v-for="(attribute, attributeId) in attributes">
+        <div class="col-xs-4 col-md-4 col-lg-3 prod-row-title">Auswählen</div>
+        <div class="col-xs-8 col-md-6 col-lg-4" v-for="(attribute, attributeId) in attributes">
             <div class="input-unit">
                 <select class="custom-select text-gray-dark" v-model="selectedAttributes[attributeId]" @change="onSelectionChange(selectedAttributes[attributeId])">
                         <option :value="null">{{ trans("Ceres::Template.singleItemPleaseSelect") }}</option>
