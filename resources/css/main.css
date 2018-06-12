@@ -440,6 +440,9 @@ a:focus, a:hover{
     font-size: 1.7rem;
     font-weight: 600;
 }
+.prod-row-with-title .input-unit{
+    margin-bottom: 0;
+}
 
 .list-controls .list-controls-inner{
     background: unset;

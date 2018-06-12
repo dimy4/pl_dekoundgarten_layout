@@ -29,7 +29,7 @@
                     <hr>
 
                     <!-- Variation -->
-                    <div class="row m-b-1" v-if="variations.length > 0">
+                    <div class="row prod-row-with-title" v-if="variations.length > 0">
                         <variation-select template="#vue-variation-select" :attributes="attributeNameMap" :variations="variations" :preselect="currentVariation.variation.id" @is-valid-change="isVariationSelected = $event"></variation-select>
                     </div>
                     <!-- /Variation -->
