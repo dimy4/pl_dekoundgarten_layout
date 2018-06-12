@@ -443,6 +443,9 @@ a:focus, a:hover{
 .prod-row-with-title .input-unit{
     margin-bottom: 0;
 }
+.hr-before-variation{
+    margin-bottom: 1.6rem;
+}
 
 .list-controls .list-controls-inner{
     background: unset;
