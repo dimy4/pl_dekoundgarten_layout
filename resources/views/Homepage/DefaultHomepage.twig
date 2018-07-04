@@ -23,19 +23,19 @@
 
     {% if slider1.url | trim is empty and slider1.item.details[0].imagePath is not empty %}
         {% set slider1Image = "documents/{{slider1.item.details[0].imagePath}}" %}
-        {% set slider1.url = slider1Image %}
+        {% slider1 = slider1 | merge({url:  slider1Image}) %}
     {% endif %}
     {% if slider2.url | trim is empty and slider2.item.details[0].imagePath is not empty %}
         {% set slider2Image = "documents/{{slider2.item.details[0].imagePath}}" %}
-        {% set slider2.url = slider2Image %}
+        {% set slider2 = slider2 | merge({url:  slider2Image}) %}
     {% endif %}
     {% if slider3.url | trim is empty and slider3.item.details[0].imagePath is not empty %}
         {% set slider3Image = "documents/{{slider3.item.details[0].imagePath}}" %}
-        {% set slider3.url = slider3Image %}
+        {% set slider3 = slider3 | merge({url:  slider3Image}) %}
     {% endif %}
     {% if slider4.url | trim is empty and slider4.item.details[0].imagePath is not empty %}
         {% set slider4Image = "documents/{{slider4.item.details[0].imagePath}}" %}
-        {% set slider4.url = slider4Image %}
+        {% set slider4 = slider4 | merge({url:  slider4Image}) %}
     {% endif %}
 
 
