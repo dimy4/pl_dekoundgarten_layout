@@ -40,6 +40,18 @@
                     "label": "Config.homepageSliderImageUrl3Label",
                     "options": {}
                 },
+                "homepage.sliderItemId4": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.homepageSliderItemId4Label",
+                    "options": {}
+                },
+                "homepage.sliderImageUrl4": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.homepageSliderImageUrl4Label",
+                    "options": {}
+                },
                 "homepage.heroExtraItemId1": {
                     "type": "inputText",
                     "required": false,

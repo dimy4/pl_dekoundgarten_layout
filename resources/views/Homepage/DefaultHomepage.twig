@@ -17,6 +17,9 @@
     {% set slider3 = {
     item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {variationIds: [config("Dekoundgarten.homepage.sliderItemId3")]}).documents[0].data,
     url: config("Dekoundgarten.homepage.sliderImageUrl3") } %}
+    {% set slider4 = {
+    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {variationIds: [config("Dekoundgarten.homepage.sliderItemId4")]}).documents[0].data,
+    url: config("Dekoundgarten.homepage.sliderImageUrl4") } %}
 
     {% if slider1.url | trim is empty and slider1.item.texts is not empty %}
         {% set slider1Image = slider1.item.images | itemImages | orderByKey('position') | first %}
@@ -29,6 +32,10 @@
     {% if slider3.url | trim is empty and slider3.item.texts is not empty %}
         {% set slider3Image = slider3.item.images | itemImages | orderByKey('position') | first %}
         {% set slider3 = slider3 | merge({url: slider3Image.url}) %}
+    {% endif %}
+    {% if slider4.url | trim is empty and slider4.item.texts is not empty %}
+        {% set slider4Image = slider3.item.images | itemImages | orderByKey('position') | first %}
+        {% set slider4 = slider4 | merge({url: slider4Image.url}) %}
     {% endif %}
 
     {% set heroExtra1 = {
@@ -79,7 +86,7 @@
             <div class="cmp cmp-hero">
                 {% set homepageContainer1 = LayoutContainer.show("Ceres::Homepage.Container1") %}
                 {% if homepageContainer1 | trim is empty %}
-                    {% if slider1.url or slider2.url or slider3.url %}
+                    {% if slider1.url or slider2.url or slider3.url or slider4.url %}
                         <div class="hero-main">
                             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
@@ -132,6 +139,24 @@
                                                     <div class="carousel-caption">
                                                         <h2><i class="fa fa-angle-double-right"
                                                                aria-hidden="true"></i> {{ slider3.item | itemName }}
+                                                        </h2>
+                                                    </div>
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                    {% endif %}
+                                    {% if slider4.url | trim is not empty %}
+                                        {% set slideCount = slideCount +1 %}
+                                        <div class="carousel-item {% if slider1.url | trim is empty and slider2.url | trim is empty and slider3.url | trim is empty %}active{% endif %}">
+                                            <a class="hero-category"
+                                               {% if slider4.item.texts is not empty %}href="{{ slider4.item | itemURL }}"{% endif %}>
+                                                <img src="{{ slider4.url }}"
+                                                     alt="{{ slider4.item | itemName }}"
+                                                     class="img-fluid">
+                                                {% if slider4.item.texts is not empty %}
+                                                    <div class="carousel-caption">
+                                                        <h2><i class="fa fa-angle-double-right"
+                                                               aria-hidden="true"></i> {{ slider4.item | itemName }}
                                                         </h2>
                                                     </div>
                                                 {% endif %}
