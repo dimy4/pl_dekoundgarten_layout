@@ -5,7 +5,7 @@
             "label": "Config.homepageTab",
             "formFields": {
                 "homepage.sliderItemId1": {
-                    "type": "inputText",
+                    "type": "categoryPicker",
                     "required": false,
                     "label": "Config.homepageSliderItemId1Label",
                     "options": {}
@@ -17,7 +17,7 @@
                     "options": {}
                 },
                 "homepage.sliderItemId2": {
-                    "type": "inputText",
+                    "type": "categoryPicker",
                     "required": false,
                     "label": "Config.homepageSliderItemId2Label",
                     "options": {}
@@ -29,7 +29,7 @@
                     "options": {}
                 },
                 "homepage.sliderItemId3": {
-                    "type": "inputText",
+                    "type": "categoryPicker",
                     "required": false,
                     "label": "Config.homepageSliderItemId3Label",
                     "options": {}
@@ -41,7 +41,7 @@
                     "options": {}
                 },
                 "homepage.sliderItemId4": {
-                    "type": "inputText",
+                    "type": "categoryPicker",
                     "required": false,
                     "label": "Config.homepageSliderItemId4Label",
                     "options": {}
