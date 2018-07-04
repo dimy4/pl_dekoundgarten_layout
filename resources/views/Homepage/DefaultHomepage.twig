@@ -9,34 +9,36 @@
     {% set lang = services.sessionStorage.getLang() %}
 
     {% set slider1 = {
-    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {variationIds: [config("Dekoundgarten.homepage.sliderItemId1")]}).documents[0].data,
+    item: services.category.get(config("Dekoundgarten.homepage.sliderItemId1"), lang),
     url: config("Dekoundgarten.homepage.sliderImageUrl1") } %}
     {% set slider2 = {
-    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {variationIds: [config("Dekoundgarten.homepage.sliderItemId2")]}).documents[0].data,
+    item: services.category.get(config("Dekoundgarten.homepage.sliderItemId2"), lang),
     url: config("Dekoundgarten.homepage.sliderImageUrl2") } %}
     {% set slider3 = {
-    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {variationIds: [config("Dekoundgarten.homepage.sliderItemId3")]}).documents[0].data,
+    item: services.category.get(config("Dekoundgarten.homepage.sliderItemId3"), lang),
     url: config("Dekoundgarten.homepage.sliderImageUrl3") } %}
     {% set slider4 = {
-    item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {variationIds: [config("Dekoundgarten.homepage.sliderItemId4")]}).documents[0].data,
+    item: services.category.get(config("Dekoundgarten.homepage.sliderItemId4"), lang),
     url: config("Dekoundgarten.homepage.sliderImageUrl4") } %}
 
-    {% if slider1.url | trim is empty and slider1.item.texts is not empty %}
-        {% set slider1Image = slider1.item.images | itemImages | orderByKey('position') | first %}
-        {% set slider1 = slider1 | merge({url: slider1Image.url}) %}
+    {% if slider1.url | trim is empty and slider1.item.details[0].name is not empty %}
+        {% set slider1Image = slider1.item.details[0].imagePath %}
+        {% set slider1 = slider1 | merge({url: slider1Image}) %}
     {% endif %}
-    {% if slider2.url | trim is empty and slider2.item.texts is not empty %}
-        {% set slider2Image = slider2.item.images | itemImages | orderByKey('position') | first %}
-        {% set slider2 = slider2 | merge({url: slider2Image.url}) %}
+    {% if slider2.url | trim is empty and slider2.item.details[0].name is not empty %}
+        {% set slider2Image = slider2.item.details[0].imagePath %}
+        {% set slider2 = slider2 | merge({url: slider2Image}) %}
     {% endif %}
-    {% if slider3.url | trim is empty and slider3.item.texts is not empty %}
-        {% set slider3Image = slider3.item.images | itemImages | orderByKey('position') | first %}
-        {% set slider3 = slider3 | merge({url: slider3Image.url}) %}
+    {% if slider3.url | trim is empty and slider3.item.details[0].name is not empty %}
+        {% set slider3Image = slider3.item.details[0].imagePath %}
+        {% set slider3 = slider3 | merge({url: slider3Image}) %}
     {% endif %}
-    {% if slider4.url | trim is empty and slider4.item.texts is not empty %}
-        {% set slider4Image = slider3.item.images | itemImages | orderByKey('position') | first %}
-        {% set slider4 = slider4 | merge({url: slider4Image.url}) %}
+    {% if slider4.url | trim is empty and slider4.item.details[0].name is not empty %}
+        {% set slider4Image = slider4.item.details[0].imagePath %}
+        {% set slider4 = slider4 | merge({url: slider4Image}) %}
     {% endif %}
+    
+
 
     {% set heroExtra1 = {
     item: services.itemLoader.loadForTemplate('Ceres::Homepage.Homepage', itemLoaderPresets.items, {variationIds: [config("Dekoundgarten.homepage.heroExtraItemId1")]}).documents[0].data,
@@ -94,72 +96,68 @@
                                     {% if slider1.url | trim is not empty %}
                                         {% set slideCount = slideCount + 1 %}
                                         <div class="carousel-item active">
-                                            <a class="hero-category"
-                                               {% if slider1.item.texts is not empty %}href="{{ slider1.item | itemURL }}"{% endif %}>
-                                                <img src="{{ slider1.url }}"
-                                                     alt="{{ slider1.item | itemName }}"
+                                            <a class="hero-category" href="{{ services.category.getURL(slider1.item, lang) }}">
+                                                <img src="documents/{{ slider1.url.imagePath }}"
+                                                     {% if slider1.item.details[0].name is not empty %}alt="{{ slider1.item.details[0].name }}"{% endif %}
                                                      class="img-fluid">
-                                                {% if slider1.item.texts is not empty %}
+                                                {#% if slider1.item.texts is not empty %}
                                                     <div class="carousel-caption">
                                                         <h2><i class="fa fa-angle-double-right"
                                                                aria-hidden="true"></i> {{ slider1.item | itemName }}
                                                         </h2>
                                                     </div>
-                                                {% endif %}
+                                                {% endif %#}
                                             </a>
                                         </div>
                                     {% endif %}
                                     {% if slider2.url | trim is not empty %}
                                         {% set slideCount = slideCount + 1 %}
                                         <div class="carousel-item {% if slider1.url | trim is empty %}active{% endif %}">
-                                            <a class="hero-category"
-                                               {% if slider2.item.texts is not empty %}href="{{ slider2.item | itemURL }}"{% endif %}>
-                                                <img src="{{ slider2.url }}"
-                                                     alt="{{ slider2.item | itemName }}"
+                                            <a class="hero-category" {% if slider4.item.details[0].name is not empty %}href="{{ services.category.getURL(slider2.item, lang) }}"{% endif %}>
+                                                <img src="documents/{{ slider2.url.imagePath }}"
+                                                     {% if slider2.item.details[0].name is not empty %}alt="{{ slider2.item.details[0].name }}"{% endif %}
                                                      class="img-fluid">
-                                                {% if slider2.item.texts is not empty %}
+                                                {#% if slider2.item.texts is not empty %}
                                                     <div class="carousel-caption">
                                                         <h2><i class="fa fa-angle-double-right"
                                                                aria-hidden="true"></i> {{ slider2.item | itemName }}
                                                         </h2>
                                                     </div>
-                                                {% endif %}
+                                                {% endif %#}
                                             </a>
                                         </div>
                                     {% endif %}
                                     {% if slider3.url | trim is not empty %}
                                         {% set slideCount = slideCount +1 %}
                                         <div class="carousel-item {% if slider1.url | trim is empty and slider2.url | trim is empty %}active{% endif %}">
-                                            <a class="hero-category"
-                                               {% if slider3.item.texts is not empty %}href="{{ slider3.item | itemURL }}"{% endif %}>
-                                                <img src="{{ slider3.url }}"
-                                                     alt="{{ slider3.item | itemName }}"
+                                            <a class="hero-category" {% if slider4.item.details[0].name is not empty %}href="{{ services.category.getURL(slider3.item, lang) }}"{% endif %}>
+                                                <img src="documents/{{ slider3.url.imagePath }}"
+                                                     {% if slider3.item.details[0].name is not empty %}alt="{{ slider3.item.details[0].name }}"{% endif %}
                                                      class="img-fluid">
-                                                {% if slider3.item.texts is not empty %}
+                                                {#% if slider3.item.texts is not empty %}
                                                     <div class="carousel-caption">
                                                         <h2><i class="fa fa-angle-double-right"
                                                                aria-hidden="true"></i> {{ slider3.item | itemName }}
                                                         </h2>
                                                     </div>
-                                                {% endif %}
+                                                {% endif %#}
                                             </a>
                                         </div>
                                     {% endif %}
                                     {% if slider4.url | trim is not empty %}
                                         {% set slideCount = slideCount +1 %}
                                         <div class="carousel-item {% if slider1.url | trim is empty and slider2.url | trim is empty and slider3.url | trim is empty %}active{% endif %}">
-                                            <a class="hero-category"
-                                               {% if slider4.item.texts is not empty %}href="{{ slider4.item | itemURL }}"{% endif %}>
-                                                <img src="{{ slider4.url }}"
-                                                     alt="{{ slider4.item | itemName }}"
+                                            <a class="hero-category" {% if slider4.item.details[0].name is not empty %}href="{{ services.category.getURL(slider4.item, lang) }}"{% endif %}>
+                                                <img src="documents/{{ slider4.url.imagePath }}"
+                                                     {% if slider4.item.details[0].name is not empty %}alt="{{ slider4.item.details[0].name }}"{% endif %}
                                                      class="img-fluid">
-                                                {% if slider4.item.texts is not empty %}
+                                                {#% if slider4.item.texts is not empty %}
                                                     <div class="carousel-caption">
                                                         <h2><i class="fa fa-angle-double-right"
                                                                aria-hidden="true"></i> {{ slider4.item | itemName }}
                                                         </h2>
                                                     </div>
-                                                {% endif %}
+                                                {% endif %#}
                                             </a>
                                         </div>
                                     {% endif %}
