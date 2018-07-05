@@ -28,10 +28,6 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .top-bar .two-headers{
     background-color: #f7f7f7;
 }
-.top-bar .two-headers .container-max,
-.top-bar .navbar .container-max{
-    padding: 0;
-}
 .top-bar .controls-list > li a:not(.btn) {
     color: #292b2c;
 }
@@ -603,6 +599,13 @@ a:focus, a:hover{
     }
 }
 @media (min-width: 992px){
+    .top-bar .two-headers .container-max,
+    .top-bar .navbar .container-max{
+        padding: 0;
+    }
+    #searchBox{
+        display: none;
+    }
     .add-to-basket-container .add-to-wish-list{
         padding: 1rem 0;
         text-align: right;

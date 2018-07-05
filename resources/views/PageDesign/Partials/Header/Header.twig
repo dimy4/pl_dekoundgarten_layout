@@ -21,8 +21,8 @@
             <div class="two-headers">
                 <div class="container-max">
                     <div class="row preheader hidden-md-down">
-                        <div class="col-xs-6 text-left">{{ config("Dekoundgarten.header.slogan") }}</div>
-                        <div class="col-xs-6 text-right">
+                        <div class="col-xs-6 col-lg-4 text-left">{{ config("Dekoundgarten.header.slogan") }}</div>
+                        <div class="col-xs-6 col-lg-8 text-right">
                             <ul class="premenu">
                                 <li><user-login-handler template="#vue-user-login-handlerDG" :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler></li>
                                 <li><a href="#">Hilfe</a></li>
