@@ -39,6 +39,20 @@
                                 {% endif %}
 
                             {% endfor %}
+                            {% autoescape false %}
+                                <li><a href="{{ urls.cancellationRights }}">{{ trans("Ceres::Template.footerCancellationRight", {"hyphen": "&shy;"}) }}</a></li>
+                                {% if config("Ceres.footer.cancellation_use_pdf") == "true" %}
+                                    <li><a href="{{ config('Ceres.footer.cancellation_pdf_path') }}" target="_blank">{{ trans("Ceres::Template.footerCancellationForm", {"hyphen": "&shy;"}) }}</a></li>
+                                {% else %}
+                                    <li><a href="{{ urls.cancellationForm }}">{{ trans("Ceres::Template.footerCancellationForm", {"hyphen": "&shy;"}) }}</a></li>
+                                {% endif %}
+                                <li><a href="{{ urls.legalDisclosure }}">{{ trans("Ceres::Template.footerLegalDisclosure") }}</a></li>
+                                <li><a href="{{ urls.privacyPolicy }}">{{ trans("Ceres::Template.footerPrivacyPolicy", {"hyphen": "&shy;"}) }}</a></li>
+                                <li><a href="{{ urls.gtc }}">{{ trans("Ceres::Template.footerGtc") }}</a></li>
+                                {% if config("Ceres.contact.shop_mail") | length > 0 and config("Ceres.contact.shop_mail") != "your@email.com" %}
+                                    <li><a href="{{ urls.contact }}">{{ trans("Ceres::Template.footerContact") }}</a></li>
+                                {% endif %}
+                            {% endautoescape %}
                         </ul>
                         Fiedlers Deko & Garten folgen
                         <img class="bt-img" src="{{ plugin_path('Dekoundgarten') }}/images/footer1.png">
