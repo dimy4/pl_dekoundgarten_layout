@@ -555,6 +555,17 @@ a:focus, a:hover{
     line-height: 1;
 }
 
+.availability_5,
+.availability_6,
+.availability_7,
+.availability_8 {
+    background-color: #b51010;
+    padding: 3px 8px;
+    color: #fff;
+    margin-top: 5px;
+    display: inline-block;
+}
+
 @media (max-width: 543px) {
     .cmp-product-thumb{
         text-align: center;
