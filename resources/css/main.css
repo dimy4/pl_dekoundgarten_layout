@@ -566,6 +566,10 @@ a:focus, a:hover{
     display: inline-block;
 }
 
+#contact-map{
+    display:none;
+}
+
 @media (max-width: 543px) {
     .cmp-product-thumb{
         text-align: center;
