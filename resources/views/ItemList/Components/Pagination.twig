@@ -6,7 +6,7 @@
                 <!-- PREV LINK -->
                 <li class="page-item" :class="{'disabled': page <= 1}">
                     <a class="page-link prev" @click="setPage(page-1)">
-                        <i class="fa fa-sort-asc fa-rotate-270" aria-hidden="true"></i>Vorherige Seite
+                        <i class="fa fa-sort-asc fa-rotate-270" aria-hidden="true"></i><span>Vorherige Seite</span>
                     </a>
                 </li>
                 <!-- ./PREV LINK -->
@@ -56,7 +56,7 @@
                 <!-- NEXT LINK -->
                 <li class="page-item" :class="{'disabled': page >= pageMax}">
                     <a class="page-link next" @click="setPage(page + 1)">
-                        Nächste Seite<i class="fa fa-sort-asc fa-rotate-90" aria-hidden="true"></i>
+                        <span>Nächste Seite</span><i class="fa fa-sort-asc fa-rotate-90" aria-hidden="true"></i>
                     </a>
                 </li>
                 <!-- ./NEXT LINK -->

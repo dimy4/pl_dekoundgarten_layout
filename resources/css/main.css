@@ -62,6 +62,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
 #controlsList .control-languages{
     display: none;
 }
+.head-slogan{
+    color: #00983f;
+}
 
 .carousel-control{
     width: 10%;
@@ -135,6 +138,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .footer .bt-img{
     display: block;
     margin-top: 20px;
+    max-width: 100%;
 }
 .footer .list-unstyled li{
     position: relative;
@@ -573,6 +577,12 @@ a:focus, a:hover{
 @media (max-width: 543px) {
     .cmp-product-thumb{
         text-align: center;
+    }
+    .page-link.next span, .page-link.prev span{
+        display: none;
+    }
+    .page-link.next i, .page-link.prev i{
+        font-size: 1.3rem;
     }
 }
 @media (max-width: 991px) and (min-width: 768px){
