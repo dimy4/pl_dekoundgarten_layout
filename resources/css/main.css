@@ -558,6 +558,9 @@ a:focus, a:hover{
     max-width: 26px;
     line-height: 1;
 }
+.cmp-product-thumb .thumb-content{
+    width: calc(100% - 121px);
+}
 
 .availability_5,
 .availability_6,
