@@ -71,7 +71,7 @@
                                 </li>
                             {% endif %}
                             <li class="list-inline-item control-basket">
-                                <a href="/basket" class="toggle-basket-preview">
+                                <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
                                     {% if config("Ceres.header.basket_values") != "sum" %}
                                         <span class="badge-right" v-basket-item-quantity="$store.state.basket.data.itemQuantity">0</span>
                                     {% endif %}
@@ -82,6 +82,9 @@
                                         <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                                     {% endif %}
                                 </a>
+                                {% if config("Ceres.basket.preview_type") != "right" %}
+                                    <basket-preview template="#vue-basket-preview-hover" :show-net-prices="{{ showNetPrices | json_encode }}"></basket-preview>
+                                {% endif %}
                             </li>
                         </ul>
                     </div>
