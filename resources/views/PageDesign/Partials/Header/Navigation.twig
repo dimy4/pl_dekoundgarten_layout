@@ -33,6 +33,9 @@
                         <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                     {% endif %}
                 </a>
+                {% if config("Ceres.basket.preview_type") != "right" %}
+                    <basket-preview template="#vue-basket-preview-hover" :show-net-prices="{{ showNetPrices | json_encode }}"></basket-preview>
+                {% endif %}
                 <a href="{{ urls.wishList }}" class="merkzettel">
                     <img src="{{ plugin_path('Dekoundgarten') }}/images/merkzettel.png">
                     <span class="text">Merkzettel</span>
