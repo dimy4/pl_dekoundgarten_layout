@@ -1,3 +1,5 @@
+{% import "Ceres::Basket.Macros.AddToBasket" as AddToBasket %}
+
 {% set itemData = config("Ceres.item.data") | split(', ') %}
 {% set enabledRoutes = config("IO.routing.enabled_routes") | split(', ') %}
 {% set shippingCat = config("Ceres.global.shippingCostsCategoryId") %}
@@ -9,7 +11,7 @@
                 <div class="col-md-7 single-leftside">
                     <div class="row">
                         <div class="col-xs-12">
-                            <item-image-carousel image-url-accessor="url" template="#vue-item-image-carousel"></item-image-carousel>
+                            <slot name="ImageCarousel"></slot>
                         </div>
                     </div>
                 </div>
@@ -29,8 +31,8 @@
                     <hr class="hr-before-variation">
 
                     <!-- Variation -->
-                    <div class="row prod-row-with-title" v-if="variations.length > 0">
-                        <variation-select template="#vue-variation-select" :attributes="attributeNameMap" :variations="variations" :preselect="currentVariation.variation.id" @is-valid-change="isVariationSelected = $event"></variation-select>
+                    <div class="row" v-if="variations.length > 0">
+                        <variation-select template="#vue-variation-select" :attributes="attributeNameMap" :variation-units="variationUnits" :variations="variations" :preselect="currentVariation.variation.id" :unitPreselect="currentVariation.variation.unitCombinationId" @is-valid-change="isVariationSelected = $event"></variation-select>
                     </div>
                     <!-- /Variation -->
 
@@ -61,7 +63,7 @@
                                 <span :content="currentVariation.prices.default.currency"></span>
                             </span>
 
-                            <div class="base-price text-muted m-y-1" v-if="currentVariation.unit && !(currentVariation.unit.unitOfMeasurement === 'C62' && currentVariation.unit.content === 1)">
+                            <div class="base-price text-muted m-y-1" v-if="currentVariation.unit">
                                 <div>
                                     {{ trans("Ceres::Template.singleItemContent") }}
                                     <span>${ currentVariation.unit.content | numberFormat }</span>
@@ -83,14 +85,23 @@
                         <slot name="BeforeAddToBasket"></slot>
                         <add-to-basket
                                 template="#vue-add-to-basket"
-                                v-if="currentVariation.filter.isSalable"
-                                :item="$store.state.item.variation.documents[0].data"
+
+                                :variation-id="currentVariation.variation.id"
+                                :is-salable="!!currentVariation.filter && currentVariation.filter.isSalable && !currentVariation.filter.hasChildren"
+                                :interval-quantity="currentVariation.variation.intervalOrderQuantity || 1"
+                                :minimum-quantity="currentVariation.variation.minimumOrderQuantity"
+                                :maximum-quantity="!!currentVariation.variation.maximumOrderQuantity && currentVariation.variation.maximumOrderQuantity > 0 ? currentVariation.variation.maximumOrderQuantity : null"
+                                :order-properties="currentVariation.properties"
+                                :use-large-scale="false"
                                 :show-quantity="true"
+                                :item-url="currentVariation | itemURL"
+
+                                v-if="currentVariation.filter.isSalable"
                                 :missing-order-properties="variationMissingProperties"
                                 :is-variation-selected="isVariationSelected">
                                     {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
                                         <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
-                                            <add-to-wish-list template="#vue-add-to-wish-list" :variation-id="currentVariation.variation.id" :is-active="isInWishList"></add-to-wish-list>
+                                            <add-to-wish-list template="#vue-add-to-wish-list" :variation-id="currentVariation.variation.id"></add-to-wish-list>
                                         </div>
                                     {% endif %}
                                 </add-to-basket>
