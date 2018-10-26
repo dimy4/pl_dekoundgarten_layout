@@ -15,7 +15,7 @@
             <a data-toggle="modal" href="{% if services.template.isCurrentTemplate("tpl.login") %}javascript:void(0){% else %}#login{% endif %}" @click="unmarkInputFields()">
                 <span>{{ trans("Ceres::Template.login") }}</span>
             </a>
-            <a data-toggle="modal" href="#registration" @click="unmarkInputFields()" v-if="showRegistration">
+            <a data-toggle="modal" href="#registration" @click="unmarkInputFields()">
                 <span>{{ trans("Ceres::Template.loginRegister") }}</span>
             </a>
         </div>

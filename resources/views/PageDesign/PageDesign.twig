@@ -8,10 +8,6 @@
 {{ component( "Ceres::Basket.Components.AddItemToBasketOverlay" ) }}
 {{ component( "Ceres::PageDesign.Components.Popper" ) }}
 {{ component( "Dekoundgarten::Containers.Components.ContainerItemList" ) }}
-{{ component( "Ceres::Containers.Components.LastSeenItemList" ) }}
-{{ component( "Ceres::Newsletter.Components.NewsletterInput" ) }}
-{{ component( "Ceres::Category.Components.CategoryBreadcrumbs" ) }}
-{{ component( "Ceres::Customer.Components.ForgotPassword" ) }}
 
 {% set currencyFormat = config("Ceres.currency.format") %}
 
@@ -71,7 +67,10 @@
             {% endif %}
             {% if ceresConfig.basket.previewType == "right" %}
                 <div class="wrapper wrapper-right">
-                    <basket-preview :show-net-prices={{ showNetPrices | json_encode }}></basket-preview>
+                    <basket-preview
+                        template="#vue-basket-preview"
+                        :basket-data="{{ basket | json_encode() }}">
+                    </basket-preview>
                 </div>
             {% endif %}
 
@@ -129,10 +128,6 @@
                 <add-item-to-basket-overlay template="#vue-add-item-to-basket-overlay" :basket-add-information="{{ ceresConfig.basket.addItemToBasketConfirm | json_encode() }}"></add-item-to-basket-overlay>
                 <!-- ./BASKET MODAL -->
 
-                <!-- PASSWORD RESET MODAL -->
-                <forgot-password-modal></forgot-password-modal>
-                <!-- ./PASSWORD RESET MODAL -->
-
                 <!-- SHIPPINGCOSTS MODAL -->
                 <div id="shippingscosts-modal-wrapper">
                     <div class="modal fade" id="shippingscosts" tabindex="-1" role="dialog">
@@ -165,7 +160,6 @@
                 isCategoryView: {% if services.template.isCategory() == "1" %}true{% else %}false{% endif %},
                 isCheckoutView : {% if services.template.isCheckout() == "1" %}true{% else %}false{% endif %},
                 isSearch: {% if services.template.isSearch() == "1" %}true{% else %}false{% endif %},
-                templateEvent: "{{templateEvent}}",
                 language: "{{ lang }}",
                 decimalSeparator: "{{ config("IO.format.separator_decimal") }}",
                 urlTrailingSlash: {{ urls.appendTrailingSlash | json_encode }}
@@ -195,11 +189,16 @@
         <script>
             var rootElement = document.getElementById("vue-app");
             var errorElement = document.getElementById("vue-error");
+
+            Vue.options.delimiters = ['${', '}'];
+
             var vueEventHub = new Vue();
+
             var vueApp = new Vue({
                 store: window.ceresStore
             });
             vueApp.$mount( rootElement.cloneNode(true) );
+
             if ( vueApp.$el.id !== "vue-app")
             {
                 rootElement.parentNode.removeChild(rootElement);
@@ -210,76 +209,8 @@
                 document.body.replaceChild( vueApp.$el, rootElement );
                 errorElement.parentNode.removeChild(errorElement);
             }
+
             (function($) {
-                setTimeout(function()
-                {
-                    var header = document.getElementById('page-header');
-                    var unfixedElements = [];
-                    if ( !!header )
-                    {
-                        function calculateBodyOffset()
-                        {
-                            if ( header.classList.contains('pos-f-t'))
-                            {
-                                var bodyOffset = 0;
-                                var children = header.children;
-                                for( var i = 0; i < children.length; i++ )
-                                {
-                                    bodyOffset += children[i].getBoundingClientRect().height;
-                                }
-                                document.getElementById('vue-app').style.marginTop = bodyOffset + 'px';
-                                document.getElementById('vue-app').style.minHeight = "calc(100vh - " + bodyOffset + "px)";
-                            }
-                        }
-                        function getUnfixedElements()
-                        {
-                            unfixedElements = [];
-                            $('#page-header .unfixed').each(function(i, elem)
-                            {
-                                var rect = elem.getBoundingClientRect();
-                                unfixedElements.push({
-                                    element: elem,
-                                    top: rect.top,
-                                    height: rect.height
-                                });
-                            });
-                            scrollUnfixedElements();
-                        }
-                        function scrollUnfixedElements()
-                        {
-                            var scrollTop = window.scrollY;
-                            unfixedElements.forEach(function(unfixed)
-                            {
-                                var spacingTop = unfixed.height - scrollTop;
-                                if ( !!unfixed.element.previousElementSibling )
-                                {
-                                    unfixed.element.previousElementSibling.style.marginBottom = (spacingTop >= 0 ? spacingTop : 0) + 'px'
-                                }
-                                else
-                                {
-                                    unfixed.element.parentElement.style.paddingTop = (spacingTop >= 0 ? spacingTop : 0) + 'px';
-                                }
-                                unfixed.element.style.position = 'absolute';
-                                unfixed.element.style.top = unfixed.top - scrollTop + 'px';
-                            });
-                        }
-                        calculateBodyOffset();
-                        getUnfixedElements();
-                        $(window).scroll(scrollUnfixedElements);
-                        $(document).on('shopbuilder.after.ready', function()
-                        {
-                            unfixedElements.forEach(function(unfixed)
-                            {
-                                $(unfixed.element).attr('css', '');
-                            });
-                            scrollUnfixedElements = function() {};
-                        });
-                        $(document).on('shopbuilder.before.viewUpdate shopbuilder.after.viewUpdate', function()
-                        {
-                            calculateBodyOffset();
-                        });
-                    }
-                }, 500);
                 $(document).on('shopbuilder.after.drop shopbuilder.after.widget_replace', function(event, eventData, widgetElement)
                 {
                     var compiled = Vue.compile(widgetElement[0].outerHTML );
@@ -297,7 +228,7 @@
                 });
             })(jQuery);
         </script>
-        
-        {{ get_shop_builder_scripts( "latest", ceresConfig.log.performanceLevel == 'live') }}
+
+        {{ get_shop_builder_scripts() }}
     </body>
 </html>

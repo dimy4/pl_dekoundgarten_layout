@@ -6,9 +6,6 @@
 {% set numberOfFeatures = config('Ceres.footer.number_of_features') %}
 {% set topButtonPosition = config('Ceres.footer.to_top_button') %}
 
-{% set footerContainer = LayoutContainer.show("Ceres::Footer") | trim %}
-{% if footerContainer is empty %}
-
 <div class="footer">
 
     {#
@@ -114,16 +111,3 @@
         </div>
     </div>
 </div>
-
-</div>
-{% else %}
-    <div class="footer">
-        <div class="container-max footer-content">
-            <div class="row">
-                <div class="col clearfix">
-                    {{ footerContainer | raw }}
-                </div>
-            </div>
-        </div>
-    </div>
-{% endif %}

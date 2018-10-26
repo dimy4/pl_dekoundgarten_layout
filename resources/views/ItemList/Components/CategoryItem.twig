@@ -16,7 +16,7 @@
 <script type="x/template" id="vue-category-item">
     <article class="cmp cmp-product-thumb cmp-product-thumb--grid">
         <div class="thumb-inner">
-            <add-to-wish-list template="#vue-add-to-wish-list-cat" :variation-id="itemData.variation.id"></add-to-wish-list>
+            <add-to-wish-list template="#vue-add-to-wish-list-cat" :variation-id="itemData.variation.id" :is-active="false"></add-to-wish-list>
 
             <div class="thumb-background"></div>
 
@@ -26,7 +26,6 @@
                         <category-image-carousel template="#vue-category-image-carousel"
                                                  :image-urls-data="itemData.images | itemImages(imageUrlAccessor)"
                                                  :alt-text="itemData | itemName"
-                                                 :title-text="itemData | itemName"
                                                  :item-url="itemData | itemURL"
                                                  :show-dots="{{ ceresConfig.item.categoryShowDots | json_encode }}"
                                                  :show-nav="{{ ceresConfig.item.categoryShowNav | json_encode }}"
@@ -38,8 +37,7 @@
             </div>
 
             <!-- STORE SPECIALS -->
-            <item-store-special v-if="storeSpecial"
-                                :store-special="storeSpecial"
+            <item-store-special v-if="storeSpecial" :store-special="storeSpecial"
                                 :recommended-retail-price="itemData.prices.rrp"
                                 :variation-retail-price="itemData.prices.default"
                                 :decimal-count="decimalCount"></item-store-special>
