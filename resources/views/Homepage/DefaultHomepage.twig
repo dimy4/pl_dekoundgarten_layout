@@ -1,4 +1,5 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+{% import "Ceres::PageDesign.Macros.ItemName" as ItemName %}
 
 {% set overrideHomepageContainer = "" %}
 {% for content in container("Ceres::Homepage") if content.plugin != "Plenty" %}
@@ -97,15 +98,9 @@
                                         <div class="carousel-item active">
                                             <a class="hero-category" href="{{ services.category.getURL(slider1.item, lang) }}">
                                                 <img src="{{ slider1.url }}"
-                                                     {% if slider1.item.details[0].name is not empty %}alt="{{ slider1.item.details[0].name }}"{% endif %}
+                                                     alt="{{ ItemName.get(slider1.item | itemName, slider1.item.variation.bundleType) }}"
+                                                     title="{{ ItemName.get(slider1.item | itemName, slider1.item.variation.bundleType) }}"
                                                      class="img-fluid">
-                                                {#% if slider1.item.texts is not empty %}
-                                                    <div class="carousel-caption">
-                                                        <h2><i class="fa fa-angle-double-right"
-                                                               aria-hidden="true"></i> {{ slider1.item | itemName }}
-                                                        </h2>
-                                                    </div>
-                                                {% endif %#}
                                             </a>
                                         </div>
                                     {% endif %}
@@ -114,15 +109,9 @@
                                         <div class="carousel-item {% if slider1.url | trim is empty %}active{% endif %}">
                                             <a class="hero-category" {% if slider4.item.details[0].name is not empty %}href="{{ services.category.getURL(slider2.item, lang) }}"{% endif %}>
                                                 <img src="{{ slider2.url }}"
-                                                     {% if slider2.item.details[0].name is not empty %}alt="{{ slider2.item.details[0].name }}"{% endif %}
+                                                     alt="{{ ItemName.get(slider2.item | itemName, slider2.item.variation.bundleType) }}"
+                                                     title="{{ ItemName.get(slider2.item | itemName, slider2.item.variation.bundleType) }}"
                                                      class="img-fluid">
-                                                {#% if slider2.item.texts is not empty %}
-                                                    <div class="carousel-caption">
-                                                        <h2><i class="fa fa-angle-double-right"
-                                                               aria-hidden="true"></i> {{ slider2.item | itemName }}
-                                                        </h2>
-                                                    </div>
-                                                {% endif %#}
                                             </a>
                                         </div>
                                     {% endif %}
@@ -131,15 +120,9 @@
                                         <div class="carousel-item {% if slider1.url | trim is empty and slider2.url | trim is empty %}active{% endif %}">
                                             <a class="hero-category" {% if slider4.item.details[0].name is not empty %}href="{{ services.category.getURL(slider3.item, lang) }}"{% endif %}>
                                                 <img src="{{ slider3.url }}"
-                                                     {% if slider3.item.details[0].name is not empty %}alt="{{ slider3.item.details[0].name }}"{% endif %}
+                                                     alt="{{ ItemName.get(slider3.item | itemName, slider3.item.variation.bundleType) }}"
+                                                     title="{{ ItemName.get(slider3.item | itemName, slider3.item.variation.bundleType) }}"
                                                      class="img-fluid">
-                                                {#% if slider3.item.texts is not empty %}
-                                                    <div class="carousel-caption">
-                                                        <h2><i class="fa fa-angle-double-right"
-                                                               aria-hidden="true"></i> {{ slider3.item | itemName }}
-                                                        </h2>
-                                                    </div>
-                                                {% endif %#}
                                             </a>
                                         </div>
                                     {% endif %}
@@ -148,15 +131,9 @@
                                         <div class="carousel-item {% if slider1.url | trim is empty and slider2.url | trim is empty and slider3.url | trim is empty %}active{% endif %}">
                                             <a class="hero-category" {% if slider4.item.details[0].name is not empty %}href="{{ services.category.getURL(slider4.item, lang) }}"{% endif %}>
                                                 <img src="{{ slider4.url }}"
-                                                     {% if slider4.item.details[0].name is not empty %}alt="{{ slider4.item.details[0].name }}"{% endif %}
+                                                     alt="{{ ItemName.get(slider4.item | itemName, slider4.item.variation.bundleType) }}"
+                                                     title="{{ ItemName.get(slider4.item | itemName, slider4.item.variation.bundleType) }}"
                                                      class="img-fluid">
-                                                {#% if slider4.item.texts is not empty %}
-                                                    <div class="carousel-caption">
-                                                        <h2><i class="fa fa-angle-double-right"
-                                                               aria-hidden="true"></i> {{ slider4.item | itemName }}
-                                                        </h2>
-                                                    </div>
-                                                {% endif %#}
                                             </a>
                                         </div>
                                     {% endif %}
@@ -199,13 +176,14 @@
                             {% if heroExtra1.url | trim is not empty %}
                                 <a class="hero-category"
                                    {% if heroExtra1.item.texts is not empty %}href="{{ heroExtra1.item | itemURL }}"{% endif %}>
-                                    <img src="{{ heroExtra1.url }}"
-                                         alt="{{ heroExtra1.item | itemName }}">
+                                     <img src="{{ heroExtra1.url }}"
+                                         alt="{{ ItemName.get(heroExtra1.item | itemName, heroExtra1.item.variation.bundleType) }}"
+                                         title="{{ ItemName.get(heroExtra1.item | itemName, heroExtra1.item.variation.bundleType) }}">
                                     {% if heroExtra1.item.texts is not empty %}
                                         <div class="hero-category-inner">
                                             <h2 class="hero-category-headline">
                                                 <i class="fa fa-angle-double-right"
-                                                   aria-hidden="true"></i> {{ heroExtra1.item | itemName }}
+                                                   aria-hidden="true"></i> {{ ItemName.get(heroExtra1.item | itemName, heroExtra2.item.variation.bundleType) }}
                                             </h2>
                                         </div>
                                     {% endif %}
@@ -220,12 +198,13 @@
                                 <a class="hero-category"
                                    {% if heroExtra2.item.texts is not empty %}href="{{ heroExtra2.item | itemURL }}"{% endif %}>
                                     <img src="{{ heroExtra2.url }}"
-                                         alt="{{ heroExtra2.item | itemName }}">
+                                         alt="{{ ItemName.get(heroExtra2.item | itemName, heroExtra2.item.variation.bundleType) }}"
+                                         title="{{ ItemName.get(heroExtra2.item | itemName, heroExtra2.item.variation.bundleType) }}">
                                     {% if heroExtra2.item.texts is not empty %}
                                         <div class="hero-category-inner">
                                             <h2 class="hero-category-headline">
                                                 <i class="fa fa-angle-double-right"
-                                                   aria-hidden="true"></i> {{ heroExtra2.item | itemName }}
+                                                   aria-hidden="true"></i> {{ ItemName.get(heroExtra2.item | itemName, heroExtra2.item.variation.bundleType) }}
                                             </h2>
                                         </div>
                                     {% endif %}
@@ -252,7 +231,8 @@
                                            href="{{ services.category.getURL(category1, lang) }}">
                                             {% if category1.details[0].imagePath %}
                                                 <img src="documents/{{ category1.details[0].imagePath }}"
-                                                     alt="{{ category1.details[0].name }}">
+                                                     alt="{{ category1.details[0].name }}"
+                                                     title="{{ category1.details[0].name }}">
                                             {% endif %}
                                             <div class="featured-category-inner">
                                                 <h2 class="featured-category-headline">{{ category1.details[0].name }}</h2>
@@ -275,7 +255,8 @@
                                            href="{{ services.category.getURL(category2, lang) }}">
                                             {% if category2.details[0].imagePath %}
                                                 <img src="documents/{{ category2.details[0].imagePath }}"
-                                                     alt="{{ category2.details[0].name }}">
+                                                     alt="{{ category2.details[0].name }}"
+                                                     title="{{ category2.details[0].name }}">
                                             {% endif %}
                                             <div class="featured-category-inner">
                                                 <h2 class="featured-category-headline">{{ category2.details[0].name }}</h2>
@@ -305,7 +286,8 @@
                                            href="{{ services.category.getURL(category4, lang) }}">
                                             {% if category4.details[0].imagePath %}
                                                 <img src="/documents/{{ category4.details[0].imagePath }}"
-                                                     alt="{{ category4.details[0].name }}">
+                                                     alt="{{ category4.details[0].name }}"
+                                                     title="{{ category4.details[0].name }}">
                                             {% endif %}
                                             <div class="featured-category-inner">
                                                 <h2 class="featured-category-headline">{{ category4.details[0].name }}</h2>
@@ -328,7 +310,8 @@
                                            href="{{ services.category.getURL(category5, lang) }}">
                                             {% if category5.details[0].imagePath %}
                                                 <img src="/documents/{{ category5.details[0].imagePath }}"
-                                                     alt="{{ category5.details[0].name }}">
+                                                     alt="{{ category5.details[0].name }}"
+                                                     title="{{ category5.details[0].name }}">
                                             {% endif %}
                                             <div class="featured-category-inner">
                                                 <h2 class="featured-category-headline">{{ category5.details[0].name }}</h2>
