@@ -254,12 +254,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
     font-size: 1.7rem;
     font-weight: 600;
 }
-.widget-item-list .widget-caption a
+.widget-item-list .widget-caption a,
 .section-header a.section-link-all {
     color: #292b2c;
     font-weight: 600;
 }
-.widget-item-list .widget-caption a i
+.widget-item-list .widget-caption a i,
 .section-header a.section-link-all i{
     display: none;
 }
