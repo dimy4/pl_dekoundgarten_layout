@@ -107,6 +107,21 @@ body, body > #vue-app, body > #vue-error, .page-content{
 #carousel-example-generic .icon-next{
     background-image: url(../images/next.png);
 }
+.widget-image-box.widget-primary .widget-caption,
+.widget-image-box.widget-primary a[href].widget-inner:hover .widget-caption{
+    padding: 0 !important;
+    right: auto !important;
+    background: rgba(255, 255, 255, .8);
+    color: #292b2c;
+    text-transform: uppercase;
+}
+.widget-image-box > .widget-inner .widget-caption h2{
+    padding: 1rem 0.75rem;
+    font-size: 1.2rem;
+}
+.widget-image-box > .widget-inner .widget-caption h2 i{
+    display: none;
+}
 .featured-category .featured-category-inner{
     padding: 0;
 }
@@ -225,22 +240,26 @@ body, body > #vue-app, body > #vue-error, .page-content{
     color: #292b2c;
 }
 
+.widget-item-list.widget-primary .widget-caption,
 .section-header{
     padding: 2rem 1.5rem 1rem;
     background: unset;
     border-top: 1px solid #dedede;
     color: #292b2c;
 }
+.widget-item-list .widget-caption h2,
 .section-header h1, .section-header h2, .section-header h3, .section-header h4, .section-header h5, .section-header h6 {
     color: #292b2c;
     text-transform: none;
     font-size: 1.7rem;
     font-weight: 600;
 }
+.widget-item-list .widget-caption a
 .section-header a.section-link-all {
     color: #292b2c;
     font-weight: 600;
 }
+.widget-item-list .widget-caption a i
 .section-header a.section-link-all i{
     display: none;
 }
