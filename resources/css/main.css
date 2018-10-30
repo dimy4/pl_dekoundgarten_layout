@@ -70,7 +70,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
     width: 10%;
     opacity: 0.7;
 }
-.owl-carousel .carousel-control{
+.owl-carousel .carousel-control,
+.widget-image-carousel .widget-inner .carousel-indicators{
     display: none;
 }
 .owl-carousel:hover .carousel-control{
@@ -87,18 +88,22 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .cmp-hero .hero-main .carousel .carousel-indicators{
     display: none;
 }
+.widget-image-carousel .widget-inner .carousel-control .fa,
 #carousel-example-generic .icon-prev,
 #carousel-example-generic .icon-next{
     width: 66px;
     height: 66px;
 }
+.widget-image-carousel .widget-inner .carousel-control .fa:before,
 #carousel-example-generic .icon-prev:before,
 #carousel-example-generic .icon-next:before{
     display: none;
 }
+.widget-image-carousel .widget-inner .carousel-control .fa-chevron-left,
 #carousel-example-generic .icon-prev{
     background-image: url(../images/prev.png);
 }
+.widget-image-carousel .widget-inner .carousel-control .fa-chevron-right,
 #carousel-example-generic .icon-next{
     background-image: url(../images/next.png);
 }
