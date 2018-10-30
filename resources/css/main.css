@@ -70,6 +70,9 @@ body, body > #vue-app, body > #vue-error, .page-content{
     width: 10%;
     opacity: 0.7;
 }
+.widget-image-carousel.widget-proportional{
+    padding-bottom: 38.33333%;
+}
 .owl-carousel .carousel-control,
 .widget-image-carousel .widget-inner .carousel-indicators{
     display: none;
