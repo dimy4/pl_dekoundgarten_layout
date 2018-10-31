@@ -119,17 +119,6 @@
                 </div>
                 {{ ItemName.get(item.data | itemName, item.data.variation.bundleType) }}
             </a>
-
-            {% if tags > 0 %}
-                <div class="m-t-1 tag-list">
-                    {% for tag in tags %}
-                        <span class="tag bg-black">
-                            {{ tag.names.name }}
-                        </span>
-                    {% endfor %}
-                </div>
-            {% endif %}
-
         </div>
         <!-- ./ITEM DETAILS  -->
     </div>
