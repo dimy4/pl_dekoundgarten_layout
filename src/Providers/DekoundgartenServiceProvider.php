@@ -5,6 +5,7 @@ namespace Dekoundgarten\Providers;
 use Ceres\Caching\NavigationCacheSettings;
 use Ceres\Caching\SideNavigationCacheSettings;
 use IO\Services\ContentCaching\Services\Container;
+use IO\Services\ItemSearch\Helper\ResultFieldTemplate;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\Templates\Twig;
