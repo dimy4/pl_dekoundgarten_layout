@@ -71,7 +71,10 @@ class DekoundgartenServiceProvider extends ServiceProvider
         }, self::PRIORITY);
 
         $dispatcher->listen('IO.ResultFields.*', function(ResultFieldTemplate $templateContainer) {
-            $templateContainer->setTemplates([ ResultFieldTemplate::TEMPLATE_LIST_ITEM => 'Dekoundgarten::ResultFields.ListItem' ]);
+            $templateContainer->setTemplates([
+                ResultFieldTemplate::TEMPLATE_LIST_ITEM => 'Dekoundgarten::ResultFields.ListItem'
+                ResultFieldTemplate::TEMPLATE_SINGLE_ITEM   => 'Dekoundgarten::ResultFields.SingleItem',
+            ]);
         }, self::PRIORITY);
     }
 }
