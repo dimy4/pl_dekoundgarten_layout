@@ -65,13 +65,18 @@
                                 <span :content="currentVariation.prices.default.currency"></span>
                             </span>
 
-                            <div class="base-price text-muted m-y-1" v-if="currentVariation.variation.mayShowUnitPrice">{# currentVariation.unit #}
+                            <div class="base-price text-muted m-y-1">{# currentVariation.unit #}
                                 {# <div>
                                     {{ trans("Ceres::Template.singleItemContent") }}
                                     <span>${ currentVariation.unit.content | numberFormat }</span>
                                     <span>${ currentVariation.unit.names.name }</span>
                                     {{ trans("Dekoundgarten::Template.singleItemContent2") }}
                                 </div> #}
+                                <div>
+                                    {{ trans("Ceres::Template.singleStockNetBefore") }}
+                                    <span>${ currentVariation.stock.net }</span>
+                                    {{ trans("Ceres::Template.singleStockNetAfter") }}
+                                </div>
                                 <div v-if="currentVariation.variation.mayShowUnitPrice">
                                     {{ trans("Ceres::Template.singleItemUnitPrice") }}
                                     <span class="base-price-value">
