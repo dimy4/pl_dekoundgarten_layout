@@ -718,3 +718,9 @@ a:focus, a:hover{
         padding: 0 10px;
     }
 }
+
+@media (min-width: 768px){
+    .widget-grid-1-1-1 > .widget-inner .widget-proportional {
+        padding-bottom: 100%;
+    }
+}
