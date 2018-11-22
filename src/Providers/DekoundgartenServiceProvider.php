@@ -70,12 +70,6 @@ class DekoundgartenServiceProvider extends ServiceProvider
             return false;
         }, self::PRIORITY);
 
-        $dispatcher->listen('IO.tpl.checkout', function (TemplateContainer $container)
-        {
-            $container->setTemplate('Dekoundgarten::Checkout.CheckoutView');
-            return false;
-        }, self::PRIORITY);
-
         $dispatcher->listen('IO.ResultFields.*', function(ResultFieldTemplate $templateContainer) {
             $templateContainer->setTemplates([
                 ResultFieldTemplate::TEMPLATE_LIST_ITEM => 'Dekoundgarten::ResultFields.ListItem',
