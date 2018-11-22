@@ -604,6 +604,12 @@ a:focus, a:hover{
     display:none;
 }
 
+/* Checkout */
+.before-shipping-method-select{
+    color: #00983f;
+    font-weight: 700;
+}
+
 @media (max-width: 543px) {
     .cmp-product-thumb{
         text-align: center;
