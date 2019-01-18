@@ -18,6 +18,9 @@
 
     {% set shippingCat = config("Ceres.global.shippingCostsCategoryId") %}
 
+    {% set categoryDescriptionTop = ceresConfig.item.showCategoryDescriptionTop %}
+    {% set categoryDescriptionBottom = ceresConfig.item.showCategoryDescriptionBottom %}
+
     <div class="categoriegrid page-content container-max">
 
         <div class="list-controls">
@@ -26,6 +29,12 @@
                     {% if not ceresConfig.item.showCategoryImage %}
                     <div class="col-xs-12 col-sm-6">
                         <h1 class="h2 category-title">{{ category.details[0].name }}</h1>
+                        {% if categoryDescriptionTop == "description1" or categoryDescriptionTop == "both" %}
+                            <div class="category-description m-b-1" data-category-description="1">{{ category.details[0].description | raw }}</div>
+                        {% endif %}
+                        {% if categoryDescriptionTop == "description2" or categoryDescriptionTop == "both" %}
+                            <div class="category-description m-b-1" data-category-description="2">{{ category.details[0].description2 | raw }}</div>
+                        {% endif %}
                     </div>
                     {% endif %}
                     <div class="col-xs-12 {% if not ceresConfig.item.showCategoryImage %}col-sm-6{% endif %} text-xs-right">
@@ -108,12 +117,15 @@
             </div>
         {% endif %}
 
-        {% if not ceresConfig.item.showCategoryImage %}
+        {% if categoryDescriptionBottom == "description1" or categoryDescriptionBottom == "description2" or categoryDescriptionBottom == "both" %}
             <div class="row m-b-3">
                 <div class="col-xs-12">
-                    {% if ceresConfig.item.showCategoryDescription %}
-                        <div id="category-description-container" class="category-description m-b-1">{{ category.details[0].description | raw }}</div>
-                    {% endif %}
+                {% if categoryDescriptionBottom == "description1" or categoryDescriptionBottom == "both" %}
+                    <div class="category-description m-b-1" data-category-description="1">{{ category.details[0].description | raw }}</div>
+                {% endif %}
+                {% if categoryDescriptionBottom == "description2" or categoryDescriptionBottom == "both" %}
+                    <div class="category-description m-b-1" data-category-description="2">{{ category.details[0].description2 | raw }}</div>
+                {% endif %}
                 </div>
             </div>
         {% endif %}

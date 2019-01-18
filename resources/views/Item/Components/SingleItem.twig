@@ -80,7 +80,7 @@
                                 <div v-if="currentVariation.variation.mayShowUnitPrice">
                                     {{ trans("Ceres::Template.singleItemUnitPrice") }}
                                     <span class="base-price-value">
-                                        ${ variationGraduatedPrice.basePrice }
+                                        ${ variationGraduatedPrice.basePrice | specialOffer(currentVariation.prices, "basePrice") }
                                     </span>
                                 </div>
                             </div>
@@ -94,7 +94,8 @@
                         <add-to-basket
                             template="#vue-add-to-basket"
                             :variation-id="currentVariation.variation.id"
-                            :is-salable="!!currentVariation.filter && currentVariation.filter.isSalable && !currentVariation.filter.hasChildren"
+                            :is-salable="!!currentVariation.filter && currentVariation.filter.isSalable"
+                            :has-children="!!currentVariation.filter && currentVariation.filter.hasActiveChildren"
                             :interval-quantity="currentVariation.variation.intervalOrderQuantity || 1"
                             :minimum-quantity="currentVariation.variation.minimumOrderQuantity"
                             :maximum-quantity="!!currentVariation.variation.maximumOrderQuantity && currentVariation.variation.maximumOrderQuantity > 0 ? currentVariation.variation.maximumOrderQuantity : null"
@@ -102,9 +103,8 @@
                             :use-large-scale="false"
                             :show-quantity="true"
                             :item-url="currentVariation | itemURL"
-                            v-if="currentVariation.filter.isSalable"
                             :missing-order-properties="variationMissingProperties"
-                            :is-variation-selected="isVariationSelected">
+                            :is-variation-selected="isVariationSelected && currentVariation.filter.isSalable">
                                 {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
                                     <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
                                         <add-to-wish-list template="#vue-add-to-wish-list" :variation-id="currentVariation.variation.id"></add-to-wish-list>

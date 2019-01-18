@@ -66,6 +66,7 @@
 
     "filter.isSalable",
     "filter.hasManufacturer",
+    "filter.hasActiveChildren",
 
     "stock.net"
 ]
