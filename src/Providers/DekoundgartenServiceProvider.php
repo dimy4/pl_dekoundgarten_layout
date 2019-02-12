@@ -10,6 +10,7 @@ use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\Templates\Twig;
 use IO\Helper\TemplateContainer;
+use IO\Helper\ResourceContainer;
 use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
 
@@ -29,6 +30,10 @@ class DekoundgartenServiceProvider extends ServiceProvider
 
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
+        $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
+            $container->addStyleTemplate('Dekoundgarten::Stylesheet');
+        }, self::PRIORITY);
+
         $dispatcher->listen('IO.init.templates', function (Partial $partial)
         {
             pluginApp(Container::class)->register('Dekoundgarten::PageDesign.Partials.Header.NavigationList.twig', NavigationCacheSettings::class);

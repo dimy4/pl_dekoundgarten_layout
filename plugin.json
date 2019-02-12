@@ -19,11 +19,6 @@
     "dataProviders"     :
     [
         {
-            "key"           :"Dekoundgarten\\Containers\\DekoundgartenContainer",
-            "name"          :"Stylesheet",
-            "description"   :"Add changes to the CSS file"
-        },
-        {
             "key"           :"Dekoundgarten\\Containers\\CheckoutBeforeShippingProfileListContainer",
             "name"          :"Checkout BeforeShippingProfileList",
             "description"   :"Text before shipping select"
