@@ -8,8 +8,8 @@
 <nav class="navbar{% if useMegaMenu %} megamenu{%endif%}">
       <div class="container-max">
         <div class="row equal">
-             <div class="col-xs-8 col-sm-6 col-md-3">
-                 <a class="navbar-brand pull-lg-left" href="{{ homepageURL }}">
+             <div class="col-8 col-sm-6 col-md-3">
+                 <a class="navbar-brand float-lg-left" href="{{ homepageURL }}">
                     {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}
                         <img alt="{{ companyName }}" src="{{ companyLogo }}" class="img-fluid" crossorigin="anonymous" />
                     {% else %}
@@ -31,7 +31,7 @@
                     <span class="text">Merkzettel</span>
                 </a>
             </div>
-            <div class="col-xs-4 col-sm-6 col-md-9 hidden-lg-up">
+            <div class="col-4 col-sm-6 col-md-9 d-lg-none">
                  <button id="btnMainMenuToggler" v-open-mobile-navigation class="navbar-toggler" type="button">
                      &#9776;
                  </button>
@@ -45,7 +45,6 @@
                     <li class="btnClose"></li>
                 </ul>
                 {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
-                    {# includeCached('Ceres::PageDesign.Partials.Header.NavigationList.twig') #}
                     {% include "Dekoundgarten::PageDesign.Partials.Header.NavigationList" %}
                 {% endif %}
             </div>

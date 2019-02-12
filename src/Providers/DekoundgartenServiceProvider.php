@@ -46,12 +46,6 @@ class DekoundgartenServiceProvider extends ServiceProvider
             return false;
         }, self::PRIORITY);
 
-        $dispatcher->listen('IO.tpl.home', function (TemplateContainer $container)
-        {
-            $container->setTemplate('Dekoundgarten::Homepage.Homepage');
-            return false;
-        }, self::PRIORITY);
-
         $dispatcher->listen('IO.tpl.item', function (TemplateContainer $container)
         {
             $container->setTemplate('Dekoundgarten::Item.SingleItemWrapper');
@@ -73,7 +67,7 @@ class DekoundgartenServiceProvider extends ServiceProvider
         $dispatcher->listen('IO.ResultFields.*', function(ResultFieldTemplate $templateContainer) {
             $templateContainer->setTemplates([
                 ResultFieldTemplate::TEMPLATE_LIST_ITEM => 'Dekoundgarten::ResultFields.ListItem',
-                ResultFieldTemplate::TEMPLATE_SINGLE_ITEM   => 'Dekoundgarten::ResultFields.SingleItem',
+                ResultFieldTemplate::TEMPLATE_SINGLE_ITEM => 'Dekoundgarten::ResultFields.SingleItem',
             ]);
         }, self::PRIORITY);
     }

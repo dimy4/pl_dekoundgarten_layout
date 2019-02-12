@@ -1,79 +1,75 @@
-{% if pageMax > 1 %}
-    <nav class="cmp cmp-paginator row">
-        <div class="text-xs-center col-xs-12 col-lg-9 push-lg-3">
-            <ul class="pagination m-y-0">
+{% set canonicalURL = services.url.getCanonicalURL() %}
+{% set prevPage = currentPage - 1 <= 1 ? null : currentPage - 1 %}
+{% set beforePrevPage = currentPage - 2 <= 1 ? null : currentPage - 2 %}
 
-                <!-- PREV LINK -->
-                <li class="page-item{% if page == 1 %} disabled{% endif %}">
-                    <a class="page-link prev" href="?{{ query | merge({'page' : page-1 }) | url_encode }}">
-                        <i class="fa fa-sort-asc fa-rotate-270" aria-hidden="true"></i><span>Vorherige Seite</span>
-                    </a>
-                </li>
-                <!-- ./PREV LINK -->
+<nav class="cmp cmp-paginator row text-center">
+    {% if pageMax > 1 %}
+        <ul class="pagination col-12 col-lg-9 push-lg-3 m-y-0">
 
-                <!-- FIRST PAGE LINK -->
-                {% if page > 2 and config('Ceres.pagination.showFirstPage') == "true" %}
-                    <li class="page-item">
-                        <a class="page-link"
-                        href="?{{ query | merge({'page' : 1 }) | url_encode }}">1</a>
-                    </li>
-                    <li class="page-item page-link">...</li>
-                {% endif %}
-                <!-- ./FIRST PAGE LINK -->
+        <!-- PREV LINK -->
+        <li class="page-item{% if currentPage <= 1 %} disabled{% endif %}">
+            <a class="page-link prev"{% if currentPage > 1 %} href="{{ canonicalURL ~ queryString({ 'page': prevPage }) }}"{% endif %}>
+                <i class="fa fa-sort-asc fa-rotate-270" aria-hidden="true"></i><span>Vorherige Seite</span>
+            </a>
+        </li>
 
-                <!-- PAGINATION -->
-                {% if page == pageMax and page > 2 %}
-                    <li class="page-item">
-                        <a class="page-link"
-                        href="?{{ query | merge({'page' : page-2 }) | url_encode }}">{{ page - 2 }}</a>
-                    </li>
-                {% endif %}
+        <!-- FIRST PAGE LINK -->
+        {% if ceresConfig.pagination.showFirstPage and pageMax > 3 and currentPage > 2 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ canonicalURL ~ queryString({ 'page': null }) }}">
+                    1
+                </a>
+            </li>
+        {% endif %}
+        <!-- ./FIRST PAGE LINK -->
 
-                {% if page > 1 %}
-                    <li class="page-item">
-                        <a class="page-link"
-                        href="?{{ query | merge({'page' : page-1 }) | url_encode }}">{{ page - 1 }}</a>
-                    </li>
-                {% endif %}
+        <!-- PAGINATION -->
+        {% if currentPage == pageMax and currentPage > 2 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ canonicalURL ~ queryString({ 'page': beforePrevPage }) }}">{{ currentPage - 2 }}</a>
+            </li>
+        {% endif %}
 
-                <li class="page-item active">
-                    <a class="page-link">{{ page }}</a>
-                </li>
+        {% if currentPage > 1 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ canonicalURL ~ queryString({ 'page': prevPage }) }}">{{ currentPage - 1 }}</a>
+            </li>
+        {% endif %}
 
-                {% if page+1 <= pageMax %}
-                    <li class="page-item">
-                        <a class="page-link"
-                        href="?{{ query | merge({'page' : page+1 }) | url_encode }}">{{ page + 1 }}</a>
-                    </li>
-                {% endif %}
+        <li class="page-item active">
+            <a class="page-link">{{ currentPage }}</a>
+        </li>
 
-                {% if page == 1 and page+2 <= pageMax %}
-                    <li class="page-item">
-                        <a class="page-link"
-                        href="?{{ query | merge({'page' : page+2 }) | url_encode }}">{{ page + 2 }}</a>
-                    </li>
-                {% endif %}
-                <!-- ./PAGINATION -->
+        {% if currentPage + 1 <= pageMax %}
+            <li class="page-item">
+                <a class="page-link" href="{{ canonicalURL ~ queryString({ 'page': currentPage + 1 }) }}">{{ currentPage + 1 }}</a>
+            </li>
+        {% endif %}
 
-                <!-- LAST PAGE LINK -->
-                {% if pageMax > 3 and page < pageMax-1 and config('Ceres.pagination.showLastPage') == "true" %}
-                    <li class="page-item page-link">...</li>
-                    <li class="page-item">
-                        <a class="page-link"
-                        href="?{{ query | merge({'page' : pageMax }) | url_encode }}">{{ pageMax }}</a>
-                    </li>
-                {% endif %}
-                <!-- ./LAST PAGE LINK -->
+        {% if currentPage == 1 and currentPage + 2 <= pageMax %}
+            <li class="page-item">
+                <a class="page-link" href="{{ canonicalURL ~ queryString({ 'page': currentPage + 2 }) }}">{{ currentPage + 2 }}</a>
+            </li>
+        {% endif %}
+        <!-- ./PAGINATION -->
 
-                <!-- NEXT LINK -->
-                <li class="page-item{% if page == pageMax %} disabled{% endif %}">
-                    <a class="page-link next"
-                    href="?{{ query | merge({'page' : page+1 }) | url_encode }}">
-                        <span>Nächste Seite</span><i class="fa fa-sort-asc fa-rotate-90" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <!-- ./NEXT LINK -->
-            </ul>
-        </div>
-    </nav>
-{% endif %}
+        <!-- LAST PAGE LINK -->
+        {% if ceresConfig.pagination.showLastPage and pageMax > 3 and currentPage < pageMax - 1 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ canonicalURL ~ queryString({ 'page': pageMax }) }}">
+                    {{ pageMax }}
+                </a>
+            </li>
+        {% endif %}
+        <!-- ./LAST PAGE LINK -->
+
+        <!-- NEXT LINK -->
+        <li class="page-item{% if currentPage >= pageMax %} disabled{% endif %}">
+            <a class="page-link next"{% if currentPage < pageMax %} href="{{ canonicalURL ~ queryString({ 'page': currentPage + 1 }) }}"{% endif %}>
+               <span>Nächste Seite</span><i class="fa fa-sort-asc fa-rotate-90" aria-hidden="true"></i>
+            </a>
+        </li>
+        <!-- ./NEXT LINK -->
+        </ul>
+    {% endif %}
+</nav>

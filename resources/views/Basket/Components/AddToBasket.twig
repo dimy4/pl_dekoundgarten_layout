@@ -14,10 +14,10 @@
 
         <div class="category-list-view-port add-to-basket-container" v-if="showQuantity && !useLargeScale">
             <span>
-                <div class="col-xs-12">
+                <div class="col-12">
                     <div class="row equal flex-hcenter prod-row-with-title">
-                        <div class="col-xs-4 col-md-4 col-lg-3 prod-row-title">Anzahl</div>
-                        <div class="col-xs-8 col-md-8 col-lg-9">
+                        <div class="col-4 col-md-4 col-lg-3 prod-row-title">Anzahl</div>
+                        <div class="col-8 col-md-8 col-lg-9">
                             <div class="quantity-input-container">
                                 <quantity-input :value="1"
                                             @quantity-change="updateQuantity"
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+                <div class="col-12 col-sm-6 col-md-12 col-lg-6">
                     <button v-if="!isVariationSelected" class="btn btn-block btn-primary disabled" v-tooltip data-toggle="tooltip" data-placement="top" title="{{ trans("Ceres::Template.singleItemPleaseSelectValidVariation") }}">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         {{ trans("Ceres::Template.singleItemAddToBasket") }}

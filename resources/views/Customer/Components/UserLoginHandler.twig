@@ -1,7 +1,7 @@
 <script type="x/template" id="vue-user-login-handlerDG">
     <div id="login-change">
         <div class="dropdown" v-if="isLoggedIn">
-            <a href="#" class="dropdown-toggle" id="accountMenuList" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="dropdown-toggle" id="accountMenuList" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-boundary="window">
                 <span>{{ trans("Ceres::Template.loginHello", {"username": "${username}"}) }}</span>
             </a>
             <div class="account-menu dropdown-menu dropdown-menu-right small">

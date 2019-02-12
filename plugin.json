@@ -1,5 +1,5 @@
 {
-    "version"           :   "2.17.1",
+    "version"           :   "3.0.2",
     "license"           :   "AGPL-3.0",
     "name"              :   "Dekoundgarten",
     "marketplaceName"   :   {"de":"Dekoundgarten","en":"Dekoundgarten"},
@@ -27,36 +27,6 @@
             "key"           :"Dekoundgarten\\Containers\\CheckoutBeforeShippingProfileListContainer",
             "name"          :"Checkout BeforeShippingProfileList",
             "description"   :"Text before shipping select"
-        },
-        {
-            "key"           :"Dekoundgarten\\Containers\\DekoundgartenItemListContainer1",
-            "name"          :"First item list",
-            "description"   :"Display a configurable list of items in your online store"
-        },
-        {
-            "key"           :"Dekoundgarten\\Containers\\DekoundgartenItemListContainer2",
-            "name"          :"Second item list",
-            "description"   :"Display a configurable list of items in your online store"
-        },
-        {
-            "key"           :"Dekoundgarten\\Containers\\DekoundgartenItemListContainer3",
-            "name"          :"Third item list",
-            "description"   :"Display a configurable list of items in your online store"
-        },
-        {
-            "key"           :"Dekoundgarten\\Containers\\DekoundgartenItemListContainer4",
-            "name"          :"Fourth item list",
-            "description"   :"Display a configurable list of items in your online store"
-        },
-        {
-            "key"           :"Dekoundgarten\\Containers\\DekoundgartenItemListContainer5",
-            "name"          :"Fifth item list",
-            "description"   :"Display a configurable list of items in your online store"
-        },
-        {
-            "key"           :"Dekoundgarten\\Containers\\DekoundgartenItemListContainer6",
-            "name"          :"Sixth item list",
-            "description"   :"Display a configurable list of items in your online store"
         }
     ]
 }
