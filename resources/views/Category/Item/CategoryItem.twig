@@ -25,12 +25,6 @@
                     {% if not ceresConfig.item.showCategoryImage %}
                     <div class="col-12 col-sm-6">
                         <h1 class="h2 category-title">{{ category.details[0].name }}</h1>
-                        {% if categoryDescriptionTop == "description1" or categoryDescriptionTop == "both" and category.details[0].description | trim is not empty %}
-                            <div class="category-description mb-3" data-category-description="1">{{ category.details[0].description | raw }}</div>
-                        {% endif %}
-                        {% if categoryDescriptionTop == "description2" or categoryDescriptionTop == "both" and category.details[0].description2 | trim is not empty %}
-                            <div class="category-description mb-3" data-category-description="2">{{ category.details[0].description2 | raw }}</div>
-                        {% endif %}
                     </div>
                     {% endif %}
                     <div class="col-12 {% if not ceresConfig.item.showCategoryImage %}col-sm-6{% endif %} text-right">
@@ -58,6 +52,21 @@
             {# TAGS #}
             <item-filter-tag-list></item-filter-tag-list>
         </div>
+
+        {% if categoryDescriptionTop == "description1" or categoryDescriptionTop == "description2" or categoryDescriptionTop == "both" %}
+            {% if category.details[0].description | trim is not empty or category.details[0].description2 | trim is not empty %}
+                <div class="row m-b-3">
+                    <div class="col-12">
+                        {% if categoryDescriptionTop == "description1" or categoryDescriptionTop == "both" and category.details[0].description | trim is not empty %}
+                            <div class="category-description mb-3" data-category-description="1">{{ category.details[0].description | raw }}</div>
+                        {% endif %}
+                        {% if categoryDescriptionTop == "description2" or categoryDescriptionTop == "both" and category.details[0].description2 | trim is not empty %}
+                            <div class="category-description mb-3" data-category-description="2">{{ category.details[0].description2 | raw }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
 
         {% if ceresConfig.pagination.position in ['top', 'top_bottom'] %}
             <div class="list-controls mb-5 row">
