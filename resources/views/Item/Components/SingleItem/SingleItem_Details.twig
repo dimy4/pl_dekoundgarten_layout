@@ -49,7 +49,19 @@
                 <span :content="currentVariation.prices.default.currency"></span>
             </span>
 
-            
+            <div class="base-price text-muted my-3">
+                <div>
+                    {{ trans("Dekoundgarten::Template.singleStockNetBefore") }}
+                    <span>${ currentVariation.stock.net }</span>
+                    {{ trans("Dekoundgarten::Template.singleStockNetAfter") }}
+                </div>
+                <div v-if="currentVariation.variation.mayShowUnitPrice">
+                    {{ trans("Ceres::Template.singleItemUnitPrice") }}
+                    <span class="base-price-value">
+                        ${ variationGraduatedPrice.basePrice | specialOffer(currentVariation.prices, "basePrice") }
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 
