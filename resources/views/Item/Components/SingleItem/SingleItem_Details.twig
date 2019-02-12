@@ -6,7 +6,31 @@
         </span>
     </h1>
 
+    {% if ('item.shortDescription' in itemData or 'all' in itemData)%}
+        <p class="single-description" v-if="currentVariation.texts.shortDescription !== ''" v-html="currentVariation.texts.shortDescription"></p>
+    {% endif %}
+
+    <hr class="hr-before-variation">
+
+    <!-- Variation -->
+    <div class="row prod-row-with-title" v-if="variations.length > 0">
+        <variation-select template="#vue-variation-select" :attributes="attributeNameMap" :variation-units="variationUnits" :variations="variations" :preselect="currentVariation.variation.id" :unitPreselect="currentVariation.variation.unitCombinationId" @is-valid-change="isVariationSelected = $event"></variation-select>
+    </div>
+    <!-- /Variation -->
+
+    <!-- Item Bundle -->
+    <item-bundle :bundle-type="currentVariation.variation.bundleType" :bundle-components="currentVariation.bundleComponents"></item-bundle>
+    <!-- /Item Bundle -->
+
+    <slot name="BeforePrice"></slot>
+
+    <div class="row" v-if="currentVariation.filter.isSalable && variationGroupedProperties.length">
+        <order-property-list></order-property-list>
+    </div>
+
     
+
+    <slot name="AfterPrice"></slot>
 
     <div class="row my-3">
         <div class="w-100">
