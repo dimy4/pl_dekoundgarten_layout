@@ -3,11 +3,10 @@
 {{ component( "Dekoundgarten::Item.Components.AddToWishList" ) }}
 {{ component( "Ceres::Item.Components.OrderProperties" ) }}
 {{ component( "Ceres::Item.Components.OrderPropertyList" ) }}
-{{ component( "Ceres::Item.Components.SingleItem" ) }}
+{{ component( "Dekoundgarten::Item.Components.SingleItem" ) }}
 {{ component( "Ceres::Item.Components.GraduatedPrices" ) }}
 {{ component( "Dekoundgarten::Basket.Components.AddToBasket" ) }}
 {{ component( "Ceres::Item.Components.ItemBundle" ) }}
-
 
 <single-item v-cloak template="#vue-single-item" :item-data="{{ item | json_encode }}" :variation-list-data="{{ variations | json_encode }}" :attribute-name-map="{{attributeNameMap | json_encode}}" :variation-units="{{variationUnits | json_encode}}">
     <div slot="BeforePrice">{{ LayoutContainer.show("Ceres::SingleItem.BeforePrice", item.documents[0].data) }}</div>
