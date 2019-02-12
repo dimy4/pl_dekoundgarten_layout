@@ -319,9 +319,10 @@ body, body > #vue-app, body > #vue-error, .page-content{
     color: #fff;
     font-weight: bold;
     border-radius: 50%;
-    line-height: 22px;
+    line-height: 17px;
     border: 3px solid white;
-    padding-left: 1px;
+    padding-left: 5px;
+    font-size: 1.15rem;
 }
 
 .basket-item-container .item-base-price{
@@ -674,6 +675,9 @@ a:focus, a:hover{
     .add-to-basket-container .add-to-wish-list{
         padding: 1rem 0;
         text-align: right;
+    }
+    #mainNavbarCollapsable{
+        font-size: 1.2rem;
     }
     #mainNavbarCollapsable ul.mainmenu, nav.navbar.megamenu #mainNavbarCollapsable ul.mainmenu {
         display: flex;
