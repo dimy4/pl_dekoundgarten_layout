@@ -525,6 +525,7 @@ a:focus, a:hover{
     border: 0;
     padding: 0.2rem 0.75rem;
     line-height: 1.5rem;
+    color: #636363;
 }
 .page-link:focus, .page-link:hover{
     background-color: unset;
