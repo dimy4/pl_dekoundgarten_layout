@@ -1,6 +1,6 @@
 <script type="x/template" id="vue-variation-select">
     <div>
-        <div class="equal flex-hcenter" :class="{'prod-row-with-title': Object.keys(attributes).length > 0}">
+        <div class="d-flex flex-wrap align-items-center" :class="{'prod-row-with-title': Object.keys(attributes).length > 0}">
             <div class="col-xs-4 col-md-4 col-lg-3 prod-row-title" v-if="Object.keys(attributes).length > 0">Auswählen</div>
             <div class="col-xs-8 col-md-6 col-lg-4 variation-select" v-for="(attribute, attributeId) in attributes">
                 <div class="input-unit" ref="labelBoxRef">
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="equal flex-hcenter" :class="{'prod-row-with-title': possibleUnitIds.length > 1}">
+        <div class="d-flex flex-wrap align-items-center" :class="{'prod-row-with-title': possibleUnitIds.length > 1}">
             <div class="col-xs-4 col-md-4 col-lg-3 prod-row-title" v-if="possibleUnitIds.length > 1"></div>
             <div class="col-xs-8 col-md-6 col-lg-4 variation-select" v-if="possibleUnitIds.length > 1">
                 <div class="input-unit">

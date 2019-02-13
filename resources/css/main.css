@@ -214,15 +214,6 @@ body, body > #vue-app, body > #vue-error, .page-content{
     padding-right: 0;
 }
 
-.equal {
-    display: flex;
-    display: -webkit-flex;
-    flex-wrap: wrap;
-}
-.flex-hcenter{
-    align-items: center;
-}
-
 .preheader{
     line-height: 44px;
     border-bottom: 1px solid #eeeeee;
