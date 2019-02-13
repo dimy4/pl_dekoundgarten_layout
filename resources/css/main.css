@@ -335,29 +335,35 @@ a{
 a:focus, a:hover{
     color: #00640B;
 }
-.btn-primary{
+.btn-primary, .btn-primary.disabled, .btn-primary:disabled{
     background-color: #0b973e;
     border-color: #0b973e;
 }
 .btn-primary:hover,
 .btn-primary:focus, .btn-primary.focus,
 .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle,
+.btn-primary.disabled:hover, .btn-primary:disabled:hover,
+.btn-primary.disabled:focus, .btn-primary:disabled:focus, .btn-primary.disabled.focus, .btn-primary:disabled.focus,
 .btn-primary:active:hover, .btn-primary.active:hover, .open > .btn-primary.dropdown-toggle:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .btn-primary.dropdown-toggle:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .btn-primary.dropdown-toggle.focus {
-    background-color: #00640B;
-    border-color: #00640B;
+    background-color: #00640B !important;
+    border-color: #00640B !important;
+    box-shadow: unset !important;
 }
-.btn-outline-primary {
+.btn-outline-primary, .btn-outline-primary.disabled, .btn-outline-primary:disabled {
     color: #0b973e !important;
     background-image: none;
     background-color: transparent;
-    border-color: #0b973e;
+    border-color: #0b973e !important;
 }
 .btn-outline-primary:hover,
 .btn-outline-primary:focus, .btn-outline-primary.focus,
 .btn-outline-primary:active, .btn-outline-primary.active, .open > .btn-outline-primary.dropdown-toggle,
+.btn-outline-primary:hover, .btn-outline-primary:disabled:hover,
+.btn-outline-primary.disabled:focus, .btn-outline-primary:disabled:focus, .btn-outline-primary.disabled.focus, .btn-outline-primary:disabled.focus,
 .btn-outline-primary:active:hover, .btn-outline-primary.active:hover, .open > .btn-outline-primary.dropdown-toggle:hover, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .open > .btn-outline-primary.dropdown-toggle:focus, .btn-outline-primary:active.focus, .btn-outline-primary.active.focus, .open > .btn-outline-primary.dropdown-toggle.focus {
     color: #fff !important;
-    background-color: #0b973e;
+    background-color: #0b973e !important;
+    box-shadow: unset !important;
 }
 .add-to-basket-container button i{
     display: none;
