@@ -736,7 +736,7 @@ a:focus, a:hover{
 }
 
 @media (min-width: 768px){
-    .widget-grid-1-1-1 > .widget-inner .widget-proportional {
+    .widget-grid > .col-12.col-md-4 .widget.widget-proportional {
         padding-bottom: 100%;
     }
 }
