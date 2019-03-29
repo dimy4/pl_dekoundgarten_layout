@@ -2,9 +2,6 @@
 {{ component( "Ceres::ItemList.Components.CategoryImageCarousel") }}
 {{ component( "Ceres::ItemList.Components.ItemStoreSpecial" ) }}
 
-{% set lang = services.sessionStorage.getLang() %}
-{% set shippingCat = config("Ceres.global.shippingCostsCategoryId") %}
-
 {% if enableCarousel is not defined %}
     {% if config("Ceres.item.enable_image_carousel") == "true" %}
         {% set enableCarousel = "true" %}
@@ -58,10 +55,10 @@
                             <div class="prices">
                                 <div v-if="itemData.prices.rrp && itemData.prices.rrp.price.value > 0 && itemData.prices.rrp.price.value > itemData.prices.default.unitPrice.value" class="price-view-port">
                                     <del class="crossprice" v-if="itemData.prices.specialOffer">
-                                        ${ itemData.prices.default.unitPrice.formatted }
+                                        ${ itemData.prices.default.unitPrice.formatted | itemCrossPrice(true) }
                                     </del>
                                     <del class="crossprice" v-else>
-                                        ${ itemData.prices.rrp.unitPrice.formatted }
+                                        ${ itemData.prices.rrp.unitPrice.formatted | itemCrossPrice }
                                     </del>
                                 </div>
                                 <div class="price">

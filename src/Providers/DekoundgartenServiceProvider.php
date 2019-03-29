@@ -65,7 +65,7 @@ class DekoundgartenServiceProvider extends ServiceProvider
 
         $dispatcher->listen('IO.tpl.search', function (TemplateContainer $container)
         {
-            $container->setTemplate('Dekoundgarten::ItemList.ItemListView');
+            $container->setTemplate('Dekoundgarten::Category.Item.CategoryItem');
             return false;
         }, self::PRIORITY);
 

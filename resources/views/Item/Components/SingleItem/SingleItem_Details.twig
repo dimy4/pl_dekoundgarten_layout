@@ -36,7 +36,7 @@
             {% if ('item.recommendedPrice' in itemData or 'all' in itemData) %}
                 <div class="crossprice" v-if="currentVariation.prices.rrp && currentVariation.prices.rrp.unitPrice.value > 0 && currentVariation.prices.rrp.unitPrice.value > currentVariation.prices.default.unitPrice.value">
                     <del class="text-muted small">
-                        ${ currentVariation.prices.rrp.unitPrice.formatted }
+                        ${ currentVariation.prices.rrp.unitPrice.formatted | itemCrossPrice }
                     </del>
                 </div>
             {% endif %}
@@ -87,7 +87,8 @@
                     :show-quantity="true"
                     :item-url="currentVariation | itemURL"
                     :missing-order-properties="variationMissingProperties"
-                    :is-variation-selected="isVariationSelected && currentVariation.filter.isSalable">
+                    :is-variation-selected="isVariationSelected && currentVariation.filter.isSalable"
+                    :has-price="currentVariation | hasItemDefaultPrice">
                         {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
                             <div class="col-12 col-sm-6 col-md-12 col-lg-6">
                                 <add-to-wish-list template="#vue-add-to-wish-list" :variation-id="currentVariation.variation.id"></add-to-wish-list>
@@ -116,7 +117,7 @@
         <div class="col-md-12 col-lg-6 order-lg-1">
             <span class="vat">
                 * {% if services.customer.showNetPrices() %}{{ trans("Ceres::Template.singleItemExclVAT") }}{% else %}{{ trans("Ceres::Template.singleItemInclVAT") }}{% endif %} {{ trans("Ceres::Template.singleItemExclusive") }}
-                <a href="/versandkosten/" title="{{ trans("Ceres::Template.singleItemShippingCosts") }}">{{ trans("Ceres::Template.singleItemShippingCosts") }}</a>
+                <a {% if ceresConfig.global.shippingCostsCategoryId > 0 %} data-toggle="modal" href="#shippingscosts"{% endif %} title="{{ trans("Ceres::Template.singleItemShippingCosts") }}">{{ trans("Ceres::Template.singleItemShippingCosts") }}</a>
             </span>
         </div>
     </div>

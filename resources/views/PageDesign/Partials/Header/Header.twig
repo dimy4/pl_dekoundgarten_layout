@@ -21,7 +21,13 @@
     {% include "Dekoundgarten::PageDesign.Partials.Header.DefaultHeader" %}
 {% else %}
 <header id="page-header" class="top-bar">
-    {{ headerContainer | raw }}
+    <div class="container-max">
+        <div class="row">
+            <div id="page-header-children" class="col-12">
+                {{ headerContainer | raw }}
+            </div>
+        </div>
+    </div>
 </header>
 {% endif %}
 

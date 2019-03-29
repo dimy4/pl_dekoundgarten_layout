@@ -1,8 +1,8 @@
 {% extends getPartial('page-design') %}
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
 {% set decimalCount = ceresConfig.item.storeSpecial %}
 {% set overrideSearchFilters = LayoutContainer.show("Ceres::Search.Filter", facets) %}
-{% set shippingCat = config("Ceres.global.shippingCostsCategoryId") %}
 
 {% block PageBody %}
 
@@ -79,7 +79,7 @@
 {% endblock %}
 
 {% block PartialHead %}
-<script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","url": "{{ webstoreConfig.domainSsl }}","potentialAction":{"@type": "SearchAction","target": "{{ webstoreConfig.domainSsl }}/search?query={search_term}","query-input": "required name=search_term"}}</script>
+    <script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","url": "{{ webstoreConfig.domainSsl }}","potentialAction":{"@type": "SearchAction","target": "{{ webstoreConfig.domainSsl ~ urls.search }}?query={search_term}","query-input": "required name=search_term"}}</script>
     {% if isSearch %}
         <title>{{ trans("Ceres::Template.itemSearchResults") }} {{ searchString }} | {{ ceresConfig.header.companyName }}</title>
     {% endif %}
