@@ -4,7 +4,7 @@
         <div>
             <div class="two-headers">
                 <div class="container-max">
-                    <div class="row flex-row align-items-center preheader hidden-md-down">
+                    <div class="row mx-0 flex-row align-items-center preheader hidden-md-down">
                         <div class="col-6 col-lg-4 text-left head-slogan">{{ config("Dekoundgarten.header.slogan") }}</div>
                         <div class="col-6 col-lg-8 text-right">
                             <ul class="premenu">
@@ -96,7 +96,7 @@
 {% endif %}
 
 <div class="container-max page-header">
-    <div class="row">
+    <div class="row mx-0">
         <div id="searchBox" class="cmp cmp-search-box collapse">
             {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
             {% if overrideSearchBar | trim is empty %}

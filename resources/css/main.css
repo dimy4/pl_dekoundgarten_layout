@@ -677,6 +677,7 @@ a:focus, a:hover{
     }
     #mainNavbarCollapsable{
         font-size: 1.2rem;
+        padding: 0 15px;
     }
     #mainNavbarCollapsable ul.mainmenu, nav.navbar.megamenu #mainNavbarCollapsable ul.mainmenu {
         display: flex;
