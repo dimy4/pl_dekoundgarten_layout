@@ -118,13 +118,14 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .widget-image-box.widget-primary a[href].widget-inner:hover .widget-caption{
     padding: 0 !important;
     right: auto !important;
-    background: rgba(255, 255, 255, .8);
-    color: #292b2c;
+    background: rgba(255, 255, 255, .8) !important;
+    color: #292b2c !important;
     text-transform: uppercase;
+    width: auto !important;
 }
 .widget-image-box > .widget-inner .widget-caption h2{
     padding: 1rem 0.75rem;
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
 }
 .widget-image-box > .widget-inner .widget-caption h2 i{
     display: none;
