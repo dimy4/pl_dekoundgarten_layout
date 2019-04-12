@@ -459,6 +459,7 @@ a:focus, a:hover{
 }
 .availability_1, .availability_2 {
     background-color: unset;
+    color: #636363;
 }
 .add-to-wish-list:hover i {
     color: #0b973e !important;
