@@ -1,5 +1,3 @@
-{{ component("Dekoundgarten::Category.Components.CategoryBreadcrumbs") }}
-
 {% if categoryBreadcrumbs is not empty %}
     <nav data-component="breadcrumbs" data-renderer="twig" class="container-max hidden-sm-down">
         <ul class="breadcrumb">
@@ -30,6 +28,4 @@
             {% endif %}
         </ul>
     </nav>
-
-    <category-breadcrumbs template="#vue-category-breadcrumbs-DG"></category-breadcrumbs>
 {% endif %}
