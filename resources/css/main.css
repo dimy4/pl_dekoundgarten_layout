@@ -684,6 +684,7 @@ a:focus, a:hover{
     #mainNavbarCollapsable ul.mainmenu, nav.navbar.megamenu #mainNavbarCollapsable ul.mainmenu {
         display: flex;
         flex-wrap: wrap;
+        z-index: 1069;
     }
     #mainNavbarCollapsable ul.mainmenu > li > a{
         padding: 18px 10 18px 10px;
