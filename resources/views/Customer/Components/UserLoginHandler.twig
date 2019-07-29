@@ -12,10 +12,10 @@
             </div>
         </div>
         <div class="sub-li-items" v-if="!isLoggedIn">
-            <a data-toggle="modal" href="{% if services.template.isCurrentTemplate("tpl.login") %}javascript:void(0){% else %}#login{% endif %}" @click="unmarkInputFields()">
+            <a {% if services.template.isCurrentTemplate("tpl.login") %} href="javascript:void(0)"{% else %} data-toggle="modal" href="#login"{% endif %} @click="unmarkInputFields()">
                 <span>{{ trans("Ceres::Template.login") }}</span>
             </a>
-            <a data-toggle="modal" href="#registration" @click="unmarkInputFields()" v-if="showRegistration">
+            <a {% if services.template.isCurrentTemplate("tpl.register") %} href="javascript:void(0)"{% else %} data-toggle="modal" href="#registration"{% endif %} @click="unmarkInputFields()" v-if="showRegistration">
                 <span>{{ trans("Ceres::Template.loginRegister") }}</span>
             </a>
         </div>

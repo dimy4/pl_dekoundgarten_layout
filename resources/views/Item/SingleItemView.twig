@@ -1,14 +1,14 @@
-{{ component( "Dekoundgarten::Item.Components.VariationSelect" ) }}
-{{ component( "Ceres::Item.Components.ItemImageCarousel" ) }}
+{{ component( "Dekoundgarten::Basket.Components.AddToBasket" ) }}
 {{ component( "Dekoundgarten::Item.Components.AddToWishList" ) }}
+{{ component( "Ceres::Item.Components.GraduatedPrices" ) }}
+{{ component( "Ceres::Item.Components.ItemBundle" ) }}
+{{ component( "Ceres::Item.Components.ItemImageCarousel" ) }}
 {{ component( "Ceres::Item.Components.OrderProperties" ) }}
 {{ component( "Ceres::Item.Components.OrderPropertyList" ) }}
 {{ component( "Dekoundgarten::Item.Components.SingleItem" ) }}
-{{ component( "Ceres::Item.Components.GraduatedPrices" ) }}
-{{ component( "Dekoundgarten::Basket.Components.AddToBasket" ) }}
-{{ component( "Ceres::Item.Components.ItemBundle" ) }}
+{{ component( "Dekoundgarten::Item.Components.VariationSelect" ) }}
 
-<single-item v-cloak template="#vue-single-item" item-data="{{ item | json_data }}" variation-list-data="{{ variations | json_data }}" :attribute-name-map="{{attributeNameMap | json_encode}}" :variation-units="{{variationUnits | json_encode}}">
+<single-item v-cloak item-data="{{ item | json_data }}" attributes-data="{{ attributes | json_data }}" variations="{{ variations | json_data }}">
     <template #before-price>{{ LayoutContainer.show("Ceres::SingleItem.BeforePrice", item.documents[0].data) }}</template>
     <template #after-price>{{ LayoutContainer.show("Ceres::SingleItem.AfterPrice", item.documents[0].data) }}</template>
     <template #before-add-to-basket>{{ LayoutContainer.show("Ceres::SingleItem.BeforeAddToBasket", item.documents[0].data) }}</template>

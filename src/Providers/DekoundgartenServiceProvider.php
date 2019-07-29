@@ -2,7 +2,6 @@
 
 namespace Dekoundgarten\Providers;
 
-use IO\Services\ContentCaching\Services\Container;
 use IO\Services\ItemSearch\Helper\ResultFieldTemplate;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
