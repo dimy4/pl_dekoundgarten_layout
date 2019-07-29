@@ -379,6 +379,7 @@ a:focus, a:hover{
 }
 .single .qty-box .qty-input{
     width: 62px;
+    height: 41px;
     margin: 0 40px;
     z-index: 2;
     border-left: 0;
