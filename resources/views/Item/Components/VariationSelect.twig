@@ -15,7 +15,7 @@
                                     :disabled="$options.filters.variationSelectIsDisabled(selectedAttributes, attribute.attributeId, value.attributeValueId, variations)"
                                     :selected="value.attributeValueId === selectedAttributes[attribute.attributeId]">
                                     <template v-if="isAttributeSelectionValid(attribute.attributeId, value.attributeValueId)">
-                                        ${ value.name }
+                                        ${ value.name }<span v-if="$options.filters.variationSelectIsDisabled(selectedAttributes, attribute.attributeId, value.attributeValueId, variations)"> (dzt. nicht verfügbar)</span>
                                     </template>
                                     <template v-else>
                                         {{ trans("Ceres::Template.singleItemInvalidAttribute", { "name": "${ value.name }" }) }}
