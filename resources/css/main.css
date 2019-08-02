@@ -702,7 +702,8 @@ a:focus, a:hover{
     .no-touch #mainNavbarCollapsable ul.mainmenu > li:hover, 
     .touch #mainNavbarCollapsable ul.mainmenu > li.hover,
     .no-touch #mainNavbarCollapsable ul.mainmenu > li > ul > li:hover, 
-    .touch #mainNavbarCollapsable ul.mainmenu > li > ul > li.hover{
+    .touch #mainNavbarCollapsable ul.mainmenu > li > ul > li.hover,
+    nav.navbar:not(.megamenu) .nav-dropdown-inner li:hover{
         background-color: #f7f7f7;
         color: #636363;
     }
