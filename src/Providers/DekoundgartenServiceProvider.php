@@ -29,6 +29,7 @@ class DekoundgartenServiceProvider extends ServiceProvider
     {
         $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
             $container->addStyleTemplate('Dekoundgarten::Stylesheet');
+            $container->addScriptTemplate('Dekoundgarten::Script');
         }, self::PRIORITY);
 
         $dispatcher->listen('IO.init.templates', function (Partial $partial)
