@@ -12,7 +12,7 @@
                                 <option
                                     v-for="value in attribute.values"
                                     :value="value.attributeValueId"
-                                    :disabled="filterVariations({ [attribute.attributeId]: value.attributeValueId }).length > 0"
+                                    :disabled="filterVariations(Object.assign(selectedAttributes, { [attribute.attributeId]: value.attributeValueId })).length > 0"
                                     :selected="value.attributeValueId === selectedAttributes[attribute.attributeId]">
                                     <template v-if="isAttributeSelectionValid(attribute.attributeId, value.attributeValueId)">
                                         ${ value.name }
