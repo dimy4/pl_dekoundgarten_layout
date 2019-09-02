@@ -1,6 +1,5 @@
 {{ component( "Dekoundgarten::ItemList.Components.ItemSearch" ) }}
 {% set companyLogo  = config("Ceres.header.company_logo") %}
-{% set lang         = services.sessionStorage.getLang() %}
 {% set showHeaderNavBar = config("Ceres.header.show_navbars") %}
 {% set companyName  = trans("Ceres::Template.headerCompanyName") %}
 {% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
@@ -41,9 +40,6 @@
     <div id="mainTopMenuWrapper" class="hidden-md-down">
         <div class="container-max">
             <div id="mainNavbarCollapsable">
-                <ul class="breadcrumb">
-                    <li class="btnClose"></li>
-                </ul>
                 {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
                     {% include "Dekoundgarten::PageDesign.Partials.Header.NavigationList" %}
                 {% endif %}

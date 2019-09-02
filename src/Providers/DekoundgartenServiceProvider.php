@@ -35,13 +35,10 @@ class DekoundgartenServiceProvider extends ServiceProvider
         $dispatcher->listen('IO.init.templates', function (Partial $partial)
         {
             $partial->set('head', 'Ceres::PageDesign.Partials.Head');
-            $partial->set('header', 'Ceres::PageDesign.Partials.Header.Header');
-            $partial->set('page-design', 'Ceres::PageDesign.PageDesign');
-            $partial->set('footer', 'Ceres::PageDesign.Partials.Footer');
-
             $partial->set('header', 'Dekoundgarten::PageDesign.Partials.Header.Header');
             $partial->set('page-design', 'Dekoundgarten::PageDesign.PageDesign');
             $partial->set('footer', 'Dekoundgarten::PageDesign.Partials.Footer');
+            $partial->set('page-metadata', 'Ceres::PageDesign.Partials.PageMetadata');
 
             return false;
         }, self::PRIORITY);

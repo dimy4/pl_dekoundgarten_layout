@@ -9,11 +9,11 @@
         <slot name="default" :getDataField="getDataField" :getFilteredDataField="getFilteredDataField">
             <div class="single container-max page-content">
                 <div class="row position-relative">
-                    <div class="col-12 col-md-7" id="item-container">
+                    <div class="col-12 col-md-7">
                         <slot name="image-carousel"></slot>
                     </div>
                     <div class="col-12 col-md-5 single-rightside">
-                        <div v-stick-in-parent data-sticky-container="#item-container">
+                        <div v-stick-in-parent data-sticky-container=".single-rightside">
                             {% include "Dekoundgarten::Item.Components.SingleItem.SingleItem_Details" %}
                         </div>
                     </div>
