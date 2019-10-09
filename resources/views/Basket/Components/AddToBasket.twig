@@ -19,7 +19,7 @@
                         <div class="col-4 col-md-4 col-lg-3 prod-row-title">Anzahl</div>
                         <div class="col-8 col-md-8 col-lg-9">
                             <div class="quantity-input-container">
-                                <quantity-input :value="1"
+                                <quantity-input :value="quantity"
                                             @quantity-change="updateQuantity"
                                             @out-of-stock="handleButtonState"
                                             :timeout="0" 
@@ -36,9 +36,10 @@
                     <button
                         v-if="!isVariationSelected || !isSalable"
                         class="btn btn-block btn-primary btn-appearance disabled"
-                        v-tooltip data-toggle="tooltip"
+                        v-tooltip
+                        data-toggle="tooltip"
                         data-placement="top"
-                        title="{{ trans("Ceres::Template.singleItemPleaseSelectValidVariation") }}"
+                        :title="tooltipText"
                         :class="buttonClasses"
                         :style="paddingInlineStyles">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
