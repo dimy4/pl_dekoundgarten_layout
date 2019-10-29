@@ -2,5 +2,7 @@
 {% set promoContent = config("Dekoundgarten.promo.content") %}
 <div class="promo-area">
   <img class="promo-img" src="{{ promoImg }}" />
-  {{ include(template_from_string(promoContent)) | raw }}
+  <div class="promo-content">
+    {{ include(template_from_string(promoContent)) | raw }}
+  </div>
 </div>

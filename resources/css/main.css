@@ -747,3 +747,10 @@ a:focus, a:hover{
         padding-bottom: 100%;
     }
 }
+
+.promo-area{
+    background-color: #deefe7;
+    display: flex;
+    margin: 10px 0;
+    padding: 10px 15px;
+}
