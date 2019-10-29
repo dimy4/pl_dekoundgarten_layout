@@ -22,6 +22,12 @@
             "key"           :"Dekoundgarten\\Containers\\CheckoutBeforeShippingProfileListContainer",
             "name"          :"Checkout BeforeShippingProfileList",
             "description"   :"Text before shipping select"
+        },
+        {
+            "key": "Dekoundgarten\\Containers\\PromoContainer",
+            "name": "Promo container",
+            "description": "Promo container",
+            "defaultLayoutContainer": "Ceres::BasketPreview.AfterBasketTotals"
         }
     ]
 }

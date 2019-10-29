@@ -13,6 +13,27 @@
                     }
                 }
             }
+        },
+        "Config.PromoTab": {
+            "label": "Config.PromoTab",
+            "formFields": {
+                "promo.image": {
+                    "type": "inputFile",
+                    "required": false,
+                    "label": "Config.PromoImageLabel",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                },
+                "promo.content": {
+                    "type": "inputTextArea",
+                    "required": false,
+                    "label": "Config.promoContentLabel",
+                    "options": {
+                        "defaultValue": ""
+                    }
+                }
+            }
         }
     }
 }
