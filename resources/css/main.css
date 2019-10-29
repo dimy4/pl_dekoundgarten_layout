@@ -751,6 +751,17 @@ a:focus, a:hover{
 .promo-area{
     background-color: #deefe7;
     display: flex;
-    margin: 10px 0;
-    padding: 10px 15px;
+    margin-bottom: 1rem;
+    padding: 15px;
+}
+.promo-area .promo-img{
+    object-fit: contain;
+    margin-right: 20px;
+}
+.promo-area .promo-content{
+    font-size: 1rem;
+}
+.single .promo-area{
+    margin-top: 1rem;
+    border: 1px solid #a1d9b8;
 }
