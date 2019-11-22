@@ -152,12 +152,16 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .footer, .footer a{
     color: #292b2c;
 }
-.footer .footer-column h2{
+.footer .footer-column h2
+.footer h4, .footer p.h4{
     font-size: 1.15rem;
     font-weight: 500;
     color: #b4b3ad;
     margin-bottom: 20px;
     text-transform: uppercase;
+}
+.footer-content {
+    font-size: 1.15rem;
 }
 .footer-content .footer-column{
     margin-bottom: 30px;
