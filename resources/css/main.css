@@ -772,3 +772,27 @@ a:focus, a:hover{
 .page-basket .promo-area{
     margin-top: 1rem;
 }
+
+#login-modal-wrapper .modal-footer{
+    flex-wrap: wrap;
+}
+#login-modal-wrapper .modal-footer > div:last-child{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+#login-modal-wrapper .modal-footer > div:last-child > *{
+    margin-left: 15px;
+}
+
+#simple-registration-modal-wrapper .modal-body form > .border-top{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#simple-registration-modal-wrapper .modal-body .amzLoginButton{
+    margin-right: 15px;
+    margin-top: 1rem;
+}
