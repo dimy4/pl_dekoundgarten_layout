@@ -510,11 +510,11 @@ a:focus, a:hover{
 .sidebar-categories ul li a{
     font-size: 1.15rem;
     color: #636363;
-    padding: 0.6rem 0 0.6rem 0.3rem;
+    padding: 0.6rem 0 0.6rem 0.3rem !important;
     border-bottom: 1px solid #eeeeee;
 }
 .sidebar-categories ul li.active ul li a {
-    padding-left: 0.9rem;
+    padding-left: 0.9rem !important;
 }
 .sidebar-categories ul li.active > a,
 .sidebar-categories ul li a:hover{
