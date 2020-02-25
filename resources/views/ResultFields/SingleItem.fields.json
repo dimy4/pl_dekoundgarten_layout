@@ -99,6 +99,8 @@
     "variationProperties.property.groups",
     "variationProperties.property.names.*",
     "variationProperties.property.position",
+    "tags.id",
+    "tags.names.*",
     
     "stock.net"
 ]

@@ -16,7 +16,7 @@
                 "@type"         : "Product",
                 "@id"           : "{{ itemData.variation.id }}",
                 "name"          : "{{ ItemName.get(itemData | itemName, itemData.variation.bundleType) | trim }}",
-                "category"      : "{{ defaultCategory.details[0].name | raw  }}",
+                "category"      : "{{ defaultCategory.details[0].name }}",
                 "releaseDate"   : "{{ itemData.variation.releasedAt }}",
                 "image"         : "{{ itemData.images.all[0].urlPreview }}",
                 "identifier"    : "{{ itemData.variation.id }}",
@@ -29,7 +29,7 @@
                 "offers": {
                     "@type"         : "Offer",
                     "priceCurrency" : "{{ itemData.prices.default.currency }}",
-                    "price"         : "{{ itemData.prices.default.price.value | number_format(2, '.', '') }}",
+                    "price": "{{ itemData.prices.default.price.value | number_format(2, '.', '') }}",
                     {% if itemData.prices.default.baseLot > 0 %}
                     "priceSpecification": {
                         "@type": "UnitPriceSpecification",
@@ -37,9 +37,8 @@
                         "priceCurrency": "{{ item.documents[0].data.prices.default.currency }}",
                         "referenceQuantity": {
                             "@type": "QuantitativeValue",
-                            "value": "{{ item.documents[0].data.prices.default.baseLot }}",
-                            "unitCode": "{{ item.documents[0].data.prices.default.baseUnit }}"
-                        }
+                            "value": "{{ itemData.unit.content }}",
+                            "unitCode": "{{ itemData.unit.unitOfMeasurement }}"
                     },
                     {% endif %}
                     "availability"  : "{{ itemData.variation.availability.mappedAvailability }}",
@@ -101,6 +100,8 @@
                         item-data="{{ item | json_data }}"
                         attributes-data="{{ attributes | json_data }}"
                         variations="{{ variations | json_data }}"
+                        :please-select-option-variation-id="{{ dynamicVariationId }}"
+                        :init-please-select-option="{{ initPleaseSelectOption | json_encode }}"
                         v-slot="slotProps">
                         {{ shopBuilderTemplate | raw }}
                     </single-item>
