@@ -507,7 +507,7 @@ a:focus, a:hover{
     font-size: 1.15rem;
     border-bottom: 1px solid #eeeeee;
 }
-.sidebar-categories ul li a{
+.sidebar-categories ul li a[href], .widget-navigation-tree ul li a[href]{
     font-size: 1.15rem;
     color: #636363;
     padding: 0.6rem 0 0.6rem 0.3rem !important;
