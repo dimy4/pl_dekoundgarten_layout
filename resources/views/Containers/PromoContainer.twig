@@ -1,8 +1,12 @@
 {% set promoImg = config("Dekoundgarten.promo.image") %}
 {% set promoContent = config("Dekoundgarten.promo.content") %}
+{% set promoVariationId = config("Dekoundgarten.promo.variationId") %}
 <div class="promo-area">
   <img class="promo-img" src="{{ promoImg }}" />
   <div class="promo-content">
     {{ include(template_from_string(promoContent)) | raw }}
+    {% if promoVariationId | trim is not empty %}
+    <button class="btn btn-primary btn-block btn-appearance" onclick="dekoAddToBasket({{ promoVariationId }}, 1);">Aktionsartikel in den Warenkorb</button>
+    {% endif %}
   </div>
 </div>

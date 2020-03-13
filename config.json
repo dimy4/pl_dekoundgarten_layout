@@ -32,6 +32,14 @@
                     "options": {
                         "defaultValue": ""
                     }
+                },
+                "promo.variationId": {
+                    "type": "inputText",
+                    "required": false,
+                    "label": "Config.promoVariationIdLabel",
+                    "options": {
+                        "defaultValue": "20649"
+                    }
                 }
             }
         }
