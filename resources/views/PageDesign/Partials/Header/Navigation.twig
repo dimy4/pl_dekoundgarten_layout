@@ -4,9 +4,9 @@
 {% set companyName  = trans("Ceres::Template.headerCompanyName") %}
 {% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
 
-<nav class="navbar header-fw{% if useMegaMenu %} megamenu{%endif%}">
-      <div class="container-max">
-        <div class="row mx-0 flex-row align-items-center">
+<nav class="navbar header-fw p-0 border-bottom{% if useMegaMenu %} megamenu{% else %} normalmenu{% endif %}">
+    <div class="container-max d-block">
+        <div class="row mx-0 position-relative d-flex align-items-center">
              <div class="col-8 col-sm-6 col-md-3">
                  <a class="navbar-brand" href="{{ homepageURL }}">
                     {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}
@@ -16,10 +16,10 @@
                     {% endif %}
                  </a>
             </div>
-            <div class="col-md-6 searchCol hidden-md-down">
-                <item-search template="#vue-item-searchDG"></item-search>
+            <div class="col-md-6 searchCol d-none d-lg-block">
+                <item-search template-override="#item-searchDG"></item-search>
             </div>
-            <div class="col-md-3 dg-buttons hidden-md-down">
+            <div class="col-md-3 dg-buttons d-none d-lg-block">
                 <a v-toggle-basket-preview href="#" class="warenkorb">
                     <img src="{{ plugin_path('Dekoundgarten') }}/images/basket.png">
                     <span class="text">Warenkorb</span>
@@ -31,15 +31,15 @@
                 </a>
             </div>
             <div class="col-4 col-sm-6 col-md-9 d-lg-none">
-                 <button id="btnMainMenuToggler" v-open-mobile-navigation class="navbar-toggler" type="button">
+                 <button v-open-mobile-navigation class="navbar-toggler" type="button">
                      &#9776;
                  </button>
              </div>
         </div>
     </div>
-    <div id="mainTopMenuWrapper" class="hidden-md-down">
+    <div id="mainTopMenuWrapper" class="d-none d-lg-block">
         <div class="container-max">
-            <div id="mainNavbarCollapsable">
+            <div class="main-navbar-collapsable">
                 {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
                     {% include "Dekoundgarten::PageDesign.Partials.Header.NavigationList" %}
                 {% endif %}

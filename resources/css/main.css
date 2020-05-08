@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700');
 
 body, 
-.wrapper-main .navbar,
+#vue-app .navbar,
 .featured-category,
 .sidebar-categories,
 .section-header {
@@ -47,7 +47,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     box-shadow: 0 5px 5px -5px #e9e9e9;
     border-bottom: 1px solid #eeeeee;
 }
-.wrapper-main .navbar{
+#vue-app .navbar{
     background: #fff;
     padding-top: 28px;
     border-bottom: 0;
@@ -186,7 +186,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
     left: 0;
     transform: rotate(90deg);
 }
-.wrapper-main > nav.container-max{
+#vue-app > nav.container-max{
     background: unset;
 }
 .breadcrumb-item a,
@@ -663,7 +663,7 @@ a:focus, a:hover{
         color: #636363;
         text-decoration: underline;
     }
-    .wrapper-main > nav.container-max {
+    #vue-app > nav.container-max {
         position: relative;
         top: 0;
         padding-top: 25px;
@@ -681,45 +681,45 @@ a:focus, a:hover{
         padding: 1rem 0;
         text-align: right;
     }
-    #mainNavbarCollapsable{
+    .main-navbar-collapsable{
         display: flex;
         font-size: 1.2rem;
         padding: 0 15px;
     }
-    #mainNavbarCollapsable ul.mainmenu, nav.navbar.megamenu #mainNavbarCollapsable ul.mainmenu {
+    .main-navbar-collapsable ul.mainmenu, nav.navbar.megamenu .main-navbar-collapsable ul.mainmenu {
         display: flex;
         flex-wrap: wrap;
         z-index: 1069;
     }
-    #mainNavbarCollapsable ul.mainmenu > li > a{
+    .main-navbar-collapsable ul.mainmenu > li > a{
         padding: 18px 10 18px 10px;
     }
-    #mainNavbarCollapsable ul.mainmenu > li:first-child > a{
+    .main-navbar-collapsable ul.mainmenu > li:first-child > a{
         padding-left: 0;
     }
-    #mainNavbarCollapsable ul.mainmenu > li.ddown > a:after {
+    .main-navbar-collapsable ul.mainmenu > li.ddown > a:after {
         display: none;
     }
-    #mainNavbarCollapsable ul.mainmenu > li.ddown{
+    .main-navbar-collapsable ul.mainmenu > li.ddown{
         color: #292b2c;
     }
-    .no-touch #mainNavbarCollapsable ul.mainmenu > li:hover, 
-    .touch #mainNavbarCollapsable ul.mainmenu > li.hover,
-    .no-touch #mainNavbarCollapsable ul.mainmenu > li > ul > li:hover, 
-    .touch #mainNavbarCollapsable ul.mainmenu > li > ul > li.hover,
+    .no-touch .main-navbar-collapsable ul.mainmenu > li:hover, 
+    .touch .main-navbar-collapsable ul.mainmenu > li.hover,
+    .no-touch .main-navbar-collapsable ul.mainmenu > li > ul > li:hover, 
+    .touch .main-navbar-collapsable ul.mainmenu > li > ul > li.hover,
     nav.navbar:not(.megamenu) .nav-dropdown-inner li:hover{
         background-color: #f7f7f7;
         color: #636363;
     }
-    #mainNavbarCollapsable ul.mainmenu > li > ul{
+    .main-navbar-collapsable ul.mainmenu > li > ul{
         box-shadow: 0px 3px 8px #eeeeee;
         background:#fff;
     }
-    #mainNavbarCollapsable ul.mainmenu > li > ul > li{
+    .main-navbar-collapsable ul.mainmenu > li > ul > li{
         min-width: 230px;
         color: #292b2c;
     }
-    .wrapper-main #page-body {
+    #vue-app #page-body {
         margin-top: 10px;
     }
     .cmp-hero .hero-main .carousel .carousel-control span {
@@ -727,10 +727,10 @@ a:focus, a:hover{
     }
 }
 @media (max-width: 991px){
-    .wrapper-main .navbar{
+    #vue-app .navbar{
         padding-top: 0;
     }
-    .wrapper-main #page-body {
+    #vue-app #page-body {
         margin-top: 5px;
     }
     .navbar-toggler{

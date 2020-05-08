@@ -8,7 +8,7 @@
                         <div class="col-6 col-lg-4 text-left head-slogan">{{ config("Dekoundgarten.header.slogan") }}</div>
                         <div class="col-6 col-lg-8 text-right">
                             <ul class="premenu">
-                                <li><user-login-handler template="#vue-user-login-handlerDG" :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler></li>
+                                <li><user-login-handler template-override="#user-login-handlerDG" :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler></li>
                                 <li><a href="/contact">Kontakt</a></li>
                             </ul>
                         </div>
@@ -78,9 +78,52 @@
                                     <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                                     <span class="badge" v-else v-cloak v-basket-item-sum="$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                                 </a>
-                                {% if config("Ceres.basket.preview_type") != "right" %}
-                                    <basket-preview template="#vue-basket-preview-hover" :show-net-prices="{{ showNetPrices | json_encode }}"></basket-preview>
-                                {% endif %}
+                                <lazy-load component="basket-preview">
+                                    <basket-preview :show-net-prices="{{ showNetPrices | json_encode }}">
+                                        <template #before-basket-item>
+                                            {{ LayoutContainer.show("Ceres::BasketList.BeforeItem") }}
+                                        </template>
+                                        <template #after-basket-item>
+                                            {{ LayoutContainer.show("Ceres::BasketList.AfterItem") }}
+                                        </template>
+                                        <template #before-basket-totals>
+                                            {{ LayoutContainer.show("Ceres::BasketPreview.BeforeBasketTotals") }}
+                                        </template>
+                                        <template #before-item-sum>
+                                            {{ LayoutContainer.show("Ceres::BasketTotals.BeforeItemSum") }}
+                                        </template>
+                                        <template #after-item-sum>
+                                            {{ LayoutContainer.show("Ceres::BasketTotals.AfterItemSum") }}
+                                        </template>
+                                        <template #before-shipping-costs>
+                                            {{ LayoutContainer.show("Ceres::BasketTotals.BeforeShippingCosts") }}
+                                        </template>
+                                        <template #after-shipping-costs>
+                                            {{ LayoutContainer.show("Ceres::BasketTotals.AfterShippingCosts") }}
+                                        </template>
+                                        <template #before-total-sum>
+                                            {{ LayoutContainer.show("Ceres::BasketTotals.BeforeTotalSum") }}
+                                        </template>
+                                        <template #before-vat>
+                                            {{ LayoutContainer.show("Ceres::BasketTotals.BeforeVat") }}
+                                        </template>
+                                        <template #after-vat>
+                                            {{ LayoutContainer.show("Ceres::BasketTotals.AfterVat") }}
+                                        </template>
+                                        <template #after-total-sum>
+                                            {{ LayoutContainer.show("Ceres::BasketTotals.AfterTotalSum") }}
+                                        </template>
+                                        <template #after-basket-totals>
+                                            {{ LayoutContainer.show("Ceres::BasketPreview.AfterBasketTotals") }}
+                                        </template>
+                                        <template #before-checkout-button>
+                                            {{ LayoutContainer.show("Ceres::BasketPreview.BeforeCheckoutButton") }}
+                                        </template>
+                                        <template #after-checkout-button>
+                                            {{ LayoutContainer.show("Ceres::BasketPreview.AfterCheckoutButton") }}
+                                        </template>
+                                    </basket-preview>
+                                </lazy-load>
                             </li>
                         </ul>
                     </div>
@@ -95,12 +138,12 @@
     {% include "Dekoundgarten::PageDesign.Partials.Header.Breadcrumb" %}
 {% endif %}
 
-<div class="container-max page-header">
-    <div class="row mx-0">
+<div class="container-max px-0 px-lg-3 page-header">
+    <div class="row mx-0 flex-row-reverse position-relative">
         <div id="searchBox" class="cmp cmp-search-box collapse">
             {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
             {% if overrideSearchBar | trim is empty %}
-                <item-search template="#vue-item-search"></item-search>
+                <item-search></item-search>
             {% else %}
                 {{ overrideSearchBar | raw }}
             {% endif %}
@@ -109,17 +152,16 @@
         {% if enableCurrencySelect == "true" %}
             <div id="currencySelect" class="cmp cmp-currency-select collapse">
                 <div class="container-max">
-                    <div class="row p-3">
-
+                    <div class="row py-3">
                         <div class="currency-list col-12">
                             <div class="list-title">
                                 <strong>{{ trans("Ceres::Template.headerCurrency") }}</strong>
                                 <hr>
                             </div>
-                            <ul class="text-center text-sm-left">
+                            <ul class="row text-center text-sm-left">
                                 {% for currency in services.checkout.getCurrencyList() if currency.name in activeCurrencies or activeCurrencies[0] == 'all' or currency.name == services.checkout.getCurrencyData().name %}
-                                    <li{% if currency.name == services.checkout.getCurrencyData().name %} class="active"{% endif %}>
-                                        <a href="{{ queryString({"currency": currency.name}) }}" rel="nofollow">
+                                    <li class="col-2 px-0{% if currency.name == services.checkout.getCurrencyData().name %} active{% endif %}">
+                                        <a class="nav-link" href="{{ queryString({"currency": currency.name}) }}" rel="nofollow">
                                             {% if currencyFormatSelect == 'all' %}
                                                 {{ currency.name }} <br class="d-block d-sm-none" />({{ currency.symbol }})
                                             {% else %}
@@ -137,36 +179,37 @@
 
         <div id="countrySettings" class="cmp cmp-country-settings collapse">
             <div class="container-max">
-                <div class="row p-3">
+                <div class="row py-3">
                     <div class="col-12 col-lg-6">
 
-                        <div class="language-settings">
-                            <div class="list-title">
-                                <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
-                                <hr>
-                            </div>
+                            <div class="language-settings">
+                                <div class="list-title">
+                                    <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
+                                    <hr>
+                                </div>
 
-                            {% set languageList = services.webstoreConfig.getActiveLanguageList() %}
-                            {% set languageUrls = services.url.getLanguageURLs() %}
-                            <ul>
-                                {% for language in languageList %}
-                                    <li{% if lang == language %} class="active"{% endif %}>
-                                        <a href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
-                                            <i class="flag-icon flag-icon-{{ language }}"></i>
-                                            {{ trans("Ceres::Template.header" ~ language | capitalize) }}
-                                        </a>
-                                    </li>
-                                {% endfor %}
-                            </ul>
+                                {% set languageList = services.webstoreConfigurationRepository.getActiveLanguageList() %}
+                                {% set languageUrls = services.url.getLanguageURLs() %}
+                                <ul class="row">
+                                    {% for language in languageList %}
+                                        <li class="col-6 col-sm-4 px-0{% if lang == language %} active{% endif %}">
+                                            <a class="nav-link" href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
+                                                <i class="flag-icon flag-icon-{{ language }}"></i>
+                                                {{ trans("Ceres::Template.header" ~ language | capitalize) }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-12 col-lg-6">
-                        <div class="shipping-settings">
-                            <div class="list-title">
-                                <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
-                                <hr>
+                        <div class="col-12 col-lg-6">
+                            <div class="shipping-settings">
+                                <div class="list-title">
+                                    <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
+                                    <hr>
+                                </div>
+                                <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
                             </div>
-                            <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
                         </div>
                     </div>
                 </div>

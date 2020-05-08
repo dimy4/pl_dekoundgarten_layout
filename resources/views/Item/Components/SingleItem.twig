@@ -1,26 +1,243 @@
-{% import "Ceres::Basket.Macros.AddToBasket" as AddToBasket %}
-{% import "Ceres::Item.Macros.AgeRestriction" as AgeRestriction %}
-
-{% set itemData = config("Ceres.item.data") | split(', ') %}
-
-<script type="x/template" id="vue-single-item">
+<script type="x/template" data-component="single-item">
     <div>
         <slot :getDataField="getDataField" :getFilteredDataField="getFilteredDataField">
             <div class="single container-max page-content">
                 <div class="row position-relative">
-                    <div class="col-12 col-md-7">
+
+                    <div class="col-12 col-md-7 mt-5">
                         <slot name="image-carousel"></slot>
                     </div>
-                    <div class="col-12 col-md-5 single-rightside">
+
+                    <div class="col-12 col-md-5 mt-md-5">
                         <div v-stick-in-parent>
-                            {% include "Dekoundgarten::Item.Components.SingleItem.SingleItem_Details" %}
+                            <!-- START SINGLEITEM_DETAILS -->
+                            <h1 class="h2 title">
+                                <span>
+                                    ${ currentVariation | itemName }
+                                </span>
+                            </h1>
+
+                            <slot name="tag-list"></slot>
+
+                            <p class="single-description"
+                               v-if="isShortDescriptionActive && currentVariation.texts.shortDescription !== ''"
+                               v-html="currentVariation.texts.shortDescription"></p>
+
+                            <hr class="hr-before-variation">
+
+                            <!-- Variation -->
+                            <div class="mb-3" v-if="attributes.length || Object.keys(units).length">
+                                <variation-select></variation-select>
+                            </div>
+                            <!-- /Variation -->
+
+                            <!-- Item Bundle -->
+                            <item-bundle v-if="currentVariation.variation.bundleType === 'bundle'" :bundle-type="currentVariation.variation.bundleType" :bundle-components="currentVariation.bundleComponents"></item-bundle>
+                            <!-- /Item Bundle -->
+
+                            <slot name="before-price"></slot>
+
+                            <div v-if="currentVariation.filter.isSalable && variationGroupedProperties.length">
+                                <order-property-list></order-property-list>
+                            </div>
+
+                            <div class="row flex-wrap align-items-center prod-row-with-title">
+                                <div class="col-4 col-md-4 col-lg-3 prod-row-title">Preis</div>
+                                <div class="col-8 col-md-8 col-lg-9">
+                                    <graduated-prices></graduated-prices>
+                                    <item-price :show-cross-price="isRecommendedPriceActive"></item-price>
+                                </div>
+                            </div>
+
+                            <slot name="after-price"></slot>
+
+                            <div class="my-3">
+                                <div class="w-100">
+                                    <slot name="before-add-to-basket"></slot>
+                                </div>
+
+                                <div v-if="currentVariation.item.itemType === 'set'" class="alert alert-info w-100">
+                                    ${ $translate("Ceres::Template.singleItemSetInfo") }
+                                </div>
+                                <div v-else class="col-12 my-3">
+                                    <add-to-basket
+                                            :variation-id="currentVariation.variation.id"
+                                            :is-salable="!!currentVariation.filter && currentVariation.filter.isSalable"
+                                            :has-children="!!currentVariation.filter && currentVariation.filter.hasActiveChildren"
+                                            :interval-quantity="currentVariation.variation.intervalOrderQuantity || 1"
+                                            :minimum-quantity="currentVariation.variation.minimumOrderQuantity"
+                                            :maximum-quantity="!!currentVariation.variation.maximumOrderQuantity && currentVariation.variation.maximumOrderQuantity > 0 ? currentVariation.variation.maximumOrderQuantity : null"
+                                            :order-properties="currentVariation.properties.filter(function(prop) { return prop.property.isOderProperty })"
+                                            :use-large-scale="false"
+                                            :show-quantity="true"
+                                            :item-url="currentVariation | itemURL"
+                                            :is-variation-selected="isVariationSelected && currentVariation.filter.isSalable"
+                                            :has-price="currentVariation | hasItemDefaultPrice"
+                                        >
+                                    </add-to-basket>
+                                </div>
+
+                                <div class="w-100">
+                                    <slot name="after-add-to-basket"></slot>
+                                </div>
+                            </div>
+                            <!-- ./ITEM DETAIL -->
+
+                            <slot name="additional-content-after-add-to-basket"></slot>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 order-lg-2 text-lg-right">
+                                    <span class="articlenumber">
+                                        {{ trans("Ceres::Template.singleItemNumber") }}
+                                        <span>${ currentVariation.variation.number }</span>
+                                    </span>
+                                </div>
+                                <div class="col-md-12 col-lg-6 order-lg-1">
+                                    <span class="vat">
+                                        * <template v-if="showNetPrices">${ $translate("Ceres::Template.singleItemExclVAT") }</template><template v-else>${ $translate("Ceres::Template.singleItemInclVAT") }</template> ${ $translate("Ceres::Template.singleItemExclusive") }
+                                        <a v-if="hasShippingCostsCategoryId" data-toggle="modal" href="#shippingscosts" :title="$translate('Ceres::Template.singleItemShippingCosts')">${ $translate("Ceres::Template.singleItemShippingCosts") }</a>
+                                        <a v-else :title="$translate('Ceres::Template.singleItemShippingCosts')">${ $translate("Ceres::Template.singleItemShippingCosts") }</a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="prod-actions-footer-text1">
+                                <b>Kostenlose Lieferung ab 20 €</b><br>
+                                <span v-if="currentVariation.variation.availability" :class="'availability-' + currentVariation.variation.availability.id">
+                                    <span>
+                                        ${ currentVariation.variation.availability.names.name }
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="row prod-actions-footer-text2">
+                                <div class="col-4">
+                                    <i class="fa fa-truck" aria-hidden="true"></i>
+                                    <span>Kostenloser<br>Rückversand</span>
+                                </div>
+                                <div class="col-4">
+                                    <i class="fa fa-undo" aria-hidden="true"></i>
+                                    <span>30 Tage<br>Widerrufsrecht</span>
+                                </div>
+                                <div class="col-4">
+                                    <i class="fa fa-headphones" aria-hidden="true"></i>
+                                    <span>Kostenlose<br>Beratung</span>
+                                </div>
+                            </div>
+
+                            <slot name="additional-content-after-vat"></slot>
+                            <!-- END SINGLEITEM_DETAILS -->
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 my-5">
-                        {% include "Ceres::Item.Components.SingleItem.SingleItem_InformationTable" %}
+
+                    <div class="col-12 col-md-7">
+                        <!-- ITEM DESCRIPTION -->
+                        <div class="my-5">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item" v-if="isDescriptionTabActive">
+                                    <a class="nav-link active" data-toggle="tab" :href="'#details-' + currentVariation.variation.id" role="tab">${ $translate("Ceres::Template.singleItemDescription") }</a>
+                                </li>
+
+                                <li class="nav-item" v-if="isTechnicalDataTabActive">
+                                    <a :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" :href="'#data-' + currentVariation.variation.id" role="tab">${ $translate("Ceres::Template.singleItemTechnicalData") }</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="nav-link" data-toggle="tab" href="#assessments-details" role="tab">${ $translate("Ceres::Template.singleItemMoreDetails") }</a>
+                                </li>
+
+                                <slot name="add-detail-tabs"></slot>
+                            </ul>
+
+                            <div class="tab-content overflow-hidden">
+                                <div class="tab-pane active overflow-auto" :id="'details-' + currentVariation.variation.id" role="tabpanel" v-if="isDescriptionTabActive">
+                                    <div class="my-4" v-html="currentVariation.texts.description">
+                                    </div>
+                                </div>
+
+                                <div :class="{ 'active': !isDescriptionTabActive && isTechnicalDataTabActive }" class="tab-pane overflow-auto" :id="'data-' + currentVariation.variation.id" role="tabpanel" v-if="isTechnicalDataTabActive">
+                                    <div class="my-4" v-html="currentVariation.texts.technicalData">
+                                    </div>
+                                </div>
+
+                                <div :class="{ 'active': !isDescriptionTabActive && !isTechnicalDataTabActive }" class="tab-pane overflow-auto" id="assessments-details" role="tabpanel">
+                                    <div class="my-4">
+                                        <table class="table table-striped table-hover table-sm">
+                                            <tbody>
+                                            <tr v-if="itemConfig.includes('item.id') || itemConfig.includes('all')">
+                                                <td>${ $translate("Ceres::Template.singleItemId") }</td>
+                                                <td>${ currentVariation.item.id }</td>
+                                            </tr>
+
+                                            <tr v-if="currentVariation.item.condition && currentVariation.item.condition.names.name !== '' && (itemConfig.includes('item.condition') || itemConfig.includes('all'))">
+                                                <td>${ $translate("Ceres::Template.singleItemCondition") }</td>
+                                                <td>${ currentVariation.item.condition.names.name }</td>
+                                            </tr>
+
+                                            <tr v-if="itemConfig.includes('item.age_rating') || itemConfig.includes('all')">
+                                                <td>${ $translate("Ceres::Template.singleItemAge") }</td>
+                                                <td>${ currentVariation.item.ageRestriction | ageRestriction }</td>
+                                            </tr>
+
+                                            <tr v-if="currentVariation.variation.externalId !== '' && (itemConfig.includes('item.external_id') || itemConfig.includes('all'))">
+                                                <td>${ $translate("Ceres::Template.singleItemExternalVariationId") }</td>
+                                                <td>${ currentVariation.variation.externalId }</td>
+                                            </tr>
+
+                                            <tr v-if="currentVariation.variation.model !== '' && (itemConfig.includes('item.variation_model') || itemConfig.includes('all'))">
+                                                <td>${ $translate("Ceres::Template.singleItemModel") }</td>
+                                                <td>${ currentVariation.variation.model }</td>
+                                            </tr>
+
+                                            <tr v-if="currentVariation.filter.hasManufacturer && currentVariation.item.manufacturer.externalName !== '' && (itemConfig.includes('item.manufacturer') || itemConfig.includes('all'))">
+                                                <td>${ $translate("Ceres::Template.singleItemManufacturer") }</td>
+                                                <td>${ currentVariation.item.manufacturer.externalName }</td>
+                                            </tr>
+
+                                            <tr v-if="currentVariation.item.producingCountry && currentVariation.item.producingCountry.names.name !== '' && (itemConfig.includes('item.producerCountry') || itemConfig.includes('all'))">
+                                                <td>${ $translate("Ceres::Template.singleItemManufacturingCountry") }</td>
+                                                <td>${ currentVariation.item.producingCountry.names.name }</td>
+                                            </tr>
+
+                                            <tr v-if="currentVariation.unit && (itemConfig.includes('item.variationBase_content') || itemConfig.includes('all'))">
+                                                <td>${ $translate("Ceres::Template.singleItemContent") }</td>
+                                                <td>${ currentVariation.unit.content } ${ currentVariation.unit.names.name }</td>
+                                            </tr>
+
+                                            <tr v-if="currentVariation.variation.weightG !== '' && (itemConfig.includes('item.weightG') || itemConfig.includes('all'))">
+                                                <td>${ $translate("Ceres::Template.singleItemWeight") }</td>
+                                                <td>${ currentVariation.variation.weightG } g</td>
+                                            </tr>
+
+                                            <tr v-if="currentVariation.variation.weightNetG !== '' && (itemConfig.includes('item.weightNetG') || itemConfig.includes('all'))">
+                                                <td>${ $translate("Ceres::Template.singleItemNetWeight") }</td>
+                                                <td>${ currentVariation.variation.weightNetG } g</td>
+                                            </tr>
+
+                                            <tr v-if="itemConfig.includes('item.variation_dimensions') || itemConfig.includes('all')">
+                                                <td>${ $translate("Ceres::Template.singleItemDimensions") }</td>
+                                                <td>
+                                                    <span>${ currentVariation.variation.lengthMM }</span>&times;<!--
+                                                --><span>${ currentVariation.variation.widthMM }</span>&times;<!--
+                                                --><span>${ currentVariation.variation.heightMM }</span> mm
+                                                </td>
+                                            </tr>
+
+                                            <tr v-if="currentVariation.item.customsTariffNumber !== '' && (itemConfig.includes('item.customs_tariff_number') || itemConfig.includes('all'))">
+                                                <td>${ $translate("Ceres::Template.singleItemCustomsTariffNumber") }</td>
+                                                <td>${ currentVariation.item.customsTariffNumber }</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <slot name="add-detail-tabs-content"></slot>
+                            </div>
+                        </div>
+                        <!-- ./ITEM DESCRIPTION -->
                     </div>
+
                 </div>
 
                 <slot name="item-list-container"></slot>

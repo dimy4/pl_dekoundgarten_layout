@@ -1,5 +1,11 @@
-<script type="x/template" id="vue-add-to-wish-list-cat">
-    <a class="add-to-wish-list large" :class="{active: isVariationInWishList}" @click.prevent="switchState()" data-toggle="tooltip" data-placement="left" title="">
+<script type="x/template" id="add-to-wish-list-cat">
+    <a class="add-to-wish-list large"
+        :class="{active: isVariationInWishList}"
+        @click.prevent="switchState()"
+        data-toggle="tooltip"
+        data-placement="left"
+        ref="addToWishList"
+        title="">
         <i v-waiting-animation="isLoading" class="fa fa-heart-o"></i>
     </a>
 </script>

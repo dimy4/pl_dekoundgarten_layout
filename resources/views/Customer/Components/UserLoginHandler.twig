@@ -1,22 +1,23 @@
-<script type="x/template" id="vue-user-login-handlerDG">
-    <div id="login-change">
+<script type="x/template" id="user-login-handlerDG">
+    <div id="login-change" class="position-relative">
         <div class="dropdown" v-if="isLoggedIn">
-            <a href="#" class="dropdown-toggle" id="accountMenuList" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-boundary="window">
+            <a href="#" class="dropdown-toggle nav-link" id="accountMenuList" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-boundary="window">
                 <span>{{ trans("Ceres::Template.loginHello", {"username": "${username}"}) }}</span>
             </a>
-            <div class="account-menu dropdown-menu dropdown-menu-right small m-0 p-0">
-              <div class="list-group" aria-labelledby="accountMenuList" >
-                <a href="{{ urls.myAccount }}" class="list-group-item">{{ trans("Ceres::Template.loginMyAccount") }}</a>
-                <a href="#" class="list-group-item" v-logout>{{ trans("Ceres::Template.loginLogout") }}</a>
-              </div>
+            <div class="account-menu dropdown-menu dropdown-menu-right small m-0 p-0 mw-100">
+                <div class="list-group" aria-labelledby="accountMenuList" >
+                    <a :href="$ceres.urls.myAccount" class="list-group-item">${ $translate("Ceres::Template.loginMyAccount") }</a>
+                    <a href="#" class="list-group-item" v-logout>${ $translate("Ceres::Template.loginLogout") }</a>
+                </div>
             </div>
         </div>
         <div class="sub-li-items" v-if="!isLoggedIn">
-            <a {% if services.template.isCurrentTemplate("tpl.login") %} href="javascript:void(0)"{% else %} data-toggle="modal" href="#login"{% endif %} @click="unmarkInputFields()">
-                <span>{{ trans("Ceres::Template.login") }}</span>
+            <a class="nav-link" :href="isLogin ? 'javascript:void(0)' : '#login'" :data-toggle="isLogin ? false : 'modal'" @click="createLoginModal(); unmarkInputFields();">
+                <span>${ $translate("Ceres::Template.login") }</span>
             </a>
-            <a {% if services.template.isCurrentTemplate("tpl.register") %} href="javascript:void(0)"{% else %} data-toggle="modal" href="#registration"{% endif %} @click="unmarkInputFields()" v-if="showRegistration">
-                <span>{{ trans("Ceres::Template.loginRegister") }}</span>
+            <span class="pipe" v-if="showRegistration"></span>
+            <a class="nav-link" :href="isRegister ? 'javascript:void(0)' : '#registration'" :data-toggle="isRegister ? false : 'modal'"  @click="createRegisterModal(); unmarkInputFields();" v-if="showRegistration">
+                <span>${ $translate("Ceres::Template.loginRegister") }</span>
             </a>
         </div>
     </div>

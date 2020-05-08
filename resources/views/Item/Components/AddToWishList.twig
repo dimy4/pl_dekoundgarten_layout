@@ -1,6 +1,12 @@
-<script type="x/template" id="vue-add-to-wish-list">
-    <a class="small add-to-wish-list" :class="{active: isVariationInWishList}" @click.prevent="switchState()" data-toggle="tooltip" data-placement="top" title="">
+<script type="x/template" id="add-to-wish-list-single">
+    <a class="small add-to-wish-list"
+        :class="{active: isVariationInWishList}"
+        @click.prevent="switchState()"
+        data-toggle="tooltip"
+        data-placement="top"
+        ref="addToWishList"
+        title="">
         <i v-waiting-animation="isLoading" class="fa fa-heart-o"></i>
-        {{ trans("Ceres::Template.singleItemWishList") }}
+        ${ $translate("Ceres::Template.singleItemWishList") }
     </a>
 </script>

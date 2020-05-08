@@ -2,7 +2,7 @@
 
 namespace Dekoundgarten\Providers;
 
-use IO\Services\ItemSearch\Helper\ResultFieldTemplate;
+use Plenty\Modules\Webshop\ItemSearch\Helpers\ResultFieldTemplate;
 use Plenty\Plugin\ServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\Templates\Twig;
@@ -11,11 +11,6 @@ use IO\Helper\ResourceContainer;
 use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
 
-
-/**
- * Class DekoundgartenServiceProvider
- * @package Dekoundgarten\Providers
- */
 class DekoundgartenServiceProvider extends ServiceProvider
 {
     const PRIORITY = 0;
@@ -36,7 +31,7 @@ class DekoundgartenServiceProvider extends ServiceProvider
         {
             $partial->set('head', 'Ceres::PageDesign.Partials.Head');
             $partial->set('header', 'Dekoundgarten::PageDesign.Partials.Header.Header');
-            $partial->set('page-design', 'Dekoundgarten::PageDesign.PageDesign');
+            $partial->set('page-design', 'Ceres::PageDesign.PageDesign');
             $partial->set('footer', 'Dekoundgarten::PageDesign.Partials.Footer');
             $partial->set('page-metadata', 'Ceres::PageDesign.Partials.PageMetadata');
 
@@ -54,19 +49,19 @@ class DekoundgartenServiceProvider extends ServiceProvider
             $container->setTemplate('Dekoundgarten::Category.Item.CategoryItem');
             return false;
         }, self::PRIORITY);
-
         $dispatcher->listen('IO.tpl.search', function (TemplateContainer $container)
         {
             $container->setTemplate('Dekoundgarten::Category.Item.CategoryItem');
             return false;
         }, self::PRIORITY);
-
-        $dispatcher->listen('IO.ResultFields.*', function(ResultFieldTemplate $templateContainer) {
-            $templateContainer->setTemplates([
-                ResultFieldTemplate::TEMPLATE_LIST_ITEM => 'Dekoundgarten::ResultFields.ListItem',
-                ResultFieldTemplate::TEMPLATE_SINGLE_ITEM => 'Dekoundgarten::ResultFields.SingleItem'
-            ]);
+        $dispatcher->listen('IO.tpl.tags', function (TemplateContainer $container)
+        {
+            $container->setTemplate('Dekoundgarten::Category.Item.CategoryItem');
         }, self::PRIORITY);
+
+        $resultFieldTemplate = pluginApp(ResultFieldTemplate::class);
+        $resultFieldTemplate->setTemplate(ResultFieldTemplate::TEMPLATE_LIST_ITEM , 'Dekoundgarten::ResultFields.ListItem');
+        $resultFieldTemplate->setTemplate(ResultFieldTemplate::TEMPLATE_SINGLE_ITEM , 'Dekoundgarten::ResultFields.SingleItem');
     }
 }
 

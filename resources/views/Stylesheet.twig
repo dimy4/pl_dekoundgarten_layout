@@ -1,1 +1,15 @@
 <link rel="stylesheet" href="{{ plugin_path('Dekoundgarten') }}/css/main.css">
+
+{% if services.template.getCurrentTemplate() == "tpl.item" %}
+    {{ component( "Dekoundgarten::Item.Components.ItemPrice" ) }}
+    {{ component( "Dekoundgarten::Item.Components.VariationSelect" ) }}
+    {{ component( "Dekoundgarten::Item.Components.SingleItem" ) }}
+{% endif %}
+
+{{ component( "Dekoundgarten::Item.Components.AddToWishList" ) }}
+{{ component( "Dekoundgarten::Basket.Components.AddToBasket" ) }}
+
+{{ component( "Dekoundgarten::Customer.Components.UserLoginHandler" ) }}
+{{ component( "Dekoundgarten::Category.Partials.AddToWishList" ) }}
+{{ component( "Dekoundgarten::ItemList.Components.CategoryItem" ) }}
+{{ component( "Dekoundgarten::ItemList.Components.ItemSearch" ) }}

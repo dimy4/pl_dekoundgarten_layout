@@ -1,15 +1,15 @@
 {% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
 
-{% set numberOfCols = config('Ceres.footer.number_of_cols') %}
-{% set colSize = (12 / (numberOfCols + 1)) %}
-{% set displayedCategories = [] %}
-{% set numberOfFeatures = config('Ceres.footer.number_of_features') %}
-{% set topButtonPosition = config('Ceres.footer.to_top_button') %}
+{% set numberOfCols         = config('Ceres.footer.number_of_cols') %}
+{% set colSize              = (12 / (numberOfCols + 1)) %}
+{% set displayedCategories  = [] %}
+{% set numberOfFeatures     = config('Ceres.footer.number_of_features') %}
+{% set topButtonPosition    = config('Ceres.footer.to_top_button') %}
 
 {% set footerContainer = LayoutContainer.show("Ceres::Footer") | trim %}
 {% if footerContainer is empty %}
 
-<div class="footer">
+<div class="footer d-print-none">
 
     <div class="container-max footer-content">
         <div class="row">
@@ -106,7 +106,7 @@
     </div>
 </div>
 {% else %}
-    <div class="footer">
+    <div class="footer d-print-none">
         <div class="container-max footer-content">
             <div class="row">
                 <div class="col clearfix">
