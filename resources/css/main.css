@@ -431,6 +431,10 @@ a:focus, a:hover{
     float: left;
 }
 
+.add-to-basket-container .qty-btn-container button i{
+    display: block;
+}
+
 .prod-row-with-title{
     margin-bottom: 45px;
 }
