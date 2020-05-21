@@ -53,7 +53,8 @@ body, body > #vue-app, body > #vue-error, .page-content{
     border-bottom: 0 !important;
     font-size: 1.15rem;
 }
-.breadcrumbs{
+.breadcrumbs,
+.breadcrumbs .breadcrumb{
     background-color: transparent;
 }
 #mainTopMenuWrapper{

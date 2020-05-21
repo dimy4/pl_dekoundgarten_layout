@@ -72,7 +72,7 @@
                                     </wish-list-count>
                                 </li>
                             {% endif %}
-                            <li class="list-inline-item control-basket">
+                            <li class="list-inline-item control-basket" @mouseover.once="$store.dispatch('loadComponent', 'basket-preview')">
                                 <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
                                     <i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i>
                                     <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
@@ -181,26 +181,24 @@
             <div class="container-max">
                 <div class="row py-3">
                     <div class="col-12 col-lg-6">
-
-                            <div class="language-settings">
-                                <div class="list-title">
-                                    <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
-                                    <hr>
-                                </div>
-
-                                {% set languageList = services.webstoreConfigurationRepository.getActiveLanguageList() %}
-                                {% set languageUrls = services.url.getLanguageURLs() %}
-                                <ul class="row">
-                                    {% for language in languageList %}
-                                        <li class="col-6 col-sm-4 px-0{% if lang == language %} active{% endif %}">
-                                            <a class="nav-link" href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
-                                                <i class="flag-icon flag-icon-{{ language }}"></i>
-                                                {{ trans("Ceres::Template.header" ~ language | capitalize) }}
-                                            </a>
-                                        </li>
-                                    {% endfor %}
-                                </ul>
+                        <div class="language-settings">
+                            <div class="list-title">
+                                <strong>{{ trans("Ceres::Template.headerSelectLanguage") }}</strong>
+                                <hr>
                             </div>
+
+                            {% set languageList = services.webstoreConfigurationRepository.getActiveLanguageList() %}
+                            {% set languageUrls = services.url.getLanguageURLs() %}
+                            <ul class="row">
+                                {% for language in languageList %}
+                                    <li class="col-6 col-sm-4 px-0{% if lang == language %} active{% endif %}">
+                                        <a class="nav-link" href="{% if languageUrls[language] is defined %}{{ languageUrls[language] ~ queryString() }}{% elseif language != defaultLanguage %}/{{ language }}{{ urls.trailingSlashSuffix }}{% else %}/{% endif %}" data-update-url>
+                                            <i class="flag-icon flag-icon-{{ language }}"></i>
+                                            {{ trans("Ceres::Template.header" ~ language | capitalize) }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </div>
                         <div class="col-12 col-lg-6">
                             <div class="shipping-settings">
