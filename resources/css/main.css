@@ -746,7 +746,7 @@ a:focus, a:hover{
 }
 @media (max-width: 991px){
     #vue-app .navbar{
-        padding-top: 0;
+        padding-top: 0 !important;
     }
     #vue-app #page-body {
         margin-top: 5px;
@@ -754,7 +754,6 @@ a:focus, a:hover{
     .navbar-toggler{
         position: unset;
         float: right;
-        margin-top: 30px;
         margin-bottom: -5px;
     }
 }
