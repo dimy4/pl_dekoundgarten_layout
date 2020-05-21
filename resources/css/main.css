@@ -283,7 +283,7 @@ body, body > #vue-app, body > #vue-error, .page-content{
 .searchCol .search-submit{
     position: absolute;
     top: 6px;
-    right: 24px;
+    right: 8px;
     color: #00983f;
     border: 0;
     background: unset;
