@@ -59,7 +59,7 @@
                                 <div v-if="currentVariation.item.itemType === 'set'" class="alert alert-info w-100">
                                     ${ $translate("Ceres::Template.singleItemSetInfo") }
                                 </div>
-                                <div v-else class="col-12 my-3">
+                                <div v-else class="w-100 my-3">
                                     <add-to-basket
                                             :variation-id="currentVariation.variation.id"
                                             :is-salable="!!currentVariation.filter && currentVariation.filter.isSalable"

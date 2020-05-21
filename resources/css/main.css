@@ -385,6 +385,9 @@ a:focus, a:hover{
 .add-to-basket-container{
     display: block;
 }
+.single .qty-box{
+    margin-left: 0;
+}
 .single .qty-box .qty-input{
     width: 62px;
     height: 41px;
@@ -406,6 +409,7 @@ a:focus, a:hover{
     height: 41px;
     line-height: 41px;
     border: 1px solid #e8e8e8;
+    display: block !important;
 }
 .single .qty-box .qty-btn-container .qty-btn-seperator{
     display: none;
@@ -417,6 +421,8 @@ a:focus, a:hover{
 .single .qty-box .qty-btn-container .qty-btn:last-child{
     height: 100%;
     width: 40px;
+    background: transparent;
+    border: 0;
 }
 .single .qty-box .qty-btn-container .qty-btn:first-child{
     float: right;
@@ -466,7 +472,7 @@ a:focus, a:hover{
     font-size: 34px;
     margin-bottom: 15px;
 }
-.availability_1, .availability_2 {
+.availability-1, .availability-2 {
     background-color: unset;
     color: #636363;
 }
@@ -603,10 +609,10 @@ a:focus, a:hover{
     width: calc(100% - 121px);
 }
 
-.availability_5,
-.availability_6,
-.availability_7,
-.availability_8 {
+.availability-5,
+.availability-6,
+.availability-7,
+.availability-8 {
     background-color: #b51010;
     padding: 3px 8px;
     color: #fff;
@@ -651,7 +657,7 @@ a:focus, a:hover{
     .single .nav-tabs .nav-item + .nav-item {
         margin-left: 0px;
     }
-    .single .nav-tabs .nav-item .nav-link {
+    .single .nav-tabs .nav-link {
         border-top-right-radius: 0.4rem;
         border-top-left-radius: 0.4rem;
         border: 1px solid transparent;
