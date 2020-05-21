@@ -8,7 +8,7 @@
                         <div class="col-6 col-lg-4 text-left head-slogan">{{ config("Dekoundgarten.header.slogan") }}</div>
                         <div class="col-6 col-lg-8 text-right">
                             <ul class="premenu">
-                                <li><user-login-handler template-override="#user-login-handlerDG" :user-data="{{ services.customer.getContact() | json_encode() }}"></user-login-handler></li>
+                                <li><user-login-handler template-override="#user-login-handlerDG"></user-login-handler></li>
                                 <li><a href="/contact">Kontakt</a></li>
                             </ul>
                         </div>
