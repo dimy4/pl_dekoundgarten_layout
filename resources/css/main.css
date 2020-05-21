@@ -49,9 +49,12 @@ body, body > #vue-app, body > #vue-error, .page-content{
 }
 #vue-app .navbar{
     background: #fff;
-    padding-top: 28px;
-    border-bottom: 0;
+    padding-top: 28px !important;
+    border-bottom: 0 !important;
     font-size: 1.15rem;
+}
+.breadcrumbs{
+    background-color: transparent;
 }
 #mainTopMenuWrapper{
     font-size: 1.2rem;
@@ -703,11 +706,15 @@ a:focus, a:hover{
     .main-navbar-collapsable ul.mainmenu > li.ddown{
         color: #292b2c;
     }
+    .main-navbar-collapsable .mainmenu>li:hover>a, .main-navbar-collapsable .mainmenu>li.hover>a{
+        color: #4D4F4D;
+    }
     .no-touch .main-navbar-collapsable ul.mainmenu > li:hover, 
     .touch .main-navbar-collapsable ul.mainmenu > li.hover,
     .no-touch .main-navbar-collapsable ul.mainmenu > li > ul > li:hover, 
     .touch .main-navbar-collapsable ul.mainmenu > li > ul > li.hover,
-    nav.navbar:not(.megamenu) .nav-dropdown-inner li:hover{
+    nav.navbar:not(.megamenu) .nav-dropdown-inner li:hover,
+    .normalmenu .collapse-inner>li:hover{
         background-color: #f7f7f7;
         color: #636363;
     }
