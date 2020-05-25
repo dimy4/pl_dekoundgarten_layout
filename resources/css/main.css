@@ -714,6 +714,7 @@ a:focus, a:hover{
     .main-navbar-collapsable ul.mainmenu > li.ddown > a:after {
         display: none;
     }
+    .main-navbar-collapsable ul.mainmenu > li.ddown a,
     .main-navbar-collapsable ul.mainmenu > li.ddown{
         color: #292b2c;
     }
