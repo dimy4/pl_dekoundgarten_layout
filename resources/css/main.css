@@ -433,6 +433,7 @@ a:focus, a:hover{
 
 .add-to-basket-container .qty-btn-container button i{
     display: block;
+    line-height: 39px;
 }
 
 .prod-row-with-title{
