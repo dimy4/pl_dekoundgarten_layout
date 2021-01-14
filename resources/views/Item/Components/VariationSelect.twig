@@ -1,6 +1,6 @@
 <script type="x/template" data-component="variation-select">
     <div>
-        <div v-if="attributes.length || (possibleUnitCombinationIds.length > 1 && isContentVisible)" class="row">
+        <div v-if="attributes.length || (Object.keys(possibleUnitCombinationIds).length > 1 && isContentVisible)" class="row">
             <div class="col-12" v-for="attribute in attributes">
                 <!-- dropdown -->
                 <div class="row align-items-center prod-row-with-title" v-if="attribute.type === 'dropdown'">
@@ -64,7 +64,7 @@
             </div>
 
             <!-- units -->
-            <div class="row align-items-center prod-row-with-title" v-if="possibleUnitCombinationIds.length > 1 && isContentVisible">
+            <div class="row align-items-center prod-row-with-title" v-if="Object.keys(possibleUnitCombinationIds).length > 1 && isContentVisible">
                 <div class="col-4 col-md-4 col-lg-3 prod-row-title"></div>
                 <div class="col-8 col-md-6 col-lg-4 variation-select">
                     <div class="input-unit">
