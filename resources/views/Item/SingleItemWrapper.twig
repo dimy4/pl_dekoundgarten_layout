@@ -10,6 +10,28 @@
     {% else %}
         {% set robotsValue = 'ALL' %}
     {% endif %}
+
+    {% set gtin8 = '' %}
+    {% set gtin13 = '' %}
+    {% set gtin14 = '' %}
+    {% if itemData.barcodes | length > 0 %}
+        {% for barcode in itemData.barcodes %}
+            {% if gtin8 | trim is empty and barcode.type == "GTIN_8" %}
+                {% set gtin8 = barcode.code %}
+            {% endif %}
+        {% endfor %}
+        {% for barcode in itemData.barcodes %}
+            {% if gtin13 | trim is empty and barcode.type == "GTIN_13" %}
+                {% set gtin13 = barcode.code %}
+            {% endif %}
+        {% endfor %}
+        {% for barcode in itemData.barcodes %}
+            {% if gtin14 | trim is empty and barcode.type == "GTIN_14" %}
+                {% set gtin14 = barcode.code %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
     {% embed getPartial('page-metadata') %}
         {% block title          ItemName.get(itemData | itemName(webstoreConfig.urlTitleItemName - 1), itemData.variation.bundleType) %}
         {% block description    itemData.texts.metaDescription %}
@@ -28,6 +50,16 @@
                 "identifier"    : "{{ itemData.variation.id }}",
                 "description"   : "{{ itemData.texts.description | striptags | filterTabs }}",
                 "disambiguatingDescription" : "{{ itemData.texts.shortDescription }}",
+                "sku": "{{ item.documents[0].data.variation.number }}",
+                {% if gtin8 | trim is not empty %}
+                "gtin8": "{{ gtin8 }}",
+                {% endif %}
+                {% if gtin13 | trim is not empty %}
+                "gtin13": "{{ gtin13 }}",
+                {% endif %}
+                {% if gtin14 | trim is not empty %}
+                "gtin14": "{{ gtin14 }}",
+                {% endif %}
                 "manufacturer"  : {
                     "@type"         : "Organization",
                     "name"          : "{{ itemData.item.manufacturer.externalName }}"
