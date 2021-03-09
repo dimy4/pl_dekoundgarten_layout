@@ -20,12 +20,12 @@
 
                             <li class="list-inline-item control-user">
                                 <user-login-handler>
-                                    <a data-toggle="modal">
+                                    <a data-toggle="modal" aria-label="{{ trans('Ceres::Template.login') }}">
                                         <i class="fa fa-user" aria-hidden="true"></i>
                                         <span class="hidden-xs-down">{{ trans("Ceres::Template.login") }}</span>
                                     </a>
                                     <span class="pipe"></span>
-                                    <a data-toggle="modal">
+                                    <a data-toggle="modal" aria-label="{{ trans('Ceres::Template.loginRegister') }}">
                                         <i class="fa fa-user-plus" aria-hidden="true"></i>
                                         <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
                                     </a>
@@ -34,7 +34,8 @@
                             <li class="list-inline-item dropdown control-languages">
                                <a data-toggle="collapse" href="#countrySettings" aria-expanded="false"
                                     aria-controls="countrySettings"
-                                    data-parent="#controlsList">
+                                    data-parent="#controlsList"
+                                    aria-label="{{ trans('Ceres::Template.headerCountry') }}">
                                         <i class="flag-icon flag-icon-{{ lang }}"></i>
                                 </a>
                             </li>
@@ -46,7 +47,8 @@
                                         href="#currencySelect"
                                         aria-expanded="false"
                                         aria-controls="currencySelect"
-                                        data-parent="#controlsList">
+                                        data-parent="#controlsList"
+                                        aria-label="{{ trans('Ceres::Template.headerCurrency') }}">
                                             <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                                     </a>
                                 </li>
@@ -65,7 +67,7 @@
                             {% if services.url.isRouteEnabled("wish-list") %}
                                 <li class="list-inline-item control-wish-list">
                                     <wish-list-count>
-                                        <a>
+                                        <a aria-label="{{ trans('trans("Ceres::Template.wishList') }}">
                                             <span class="badge-right">0</span>
                                             <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         </a>
