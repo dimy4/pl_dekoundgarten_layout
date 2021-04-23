@@ -7,13 +7,15 @@
     <div class="container-max d-block">
         <div class="row mx-0 position-relative d-flex align-items-center">
              <div class="col-8 col-sm-6 col-md-3">
-                 <a class="navbar-brand" href="{{ homepageURL }}">
-                    {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}
-                        <img alt="{{ companyName }}" src="{{ companyLogo }}" class="img-fluid" />
-                    {% else %}
-                        <img alt="{{ companyName }}" src="{{ plugin_path('Ceres') }}/{{ companyLogo }}" class="img-fluid" />
-                    {% endif %}
-                 </a>
+                {% if companyLogo | trim | length > 0 %}
+                    <a class="navbar-brand" href="{{ homepageURL }}">
+                        {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}
+                            <img alt="{{ companyName }}" src="{{ companyLogo }}" class="img-fluid" />
+                        {% else %}
+                            <img alt="{{ companyName }}" src="{{ plugin_path('Ceres') }}/{{ companyLogo }}" class="img-fluid" />
+                        {% endif %}
+                    </a>
+                 {% endif %}
             </div>
             <div class="col-md-6 searchCol d-none d-lg-block">
                 <item-search template-override="#item-searchDG"></item-search>

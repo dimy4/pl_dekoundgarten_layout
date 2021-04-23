@@ -7,7 +7,7 @@
                     <div class="col-4 col-md-4 col-lg-3 prod-row-title">Auswählen</div>
                     <div class="col-8 col-md-6 col-lg-4 variation-select">
                         <div class="input-unit" ref="attributesContaner" v-if="attribute.type === 'dropdown'">
-                            <select class="custom-select" @change="selectAttribute(attribute.attributeId, $event.target.value)">
+                            <select :id="'custom-select_' + attribute.name" class="custom-select" @change="selectAttribute(attribute.attributeId, $event.target.value)">
                                 <option :value="-1" v-if="addPleaseSelectOption || !hasSelection">${ $translate("Ceres::Template.singleItemPleaseSelect") }</option>
                                 <option
                                         :value="null" v-if="hasEmptyOption || selectedAttributes[attribute.attributeId] === null"
@@ -27,7 +27,7 @@
                                     </template>
                                 </option>
                             </select>
-                            <label v-tooltip="isTextCut(attribute.name)" data-toggle="tooltip" data-placement="top" :title="attribute.name">${ attribute.name }</label>
+                            <label :for="'custom-select_' + attribute.name" v-tooltip="isTextCut(attribute.name)" data-toggle="tooltip" data-placement="top" :title="attribute.name">${ attribute.name }</label>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                 <div class="col-4 col-md-4 col-lg-3 prod-row-title"></div>
                 <div class="col-8 col-md-6 col-lg-4 variation-select">
                     <div class="input-unit">
-                        <select class="custom-select" @change="selectUnit($event.target.value)">
+                        <select id="unit-combination-ids-select" class="custom-select" @change="selectUnit($event.target.value)">
                             <option
                                     v-for="unitCombinationId in possibleUnitCombinationIds"
                                     :value="unitCombinationId"
@@ -81,7 +81,7 @@
                                 </template>
                             </option>
                         </select>
-                        <label>${ $translate("Ceres::Template.singleItemContent") }</label>
+                        <label for="unit-combination-ids-select">${ $translate("Ceres::Template.singleItemContent") }</label>
                     </div>
                 </div>
             </div>

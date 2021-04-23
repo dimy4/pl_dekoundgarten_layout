@@ -13,7 +13,7 @@
         <!-- PREV LINK -->
         <li class="page-item{% if currentPage <= 1 %} disabled{% endif %}">
             <a class="page-link prev"{% if currentPage > 1 %} href="{{ baseURL ~ queryString({ 'page': prevPage }) }}"{% endif %}>
-                <i class="fa fa-sort-asc fa-rotate-270" aria-hidden="true"></i><span>Vorherige Seite</span>
+                <i class="fa fa-sort-asc fa-rotate-270" aria-label="{{ trans('Ceres::Template.paginationPrevPage') }}"></i><span>Vorherige Seite</span>
             </a>
         </li>
 
@@ -73,7 +73,7 @@
         <!-- NEXT LINK -->
         <li class="page-item{% if currentPage >= pageMax %} disabled{% endif %}">
             <a class="page-link next"{% if currentPage < pageMax %} href="{{ baseURL ~ queryString({ 'page': currentPage + 1 }) }}"{% endif %}>
-               <span>Nächste Seite</span><i class="fa fa-sort-asc fa-rotate-90" aria-hidden="true"></i>
+               <span>Nächste Seite</span><i class="fa fa-sort-asc fa-rotate-90" aria-label="{{ trans('Ceres::Template.paginationNextPage') }}"></i>
             </a>
         </li>
         <!-- ./NEXT LINK -->
