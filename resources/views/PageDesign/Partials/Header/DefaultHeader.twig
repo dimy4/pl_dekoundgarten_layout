@@ -79,7 +79,7 @@
                                     </lazy-hydrate>
                                 </li>
                             {% endif %}
-                            <li class="list-inline-item control-basket">
+                            <li class="list-inline-item control-basket" @mouseover.once="$store.dispatch('loadComponent', 'basket-preview')">
                                 <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link">
                                     <i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i>
                                     <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
