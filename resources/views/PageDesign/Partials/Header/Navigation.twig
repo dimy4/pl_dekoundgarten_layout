@@ -22,7 +22,7 @@
                     <item-search template-override="#item-searchDG"></item-search>
                 </client-only>
             </div>
-            <div class="col-md-3 dg-buttons d-none d-lg-block">
+            <div class="col-md-3 dg-buttons d-none d-lg-block" @mouseover.once="$store.dispatch('loadComponent', 'basket-preview')">
                 <a v-toggle-basket-preview href="#" class="warenkorb">
                     <img src="{{ plugin_path('Dekoundgarten') }}/images/basket.png">
                     <span class="text">Warenkorb</span>
