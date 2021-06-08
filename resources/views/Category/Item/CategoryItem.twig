@@ -81,7 +81,9 @@
                 </div>
 
                 {# TAGS #}
-                <item-filter-tag-list></item-filter-tag-list>
+                <lazy-hydrate when-idle>
+                    <item-filter-tag-list></item-filter-tag-list>
+                </lazy-hydrate>
             </div>
 
             

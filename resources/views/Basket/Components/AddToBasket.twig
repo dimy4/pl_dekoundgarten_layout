@@ -1,3 +1,4 @@
+<!-- SSR:template(add-to-basket) -->
 <script type="x/template" data-component="add-to-basket">
     <div>
         <div :class="{'no-pointer-events': isLoading}" class="add-to-basket-lg-container d-none d-lg-block" v-if="!showQuantity && useLargeScale && canBeAddedToBasket"
@@ -68,7 +69,9 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-12 col-lg-6">
                     {% if services.url.isRouteEnabled("wish-list") %}
-                        <add-to-wish-list template-override="#add-to-wish-list-single" :variation-id="variationId"></add-to-wish-list>
+                        <client-only>
+                            <add-to-wish-list template-override="#add-to-wish-list-single" :variation-id="variationId"></add-to-wish-list>
+                        </client-only>
                     {% endif %}
                 </div>
             </div>
@@ -88,3 +91,4 @@
         </div>
     </div>
 </script>
+<!-- /SSR -->

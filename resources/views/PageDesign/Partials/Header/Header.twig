@@ -10,7 +10,7 @@
 {% if headerContainer is empty %}
     {% include "Dekoundgarten::PageDesign.Partials.Header.DefaultHeader" %}
 {% else %}
-<header id="page-header" class="fixed-top">
+<header id="page-header">
     <div class="container-max">
         <div class="row flex-row-reverse position-relative">
             <div id="page-header-parent" class="col-12 header-container" data-header-offset>
@@ -20,20 +20,6 @@
     </div>
 </header>
 {% endif %}
-
-{% set scriptId = uid() %}
-<script id="{{ scriptId }}">
-    var vueApp = document.getElementById("vue-app");
-    var pageHeader = document.getElementById("page-header");
-
-    if ( !!vueApp && !!pageHeader )
-    {
-        vueApp.style.marginTop = pageHeader.getBoundingClientRect().height + 'px';
-    }
-
-    var scriptElement = document.getElementById("{{ scriptId }}");
-    scriptElement.parentElement.removeChild(scriptElement);
-</script>
 
 <div>
     {% if category.linklist == "Y" %}
@@ -49,5 +35,7 @@
         {% set initialCategory = null %}
     {% endif %}
 
-    <mobile-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></mobile-navigation>
+    <lazy-hydrate when-idle>
+        <mobile-navigation :initial-category="{{ initialCategory | json_encode }}" :include-language="{{ urls.includeLanguage | json_encode }}"></mobile-navigation>
+    </lazy-hydrate>
 </div>

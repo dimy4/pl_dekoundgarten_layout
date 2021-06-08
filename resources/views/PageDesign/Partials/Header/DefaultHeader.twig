@@ -8,7 +8,7 @@
                         <div class="col-6 col-lg-4 text-left head-slogan">{{ config("Dekoundgarten.header.slogan") }}</div>
                         <div class="col-6 col-lg-8 text-right">
                             <ul class="premenu">
-                                <li><user-login-handler template-override="#user-login-handlerDG"></user-login-handler></li>
+                                <li><client-only><user-login-handler template-override="#user-login-handlerDG"></user-login-handler></client-only></li>
                                 <li><a href="/contact">Kontakt</a></li>
                             </ul>
                         </div>
@@ -19,17 +19,19 @@
                         <ul id="controlsList" class="controls-list list-inline ml-auto mb-0">
 
                             <li class="list-inline-item control-user">
-                                <user-login-handler>
-                                    <a data-toggle="modal" aria-label="{{ trans('Ceres::Template.login') }}">
-                                        <i class="fa fa-user" aria-hidden="true"></i>
-                                        <span class="hidden-xs-down">{{ trans("Ceres::Template.login") }}</span>
-                                    </a>
-                                    <span class="pipe"></span>
-                                    <a data-toggle="modal" aria-label="{{ trans('Ceres::Template.loginRegister') }}">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                        <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
-                                    </a>
-                                </user-login-handler>
+                                <lazy-hydrate when-idle>
+                                    <user-login-handler>
+                                        <a data-toggle="modal" aria-label="{{ trans('Ceres::Template.login') }}">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <span class="hidden-xs-down">{{ trans("Ceres::Template.login") }}</span>
+                                        </a>
+                                        <span class="pipe"></span>
+                                        <a data-toggle="modal" aria-label="{{ trans('Ceres::Template.loginRegister') }}">
+                                            <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                            <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
+                                        </a>
+                                    </user-login-handler>
+                                </lazy-hydrate>
                             </li>
                             <li class="list-inline-item dropdown control-languages">
                                <a data-toggle="collapse" href="#countrySettings" aria-expanded="false"
@@ -48,7 +50,8 @@
                                         aria-expanded="false"
                                         aria-controls="currencySelect"
                                         data-parent="#controlsList"
-                                        aria-label="{{ trans('Ceres::Template.headerCurrency') }}">
+                                        aria-label="{{ trans('Ceres::Template.headerCurrency') }}"
+                                        @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
                                             <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
                                     </a>
                                 </li>
@@ -66,12 +69,14 @@
                             </li>
                             {% if services.url.isRouteEnabled("wish-list") %}
                                 <li class="list-inline-item control-wish-list">
-                                    <wish-list-count>
-                                        <a aria-label="{{ trans('trans("Ceres::Template.wishList') }}">
-                                            <span class="badge-right">0</span>
-                                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        </a>
-                                    </wish-list-count>
+                                    <lazy-hydrate when-idle>
+                                        <wish-list-count>
+                                            <a class="nav-link" aria-label="{{ trans('Ceres::Template.wishList') }}">
+                                                <span class="badge-right mr-1 d-none d-sm-inline">0</span>
+                                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                            </a>
+                                        </wish-list-count>
+                                    </lazy-hydrate>
                                 </li>
                             {% endif %}
                             <li class="list-inline-item control-basket">
@@ -83,7 +88,7 @@
                             </li>
                         </ul>
                     </div>
-                    <basket-preview :show-net-prices="{{ showNetPrices | json_encode }}">
+                    <basket-preview v-if="$store.state.lazyComponent.components['basket-preview']" :show-net-prices="{{ showNetPrices | json_encode }}">
                         <template #before-basket-item>
                             {{ LayoutContainer.show("Ceres::BasketList.BeforeItem") }}
                         </template>
@@ -143,7 +148,9 @@
         <div id="searchBox" class="cmp cmp-search-box collapse">
             {% set overrideSearchBar = LayoutContainer.show("Ceres::Search.SearchBar") %}
             {% if overrideSearchBar | trim is empty %}
-                <item-search></item-search>
+                <lazy-load component="item-search">
+                    <item-search></item-search>
+                </lazy-load>
             {% else %}
                 {{ overrideSearchBar | raw }}
             {% endif %}
@@ -207,7 +214,12 @@
                                     <strong>{{ trans("Ceres::Template.headerSelectShippingCountry") }}</strong>
                                     <hr>
                                 </div>
-                                <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
+                                <intersect>
+                                    <shipping-country-select :disable-input="{{ services.template.isCheckout() | json_encode() }}"></shipping-country-select>
+                                    <template #loading>
+                                        <div class="row" style="height:1px;"></div>
+                                    </template>
+                                </intersect>
                             </div>
                         </div>
                     </div>

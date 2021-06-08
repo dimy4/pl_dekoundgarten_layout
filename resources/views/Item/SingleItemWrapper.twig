@@ -3,6 +3,7 @@
 {% import "Ceres::PageDesign.Macros.ItemName" as ItemName %}
 
 {% block PartialHead %}
+
     {% set itemData = item.documents[0].data %}
 
     {% if queryString() | length > 0 %}
@@ -10,28 +11,6 @@
     {% else %}
         {% set robotsValue = 'ALL' %}
     {% endif %}
-
-    {% set gtin8 = '' %}
-    {% set gtin13 = '' %}
-    {% set gtin14 = '' %}
-    {% if itemData.barcodes | length > 0 %}
-        {% for barcode in itemData.barcodes %}
-            {% if gtin8 | trim is empty and barcode.type == "GTIN_8" %}
-                {% set gtin8 = barcode.code %}
-            {% endif %}
-        {% endfor %}
-        {% for barcode in itemData.barcodes %}
-            {% if gtin13 | trim is empty and barcode.type == "GTIN_13" %}
-                {% set gtin13 = barcode.code %}
-            {% endif %}
-        {% endfor %}
-        {% for barcode in itemData.barcodes %}
-            {% if gtin14 | trim is empty and barcode.type == "GTIN_14" %}
-                {% set gtin14 = barcode.code %}
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-
     {% embed getPartial('page-metadata') %}
         {% block title          ItemName.get(itemData | itemName(webstoreConfig.urlTitleItemName - 1), itemData.variation.bundleType) %}
         {% block description    itemData.texts.metaDescription %}
@@ -50,24 +29,40 @@
                 "identifier"    : "{{ itemData.variation.id }}",
                 "description"   : "{{ itemData.texts.description | striptags | filterTabs }}",
                 "disambiguatingDescription" : "{{ itemData.texts.shortDescription }}",
-                "sku": "{{ item.documents[0].data.variation.number }}",
-                {% if gtin8 | trim is not empty %}
-                "gtin8": "{{ gtin8 }}",
-                {% endif %}
-                {% if gtin13 | trim is not empty %}
-                "gtin13": "{{ gtin13 }}",
-                {% endif %}
-                {% if gtin14 | trim is not empty %}
-                "gtin14": "{{ gtin14 }}",
-                {% endif %}
+{% if manufacturer | length > 0 %}
                 "manufacturer"  : {
                     "@type"         : "Organization",
-                    "name"          : "{{ itemData.item.manufacturer.externalName }}"
+                    "name"          : "{{ manufacturer }}"
                 },
+{%  endif %}
+{% if brand | length  > 0 %}
+                "brand"         : {
+                    "@type"         : "Brand",
+                    "name"          : "{{ brand }}"
+                },
+{% endif %}
+{% if sku | length  > 0 %}
+                "sku"           : "{{ sku }}",
+{% endif %}
+{% if gtin8 | length  > 0 %}
+                "gtin8"         : "{{ gtin8 }}",
+{% endif %}
+{% if gtin13 | length  > 0 %}
+                "gtin13"        : "{{ gtin13 }}",
+{% endif %}
+{% if isbn | length  > 0 %}
+                "isbn"          : "{{ isbn }}",
+{% endif %}
+{% if mpn | length  > 0 %}
+                "mpn"           : "{{ mpn }}",
+{% endif %}
                 "offers": {
                     "@type"         : "Offer",
                     "priceCurrency" : "{{ itemData.prices.default.currency }}",
                     "price": "{{ itemData.prices.default.price.value | number_format(2, '.', '') }}",
+{% if priceValidUntil | length  > 0 %}
+                    "priceValidUntil: "{{ priceValidUntil }}",
+{% endif %}
                     "url"           : "{{ requestedVariationUrl }}",
 {% if itemData.prices.default.baseLot > 0 %}
                     "priceSpecification": {
@@ -82,8 +77,7 @@
                     },
 {% endif %}
                     "availability"  : "{{ itemData.variation.availability.mappedAvailability }}",
-                    "itemCondition" : "{{ itemData.item.condition.names.name }}",
-                    "serialNumber"  : "{{ itemData.variation.number }}"
+                    "itemCondition" : "{{ itemData.item.condition.names.name }}"
                 },
                 "depth": {
                     "@type"         : "QuantitativeValue",

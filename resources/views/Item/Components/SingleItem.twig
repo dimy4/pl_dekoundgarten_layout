@@ -1,3 +1,4 @@
+<!-- SSR:template(single-item) -->
 <script type="x/template" data-component="single-item">
     <div>
         <slot :getDataField="getDataField" :getFilteredDataField="getFilteredDataField">
@@ -61,19 +62,19 @@
                                 </div>
                                 <div v-else class="w-100 my-3">
                                     <add-to-basket
-                                            :variation-id="currentVariation.variation.id"
-                                            :is-salable="!!currentVariation.filter && currentVariation.filter.isSalable"
-                                            :has-children="!!currentVariation.filter && currentVariation.filter.hasActiveChildren"
-                                            :interval-quantity="currentVariation.variation.intervalOrderQuantity || 1"
-                                            :minimum-quantity="currentVariation.variation.minimumOrderQuantity"
-                                            :maximum-quantity="!!currentVariation.variation.maximumOrderQuantity && currentVariation.variation.maximumOrderQuantity > 0 ? currentVariation.variation.maximumOrderQuantity : null"
-                                            :order-properties="currentVariation.properties.filter(function(prop) { return prop.property.isOderProperty })"
-                                            :use-large-scale="false"
-                                            :show-quantity="true"
-                                            :item-url="currentVariation | itemURL"
-                                            :is-variation-selected="isVariationSelected && currentVariation.filter.isSalable"
-                                            :has-price="currentVariation | hasItemDefaultPrice"
-                                        >
+                                        :variation-id="currentVariation.variation.id"
+                                        :is-salable="!!currentVariation.filter && currentVariation.filter.isSalable"
+                                        :has-children="!!currentVariation.filter && currentVariation.filter.hasActiveChildren"
+                                        :interval-quantity="currentVariation.variation.intervalOrderQuantity || 1"
+                                        :minimum-quantity="currentVariation.variation.minimumOrderQuantity"
+                                        :maximum-quantity="!!currentVariation.variation.maximumOrderQuantity && currentVariation.variation.maximumOrderQuantity > 0 ? currentVariation.variation.maximumOrderQuantity : null"
+                                        :order-properties="currentVariation.properties.filter(function(prop) { return prop.property.isOderProperty })"
+                                        :use-large-scale="false"
+                                        :show-quantity="true"
+                                        :item-url="currentVariation | itemURL"
+                                        :is-variation-selected="isVariationSelected && currentVariation.filter.isSalable"
+                                        :has-price="currentVariation | hasItemDefaultPrice"
+                                    >
                                     </add-to-basket>
                                 </div>
 
@@ -170,3 +171,4 @@
         </slot>
     </div>
 </script>
+<!-- /SSR -->

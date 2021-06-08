@@ -18,7 +18,9 @@
                  {% endif %}
             </div>
             <div class="col-md-6 searchCol d-none d-lg-block">
-                <item-search template-override="#item-searchDG"></item-search>
+                <client-only>
+                    <item-search template-override="#item-searchDG"></item-search>
+                </client-only>
             </div>
             <div class="col-md-3 dg-buttons d-none d-lg-block">
                 <a v-toggle-basket-preview href="#" class="warenkorb">
