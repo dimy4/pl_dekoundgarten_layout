@@ -19,7 +19,7 @@
                         <ul id="controlsList" class="controls-list list-inline ml-auto mb-0">
 
                             <li class="list-inline-item control-user">
-                                <lazy-hydrate when-idle>
+                                <client-only>
                                     <user-login-handler>
                                         <a data-toggle="modal" aria-label="{{ trans('Ceres::Template.login') }}">
                                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -31,7 +31,7 @@
                                             <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
                                         </a>
                                     </user-login-handler>
-                                </lazy-hydrate>
+                                </client-only>
                             </li>
                             <li class="list-inline-item dropdown control-languages">
                                <a data-toggle="collapse" href="#countrySettings" aria-expanded="false"
