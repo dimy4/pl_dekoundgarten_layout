@@ -58,12 +58,13 @@
                             {% endif %}
                             <li class="list-inline-item control-search">
                                 <a class="anicon anicon-search-xcross nav-link"
-                                    aria-label="toggle search"
                                     data-toggle="collapse"
                                     href="#searchBox"
                                     aria-expanded="false"
                                     aria-controls="searchBox"
-                                    data-parent="#controlsList">
+                                    data-parent="#controlsList"
+                                    aria-label="{{ trans('Ceres::Template.headerSearch') }}"
+                                    @mouseover.once="$store.dispatch('loadComponent', 'item-search')">
                                     <span class="anicon-search-item" aria-hidden="true"></span>
                                 </a>
                             </li>
