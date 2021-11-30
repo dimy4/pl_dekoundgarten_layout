@@ -74,6 +74,14 @@ body, body > #vue-app, body > #vue-error, .page-content{
     color: #00983f;
 }
 
+.header-banner{
+    background-color: #b51010;
+    text-align: center;
+}
+.header-banner .banner-img{
+    max-width: 100%;
+}
+
 .carousel-control{
     width: 10%;
     opacity: 0.7;
