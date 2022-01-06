@@ -24,7 +24,7 @@
 {{ Twig.set("overrideSearchBar", Twig.call("LayoutContainer.show", ["Ceres::Search.SearchBar"])) }}
 
 <div class="top-bar header-fw{% if customClass | length > 0 %} {{ customClass }}{% endif %}{% if not isFixed %} unfixed{% endif %}">
-    <div class="container-max px-0 pr-lg-3">
+    <div class="container-max px-0">
         {% if not isPreview %}
             <div class="row mx-0 flex-row align-items-center preheader d-none d-lg-flex">
                 <div class="col-6 col-lg-4 text-left head-slogan">{{ Twig.print(Twig.call("config", ["Dekoundgarten.header.slogan"])) }}</div>
