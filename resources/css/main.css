@@ -29,7 +29,7 @@ body > #vue-error,
   background: #00983f;
 }
 .top-bar {
-  background-color: #f7f7f7;
+  background-color: #f7f7f7 !important;
 }
 .top-bar .controls-list > li a:not(.btn) {
   color: #292b2c;
