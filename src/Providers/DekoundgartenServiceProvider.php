@@ -10,6 +10,9 @@ use IO\Helper\TemplateContainer;
 use IO\Helper\ResourceContainer;
 use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
+use Plenty\Modules\ShopBuilder\Contracts\ContentWidgetRepositoryContract;
+
+use Dekoundgarten\Widgets\WidgetCollection;
 
 class DekoundgartenServiceProvider extends TemplateServiceProvider
 {
@@ -24,7 +27,12 @@ class DekoundgartenServiceProvider extends TemplateServiceProvider
     {
         $this->overrideTemplate('Ceres::Widgets.Header.BreadcrumbWidget', 'Dekoundgarten::Widgets.Header.BreadcrumbWidget');
         $this->overrideTemplate('Ceres::Widgets.Header.TopBarWidget', 'Dekoundgarten::Widgets.Header.TopBarWidget');
-        $this->overrideTemplate('Ceres::Widgets.Header.NavigationWidget', 'Dekoundgarten::Widgets.Header.NavigationWidget');
+
+        $widgetRepository = pluginApp(ContentWidgetRepositoryContract::class);
+        $widgetClasses = WidgetCollection::all();
+        foreach ($widgetClasses as $widgetClass) {
+            $widgetRepository->registerWidget($widgetClass);
+        }
 
         $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
             $container->addStyleTemplate('Dekoundgarten::Stylesheet');
