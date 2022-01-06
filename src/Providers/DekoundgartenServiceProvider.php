@@ -3,7 +3,7 @@
 namespace Dekoundgarten\Providers;
 
 use Plenty\Modules\Webshop\ItemSearch\Helpers\ResultFieldTemplate;
-use Plenty\Plugin\ServiceProvider;
+use Plenty\Modules\Webshop\Template\Providers\TemplateServiceProvider;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\Templates\Twig;
 use IO\Helper\TemplateContainer;
@@ -11,7 +11,7 @@ use IO\Helper\ResourceContainer;
 use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\ConfigRepository;
 
-class DekoundgartenServiceProvider extends ServiceProvider
+class DekoundgartenServiceProvider extends TemplateServiceProvider
 {
     const PRIORITY = 0;
 
@@ -22,6 +22,10 @@ class DekoundgartenServiceProvider extends ServiceProvider
 
     public function boot(Twig $twig, Dispatcher $dispatcher, ConfigRepository $config)
     {
+        $this->overrideTemplate('Ceres::Widgets.Header.BreadcrumbWidget', 'Dekoundgarten::Widgets.Header.BreadcrumbWidget');
+        $this->overrideTemplate('Ceres::Widgets.Header.TopBarWidget', 'Dekoundgarten::Widgets.Header.TopBarWidget');
+        $this->overrideTemplate('Ceres::Widgets.Header.NavigationWidget', 'Dekoundgarten::Widgets.Header.NavigationWidget');
+
         $dispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
             $container->addStyleTemplate('Dekoundgarten::Stylesheet');
             $container->addScriptTemplate('Dekoundgarten::Script');
