@@ -79,7 +79,7 @@
 
         <div class="category-list-view-port" v-if="!showQuantity && !useLargeScale">
             <div class="btn-group" role="group" aria-label="Thumb Control">
-                <button type="button" :class="{'no-pointer-events': isLoading}" v-if="canBeAddedToBasket || isWishList" class="btn btn-outline-primary btn-appearance mobile-width-button" @click="addToBasket()">
+                <button type="button" :class="{'no-pointer-events': isLoading}" v-if="canBeAddedToBasket" class="btn btn-outline-primary btn-appearance mobile-width-button" @click="addToBasket()">
                     <icon icon="shopping-cart" class="fa-lg mobile-icon-right" :loading="isLoading"></icon>
                     <span class="mobile-text-only">${ $translate("Ceres::Template.singleItemAddToBasket") }</span>
                 </button>
