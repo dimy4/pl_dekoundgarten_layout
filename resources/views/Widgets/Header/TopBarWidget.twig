@@ -40,6 +40,7 @@
                             </client-only>
                         </li>
                         {% endif %}
+                        <li><a href="/blog">Blog</a></li>
                         <li><a href="/contact">Kontakt</a></li>
                     </ul>
                 </div>
@@ -67,6 +68,13 @@
             <div class="top-bar-items {% if searchStyle == "permanent" %}search-permanent d-flex flex-grow-1 flex-column-reverse flex-md-row{% endif %}">
                 <div class="controls">
                     <ul id="controlsList" class="controls-list mb-0 d-flex list-inline pl-2 pl-sm-1 pl-md-0">
+                        <li class="list-inline-item control-blog">
+                            <a class="nav-link" href="/blog">
+                                <i aria-hidden="true" class="fa fa-newspaper-o mr-1"></i>
+                                <span class="d-none d-sm-inline">Blog</span>
+                            </a>
+                        </li>
+
                         {% if enableLogin or enableRegistration %}
                             <li class="list-inline-item control-user">
                                 <client-only>
