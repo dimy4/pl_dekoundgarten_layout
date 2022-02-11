@@ -881,3 +881,13 @@ a:hover {
   margin-right: 15px;
   margin-top: 1rem;
 }
+
+/* Blog */
+.blog-header {
+  background: transparent;
+  border-bottom: 0;
+  text-align: center;
+}
+.blog-header .breadcrumb {
+  justify-content: center;
+}
