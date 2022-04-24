@@ -58,8 +58,11 @@
                                     <template v-if="item.item.itemType === 'set'">
                                         {{ trans("Ceres::Template.itemSetPrice", { price: "${itemSetPrice}" }) }} *
                                     </template>
-                                    <template v-else-if="!!item.item && item.item.salableVariationCount > 1 && $ceres.isCheapestSorting" >
-                                        {{ trans("Ceres::Template.categoryItemFromPrice", { price: "${itemPrice}" }) }} *
+                                    <template v-else-if="itemGraduatedPriceisCheapestSorting">
+                                        {{ trans("Ceres::Template.categoryItemFromPrice", { price: "${itemPriceGraduated}" }) }} *
+                                    </template>
+                                    <template v-else-if="itemGraduatedPricesalableVariationCount">
+                                        {{ trans("Ceres::Template.categoryItemFromPrice", { price: "${itemPriceGraduated}" }) }} *
                                     </template>
                                     <template v-else>
                                         ${ item.prices.default.unitPrice.formatted | specialOffer(item.prices, "unitPrice", "formatted") } *
@@ -72,7 +75,7 @@
                             <div class="category-unit-price" v-if="!(item.unit.unitOfMeasurement === 'C62' && item.unit.content === 1)">
                                 <span>${ item.unit.content }</span>
                                 <span>&nbsp;${ item.unit.names.name }</span>
-                                <span v-if="item.variation.mayShowUnitPrice">&nbsp;| ${ item.prices.default.basePrice }</span>
+                                <span v-if="item.variation.mayShowUnitPrice">&nbsp;| ${ basePrice }</span>
                             </div>
                         </div>
 

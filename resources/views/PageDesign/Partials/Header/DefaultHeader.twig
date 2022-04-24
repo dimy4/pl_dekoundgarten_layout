@@ -80,7 +80,7 @@
                                     </lazy-hydrate>
                                 </li>
                             {% endif %}
-                            <li class="list-inline-item control-basket" @mouseover.once="$store.dispatch('loadComponent', 'basket-preview')">
+                            <li class="list-inline-item control-basket">
                                 <a v-toggle-basket-preview href="#" class="toggle-basket-preview nav-link">
                                     <i v-waiting-animation="$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i>
                                     <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
@@ -140,9 +140,12 @@
 </header>
 
 <!-- breadcrumb -->
-{% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
-    {% include "Dekoundgarten::PageDesign.Partials.Header.Breadcrumb" %}
-{% endif %}
+{% cacheslot breadcrumbs %}
+    {# breadcrumbs are related to every single page so they need to be wrapped in a cache slot #}
+    {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
+        {% include "Dekoundgarten::PageDesign.Partials.Header.Breadcrumb" %}
+    {% endif %}
+{% endcacheslot %}
 
 <div class="container-max px-0 px-lg-3 page-header">
     <div class="row mx-0 flex-row-reverse position-relative">

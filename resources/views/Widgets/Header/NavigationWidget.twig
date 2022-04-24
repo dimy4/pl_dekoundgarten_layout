@@ -26,9 +26,6 @@
 
 {% if companyLogoUrl is empty %}
     {% set companyLogoUrl = ceresConfig.header.companyLogo %}
-    {% if not (companyLogoUrl starts with 'https://' or companyLogoUrl starts with 'http://' or companyLogoUrl starts with 'layout/') and companyLogoUrl | trim | length > 0 %}
-        {% set companyLogoUrl = plugin_path('Ceres') ~ "/" ~ companyLogoUrl %}
-    {% endif %}
 {% endif %}
 
 {% if fallbackImagePath | trim is empty %}
@@ -96,7 +93,7 @@
                     {{ Twig.print("overrideSearchBar | raw") }}
                 {{ Twig.endif() }}
             </div>
-            <div class="col-md-3 dg-buttons d-none d-lg-block" @mouseover.once="$store.dispatch('loadComponent', 'basket-preview')">
+            <div class="col-md-3 dg-buttons d-none d-lg-block">
                 <a v-toggle-basket-preview href="#" class="warenkorb">
                     <img src="{{ plugin_path('Dekoundgarten') }}/images/basket.png">
                     <span class="text">Warenkorb</span>
