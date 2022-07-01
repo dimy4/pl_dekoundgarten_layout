@@ -59,10 +59,10 @@
                                         {{ trans("Ceres::Template.itemSetPrice", { price: "${itemSetPrice}" }) }} *
                                     </template>
                                     <template v-else-if="itemGraduatedPriceisCheapestSorting">
-                                        {{ trans("Ceres::Template.categoryItemFromPrice", { price: "${itemPriceGraduated}" }) }} *
+                                        {{ trans("Ceres::Template.itemFromPrice", { price: "${itemPriceGraduated}" }) }} *
                                     </template>
                                     <template v-else-if="itemGraduatedPricesalableVariationCount">
-                                        {{ trans("Ceres::Template.categoryItemFromPrice", { price: "${itemPriceGraduated}" }) }} *
+                                        {{ trans("Ceres::Template.itemFromPrice", { price: "${itemPriceGraduated}" }) }} *
                                     </template>
                                     <template v-else>
                                         ${ item.prices.default.unitPrice.formatted | specialOffer(item.prices, "unitPrice", "formatted") } *
@@ -73,7 +73,7 @@
                             <slot name="after-prices"></slot>
 
                             <div class="category-lowest-price small" v-if="item.prices.default.lowestPrice.value && hasCrossPrice">
-                                <span v-html="$translate('Ceres::Template.categoryItemLowestPrice', {'price': item.prices.default.lowestPrice.formatted})"></span>
+                                <span v-html="$translate('Ceres::Template.itemLowestPrice', {'price': item.prices.default.lowestPrice.formatted})"></span>
                             </div>
 
                             <div class="category-unit-price" v-if="!(item.unit.unitOfMeasurement === 'C62' && item.unit.content === 1)">
