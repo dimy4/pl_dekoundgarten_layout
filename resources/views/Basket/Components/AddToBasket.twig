@@ -11,7 +11,7 @@
             <i class="fa fa-arrow-right fa-lg d-none d-sm-block"></i>
         </div>
 
-        <div class="add-to-basket-container" v-if="showQuantity && !useLargeScale" :class="{'d-lg-none': !$ceres.isItemView }">
+        <div class="add-to-basket-container-p" v-if="showQuantity && !useLargeScale" :class="{'d-lg-none': !$ceres.isItemView }">
             <div class="row">
                 <div class="col-12">
                     <div class="row flex-wrap align-items-center prod-row-with-title">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-12 col-lg-6">
+                <div class="col-12 col-sm-6 col-md-12 col-lg-6 add-to-basket-container">
                     <button
                             v-if="!allVariationsSelected || !isSalable"
                             class="btn btn-block btn-primary btn-appearance disabled"
