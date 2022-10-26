@@ -6,13 +6,15 @@
     {% set baseURL = urls.myAccount %}
 {% endif %}
 
-<nav class="cmp cmp-paginator row justify-content-end text-center">
+<nav class="cmp cmp-paginator row justify-content-end text-center" role="navigation" aria-label="{{ trans("Ceres::Template.paginationTitle") }}">
     {% if pageMax > 1 %}
         <ul class="pagination col-12 col-lg-9 justify-content-center m-y-0">
 
         <!-- PREV LINK -->
         <li class="page-item{% if currentPage <= 1 %} disabled{% endif %}">
-            <a class="page-link prev"{% if currentPage > 1 %} href="{{ baseURL ~ queryString({ 'page': prevPage }) }}"{% endif %}>
+            <a class="page-link prev"{% if currentPage > 1 %} href="{{ baseURL ~ queryString({ 'page': prevPage }) }}"{% endif %}
+                 aria-label="{{ trans("Ceres::Template.paginationPrevPage") }}"
+                {% if currentPage <= 1 %} aria-disabled="true"{% endif %}>
                 <i class="fa fa-sort-asc fa-rotate-270" aria-label="{{ trans('Ceres::Template.paginationPrevPage') }}"></i><span>Vorherige Seite</span>
             </a>
         </li>
@@ -20,7 +22,7 @@
         <!-- FIRST PAGE LINK -->
         {% if ceresConfig.pagination.showFirstPage and pageMax > 3 and currentPage > 2 %}
             <li class="page-item">
-                <a class="page-link" href="{{ baseURL ~ queryString({ 'page': null }) }}">
+                <a class="page-link" href="{{ baseURL ~ queryString({ 'page': null }) }}" aria-label="{{ trans("Ceres::Template.paginationFirstPage") }}">
                     1
                 </a>
             </li>
@@ -63,7 +65,7 @@
                 <a class="page-link">...</a>
             </li>
             <li class="page-item">
-                <a class="page-link" href="{{ baseURL ~ queryString({ 'page': pageMax }) }}">
+                <a class="page-link" href="{{ baseURL ~ queryString({ 'page': pageMax }) }}" aria-label="{{ trans("Ceres::Template.paginationLastPage") }}">
                     {{ pageMax }}
                 </a>
             </li>
@@ -72,7 +74,9 @@
 
         <!-- NEXT LINK -->
         <li class="page-item{% if currentPage >= pageMax %} disabled{% endif %}">
-            <a class="page-link next"{% if currentPage < pageMax %} href="{{ baseURL ~ queryString({ 'page': currentPage + 1 }) }}"{% endif %}>
+            <a class="page-link next" {% if currentPage < pageMax and not isPreview %} href="{{ baseURL ~ queryString({ 'page': currentPage + 1 }) }}"{% endif %}
+                aria-label="{{ trans("Ceres::Template.paginationNextPage") }}"
+                {% if currentPage >= pageMax %} aria-disabled="true"{% endif %}>
                <span>Nächste Seite</span><i class="fa fa-sort-asc fa-rotate-90" aria-label="{{ trans('Ceres::Template.paginationNextPage') }}"></i>
             </a>
         </li>
