@@ -12,6 +12,8 @@
     "images.all.names.alternate",
     "images.all.names.lang",
     "images.all.path",
+    "images.all.height",
+    "images.all.width",
     "images.all.position",
     "images.all.url",
     "images.all.urlMiddle",
@@ -20,6 +22,8 @@
     "images.variation.names.alternate",
     "images.variation.names.lang",
     "images.variation.path",
+    "images.variation.height",
+    "images.variation.width",
     "images.variation.position",
     "images.variation.url",
     "images.variation.urlMiddle",
@@ -39,7 +43,7 @@
     "item.producingCountry.names.*",
     "item.revenueAccount",
     "item.storeSpecial",
-    
+
     "item.itemType",
     "itemId",
     "properties.group.id",
@@ -95,6 +99,6 @@
     "variationProperties.*",
     "tags.id",
     "tags.names.*",
-    
+
     "stock.net"
 ]
