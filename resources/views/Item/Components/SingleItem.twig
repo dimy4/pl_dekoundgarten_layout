@@ -100,7 +100,7 @@
                                 <div class="col-md-12 col-lg-6 order-lg-1">
                                     <span class="vat">
                                         * <template v-if="showNetPrices">${ $translate("Ceres::Template.singleItemExclVAT") }</template><template v-else>${ $translate("Ceres::Template.singleItemInclVAT") }</template> ${ $translate("Ceres::Template.singleItemExclusive") }
-                                        <a v-if="hasShippingCostsCategoryId" data-toggle="modal" href="#shippingscosts" :title="$translate('Ceres::Template.singleItemShippingCosts')">${ $translate("Ceres::Template.singleItemShippingCosts") }</a>
+                                        <a v-if="hasShippingCostsCategoryId" data-toggle="modal" href="#shippingscosts">${ $translate("Ceres::Template.singleItemShippingCosts") }</a>
                                         <a v-else :title="$translate('Ceres::Template.singleItemShippingCosts')">${ $translate("Ceres::Template.singleItemShippingCosts") }</a>
                                     </span>
                                 </div>
