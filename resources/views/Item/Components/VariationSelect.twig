@@ -37,7 +37,7 @@
 
                 <!-- box and image -->
                 <div v-else-if="attribute.type === 'box' || attribute.type === 'image'">
-                    <span class="text-muted">${ attribute.name }:</span> <b>${ getSelectedAttributeValueName(attribute) }</b>
+                    <span class="text-muted color-gray-700">${ attribute.name }:</span> <b>${ getSelectedAttributeValueName(attribute) }</b>
                     <div class="v-s-boxes py-3" :class="{ 'images': attribute.type === 'image' }">
                         <div class="v-s-box bg-white empty-option"
                              v-if="addPleaseSelectOption"
